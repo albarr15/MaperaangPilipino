@@ -6,7 +6,7 @@ export default function Mission() {
 
       <div className="relative z-10 max-w-7xl mx-auto">
         <SectionHeader
-          title="What is TEAM CA?"
+          title="Our Mission"
           description="To nurture future financial professionals while empowering Filipino families through education, protection, and long-term financial planning."
           align="center"
           size="xl"

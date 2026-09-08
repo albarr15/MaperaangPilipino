@@ -2,7 +2,7 @@ import SectionHeader from "@/components/header/SectionHeader";
 
 export default function Founder() {
   return (
-    <section className="relative w-full py-20 px-6 md:px-12 lg:px-20 min-h-[60vh] text-white overflow-hidden">
+    <section className="relative w-full py-20 px-6 md:px-12 lg:px-20 min-h-[60vh] text-white overflow-hidden" id="founder">
       <div className="relative z-10 max-w-7xl mx-auto">
         <SectionHeader
           align="center"

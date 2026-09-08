@@ -1,12 +1,11 @@
 ---
 import "@/styles/global.css";
 import MainLayout from "@/layouts/MainLayout.tsx";
-import AboutHero from "@/components/hero/AboutHero.tsx";
-import Mission from "@/components/sections/about/Mission";
-import WhatWeStandFor from "@/components/sections/about/WhatWeStandFor";
+import Mission from "@/components/sections/about/Mission.astro";
 import Founder from "@/components/sections/about/Founder";
 import Recognition from "@/components/sections/about/Recognition";
 import "@/styles/starwind.css";
+import Hero3 from "@/components/starwind-pro/hero-03/Hero3.astro";
 ---
 
 <html lang="en">
@@ -23,11 +22,18 @@ import "@/styles/starwind.css";
   </head>
   <body>
     <MainLayout client:load>
-      <AboutHero client:load />
-      <Mission client:load />
-      <WhatWeStandFor client:load />
+      <Hero3
+        heading="Meet Your Financial Advisor"
+        description="Ms. Christelle Ann de Leon is a financial advisor with Black Orcas Summit Life Insurance Agency, affiliated with Pru Life UK Philippines, recognized among the top 10% of advisors nationwide."
+        primaryButtonText="Learn More"
+        primaryButtonHref="mission"
+        image={{
+          src: "/images/about/514232313_1055033080065300_8905804245584125715_n.jpg",
+          alt: "Ms. Christelle Ann De Leon, an expert financial advisor",
+        }}
+      />
+      <Mission />
       <Founder client:load />
-
       <Recognition client:load />
     </MainLayout>
   </body>
