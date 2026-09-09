@@ -1,0 +1,107 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { tv } from "tailwind-variants";
+import { TrophyIcon, type LucideIcon } from "lucide-react";
+import { Card, CardContent } from "@/components/starwind/card";
+import Badge from "@/components/starwind/badge/Badge.astro";
+
+interface Props extends HTMLAttributes<"section"> {
+    /** Main heading text */
+    heading?: string;
+    /** Description text */
+    description?: string;
+    /** Content for Award Cards */
+    content: {
+        title: string;
+        subtitle?: string;
+        year: string;
+        source: (string | undefined)[];
+        icon: LucideIcon;
+        badge?: string;
+    }[];
+}
+
+const solContainerStyles = tv({
+    base: "@container py-20 px-6 md:px-12 lg:px-20 w-full items-center flex flex-col",
+});
+
+const {
+    heading,
+    description,
+    content,
+    class: className,
+    ...rest
+} = Astro.props;
+---
+
+<section class={solContainerStyles({ class: className })} {...rest}>
+    <div class="flex flex-col items-center w-full max-w-7xl">
+        <!-- HEADER -->
+        <div class="flex flex-col items-center text-center max-w-3xl">
+            <h1
+                class="font-heading text-4xl font-semibold tracking-tight @4xl:text-5xl"
+            >
+                {heading}
+            </h1>
+
+            <p class="text-muted-foreground mt-6 text-lg max-w-2xl">
+                {description}
+            </p>
+        </div>
+
+        <!-- SOLUTIONS -->
+        <div class="w-full mt-12 grid gap-4 @2xl:grid-cols-3 @2xl:gap-4">
+            {
+                content.map((item, index) => {
+                    const Icon = item.icon;
+                    return (
+                        <Card interactive>
+                            <CardContent class="flex flex-col gap-4 items-center justify-center max-h-[300px] h-full text-center relative">
+                                {item.badge && (
+                                    <Badge
+                                        class="absolute top-0 right-4 z-10"
+                                        variant="success"
+                                    >
+                                        <TrophyIcon />
+                                        {item.badge}
+                                    </Badge>
+                                )}
+                                <div
+                                    class={`flex flex-col flex-1 h-full gap-4 items-center justify-center z-50 ${item.badge ? "mt-8 sm:mt-0 md:mt-8 2xl:mt-0" : ""}`}
+                                >
+                                    <Icon className="text-primary w-12 h-12" />
+                                    <div class="font-medium text-xl text-primary leading-tight flex flex-col gap-2">
+                                        {item.title}
+                                        {item.subtitle && (
+                                            <span class="text-xs text-primary">
+                                                {item.subtitle}
+                                            </span>
+                                        )}
+                                    </div>
+                                </div>
+
+                                <div class="flex flex-0 flex-col items-center w-full">
+                                    <div class="text-muted-foreground text-lg">
+                                        {item.year}
+                                    </div>
+                                    <div class="flex flex-col text-muted-foreground leading-tight text-sm items-center">
+                                        {Array.isArray(item.source) ? (
+                                            item.source.map(
+                                                (source: string | undefined) =>
+                                                    source && (
+                                                        <span>{source}</span>
+                                                    ),
+                                            )
+                                        ) : (
+                                            <span>{item.source}</span>
+                                        )}
+                                    </div>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    );
+                })
+            }
+        </div>
+    </div>
+</section>

@@ -14,19 +14,6 @@ export default function Founder() {
           ]}
         />
       </div>
-      <div className="flex justify-center mt-6">
-        <div
-          style={{
-            background: "var(--btn-default)",
-            color: "var(--primary-color)",
-            textTransform: "uppercase",
-            border: "3px solid var(--br-color-default)",
-          }}
-          className="px-4 xs:px-6 py-2 rounded-sm text-xs xs:text-sm font-semibold tracking-wider transition-all duration-300 hover:brightness-110 text-center"
-        >
-          Founder of Team CA
-        </div>
-      </div>
 
       <div className="mt-4 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-10 items-center">
         <div className="md:col-span-2 flex justify-center md:justify-end">
@@ -47,6 +34,7 @@ export default function Founder() {
             Performance
           </h3>
 
+          {/* TODO: highlight important phrases */}
           <div className="text-white/70 text-sm md:text-base leading-relaxed max-w-2xl space-y-4">
             <p>
               Christelle’s world revolved around the stage – she worked as a
