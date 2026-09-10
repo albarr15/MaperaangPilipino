@@ -2,7 +2,7 @@
 import "@/styles/global.css";
 import MainLayout from "@/layouts/MainLayout.tsx";
 import Mission from "@/components/sections/about/Mission.astro";
-import Founder from "@/components/sections/about/Founder";
+import Founder from "@/components/sections/about/Founder.astro";
 import Recognition from "@/components/sections/about/Recognition.astro";
 import "@/styles/starwind.css";
 import Hero3 from "@/components/starwind-pro/hero-03/Hero3.astro";
@@ -33,7 +33,7 @@ import Hero3 from "@/components/starwind-pro/hero-03/Hero3.astro";
         }}
       />
       <Mission />
-      <Founder client:load />
+      <Founder />
       <Recognition />
     </MainLayout>
   </body>

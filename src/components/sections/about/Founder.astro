@@ -1,0 +1,90 @@
+---
+import SectionHeader from "@/components/header/SectionHeader";
+import AspectRatio from "@/components/starwind/aspect-ratio/AspectRatio.astro";
+import Separator from "@/components/starwind/separator/Separator.astro";
+---
+
+<section
+    class="relative w-full py-20 px-6 md:px-12 lg:px-20 min-h-[60vh] text-white overflow-hidden"
+    id="founder"
+>
+    <div class="relative z-10 max-w-7xl mx-auto">
+        <SectionHeader
+            align="center"
+            containerSize="sm"
+            size="xl"
+            title="Meet Ann"
+        />
+    </div>
+
+    <div
+        class="mt-4 mx-auto grid max-w-6xl grid-cols-1 md:grid-cols-5 gap-8 md:gap-10 items-center"
+    >
+        <div class="md:col-span-2 md:h-full">
+            <div
+                class="aspect-[4/3] md:aspect-[3/4] overflow-hidden rounded-xl"
+            >
+                <img
+                    src="/images/about/Meet Ann.png"
+                    alt="Christelle Ann De Leon"
+                    class="size-full object-cover object-top"
+                />
+            </div>
+        </div>
+
+        <div class="md:col-span-3 flex flex-col justify-center gap-4">
+            <h2 class="text-2xl md:text-4xl font-bold">
+                Christelle Ann de Leon, CIA, CEPP
+            </h2>
+
+            <div class="flex flex-col gap-2 leading-none">
+                <span
+                    >Bachelor of Arts in Theater Arts - Major in Direction and
+                    Performance</span
+                >
+                <ul class="list-disc list-inside flex flex-col gap-2 ml-4">
+                    <li>Junior Unit Manager at Pru Life UK</li>
+                    <li>Licensed Financial Advisor</li>
+                    <li>Million Dollar Round Table Runner</li>
+                </ul>
+            </div>
+            <Separator class="mb-4" />
+
+            <div
+                class="text-white/70 text-sm md:text-base leading-relaxed space-y-4 text-justify"
+            >
+                <p>
+                    Ann's career didn't start in finance. It started on stage,
+                    where she worked as a production manager, costume designer,
+                    performer, and entrepreneur running her own events business,
+                    with <span class="text-yellow-200">creativity</span> at the heart
+                    of everything she did.
+                </p>
+
+                <p>
+                    When the 2020 pandemic brought the entertainment industry to
+                    a halt, Ann needed a new path, one that offered flexibility
+                    without dimming her drive to build something meaningful. She
+                    came across the opportunity through a former classmate
+                    already working in the industry, and after learning more
+                    about <span class="text-yellow-200">Pru Life UK</span>'s
+                    culture of financial education, professional training, and
+                    growth, she decided to make the shift. She earned <span
+                        class="text-yellow-200">Top 1 Rookie of the Year</span
+                    > in her first year and went on to qualify for the <span
+                        class="text-yellow-200">Early Achiever Club</span
+                    > for five consecutive years, a distinction held by only the top
+                    10% of financial advisors nationwide.
+                </p>
+
+                <p>
+                    Today, as a <span class="text-yellow-200"
+                        >Junior Unit Manager</span
+                    > and mother of two, Ann brings the same creativity and purpose
+                    that defined her early career into her work protecting Filipino
+                    families and helping them build brighter, more secure futures.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
