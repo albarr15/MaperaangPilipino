@@ -1,0 +1,70 @@
+---
+import { tv } from "tailwind-variants";
+import { Card, CardContent } from "@/components/starwind/card";
+
+interface Props {
+    heading?: string;
+    body?: string;
+    quote?: string;
+    brandName?: string;
+}
+
+const movementStyles = tv({
+    base: "@container w-full py-20 px-6 md:px-12 lg:px-20 flex flex-col items-center",
+});
+
+const {
+    heading = "More Than Insurance: A Movement Toward Financial Literacy",
+    body = `Beyond one-on-one advisory work, Ann is part of a larger mission to close the financial literacy gap in the Philippines. Since 2021, she has built Maperaang Pilipino into a growing community of 900+ followers, sharing over 400 posts of practical, easy-to-understand financial education: how money works, how to budget, how to build multiple income streams, and how to protect what matters most. She believes financial education shouldn't be reserved for the wealthy. It should be accessible to every Filipino who dreams of a better future.`,
+    quote = "Kapag mas maraming Pilipino ang marunong humawak ng pera, mas maraming pamilya ang aangat sa buhay.",
+    brandName = "Maperaang Pilipino",
+} = Astro.props;
+
+// split body around the brand name so it can be styled inline without a second highlight color
+const [beforeBrand, afterBrand] = body.split(brandName);
+---
+
+<section class={movementStyles()}>
+    <div
+        class="w-full max-w-7xl grid gap-10 @3xl:grid-cols-5 @3xl:gap-12 items-stretch"
+    >
+        <div class="@3xl:col-span-3 flex flex-col justify-center gap-5">
+            <h2
+                class="font-heading text-3xl font-semibold tracking-tight leading-tight @2xl:text-4xl"
+            >
+                {heading}
+            </h2>
+
+            <p
+                class="text-muted-foreground text-base leading-relaxed text-justify"
+            >
+                {beforeBrand}<a
+                    class="!text-yellow-200 hover:underline font-medium"
+                    href="https://www.facebook.com/MaperaangPilipino"
+                    >{brandName}</a
+                >{afterBrand}
+            </p>
+        </div>
+
+        <div class="@3xl:col-span-2 flex">
+            <Card class="w-full border-none flex">
+                <CardContent
+                    class="flex flex-col justify-center gap-4 p-8 h-full relative"
+                >
+                    <span
+                        class="text-primary/20 font-heading text-9xl leading-none absolute md:top-4 top-0 left-4"
+                        >&ldquo;</span
+                    >
+                    <blockquote
+                        class="text-xl pt-4 leading-relaxed font-medium -mt-6 text-foreground"
+                    >
+                        {quote}
+                    </blockquote>
+                    <cite class="text-muted-foreground"
+                        >-Christelle Ann De Leon, CIA, CEPP</cite
+                    >
+                </CardContent>
+            </Card>
+        </div>
+    </div>
+</section>

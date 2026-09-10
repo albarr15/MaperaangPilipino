@@ -1,6 +1,7 @@
 ---
 import SectionHeader from "@/components/header/SectionHeader";
 import AspectRatio from "@/components/starwind/aspect-ratio/AspectRatio.astro";
+import { Card, CardContent } from "@/components/starwind/card";
 import Separator from "@/components/starwind/separator/Separator.astro";
 ---
 
@@ -87,4 +88,38 @@ import Separator from "@/components/starwind/separator/Separator.astro";
             </div>
         </div>
     </div>
+
+    <Card class="mx-auto w-full max-w-3xl mt-12 px-4 sm:px-8">
+        <CardContent>
+            <div
+                class="flex gap-x-8 gap-y-4 flex-col sm:flex-row
+                    text-center sm:mt-2 mt-0"
+            >
+                <div class="flex flex-1 basis-0 flex-col items-center">
+                    <span class="font-bold text-primary text-4xl">260+</span>
+                    <span class="leading-none text-sm">clients guided</span>
+                </div>
+                <Separator
+                    orientation="vertical"
+                    class="bg-primary h-auto sm:block hidden"
+                />
+                <Separator class="bg-primary sm:hidden block" />
+                <div class="flex flex-1 basis-0 flex-col items-center">
+                    <span class="font-bold text-primary text-4xl">₱400M+</span>
+                    <span class="leading-none text-sm">in claims managed</span>
+                </div>
+                <Separator
+                    orientation="vertical"
+                    class="bg-primary h-auto sm:block hidden"
+                />
+                <Separator class="bg-primary sm:hidden block" />
+                <div class="flex flex-1 basis-0 flex-col items-center">
+                    <span class="font-bold text-primary text-4xl">15</span>
+                    <span class="leading-none text-sm"
+                        >financial advisors mentored</span
+                    >
+                </div>
+            </div>
+        </CardContent>
+    </Card>
 </section>
