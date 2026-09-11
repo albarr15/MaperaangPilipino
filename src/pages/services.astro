@@ -164,3 +164,16 @@ const corporateSolutions = [
     </MainLayout>
   </body>
 </html>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    if (window.location.hash) {
+      const targetElement = document.querySelector(window.location.hash);
+      if (targetElement) {
+        // Small timeout gives the page a brief moment to finish rendering
+        setTimeout(() => {
+          targetElement.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
+    }
+  });
+</script>

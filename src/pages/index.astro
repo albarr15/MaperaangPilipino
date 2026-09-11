@@ -2,7 +2,7 @@
 import "@/styles/global.css";
 import MainLayout from "@/layouts/MainLayout.tsx";
 import HomeHero from "@/components/hero/HomeHero.tsx";
-import WhatWeDo from "@/components/sections/home/WhatWeDo.tsx";
+import WhatWeDo from "@/components/sections/home/WhatWeDo.astro";
 import WhoWeAre from "@/components/sections/home/WhoWeAre.tsx";
 import WhyFinancialMatters from "@/components/sections/home/WhyFinancialMatters.tsx";
 import Testimonials from "@/components/sections/home/Testimonials.astro";
@@ -29,7 +29,7 @@ import "@/styles/starwind.css";
     <MainLayout client:load>
       <HomeHero client:load />
       <WhoWeAre client:load />
-      <WhatWeDo client:load />
+      <WhatWeDo />
       <WhyFinancialMatters client:load />
       <Testimonials />
       <CTA client:load />
