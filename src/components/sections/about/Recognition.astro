@@ -1,0 +1,56 @@
+---
+import AwardsGridSection from "./AwardsGridSection.astro";
+import { Medal, Star, TrendingUp, Trophy } from "lucide-react";
+const content = [
+    {
+        title: "Promoted as Junior Unit Manager",
+        year: "2025",
+        icon: TrendingUp,
+        source: ["Pru Life UK"],
+    },
+    {
+        title: "Consistent Million Producers Club Qualifier",
+        year: "2022 - 2025",
+        icon: Medal,
+        source: ["Pru Life UK", , "Blue Fox Summit Life Insurance Agency"],
+        badge: "4-year streak",
+    },
+    {
+        title: "Consistent Early Achiever Club Qualifier",
+        subtitle: "(Belongs to Top 10% of Financial Advisors Nationwide)",
+        year: "2021 - 2025",
+        icon: Star,
+        source: ["Pru Life UK"],
+        badge: "5-year streak",
+    },
+    {
+        title: "Top 1 Business Builder of the Year (Unit)",
+        year: "2023",
+        icon: Trophy,
+        source: ["Pru Life UK"],
+    },
+    {
+        title: "Promoted to Associate Unit Manager",
+        year: "2022",
+        icon: TrendingUp,
+        source: ["Pru Life UK"],
+    },
+    {
+        title: "Top 1 Rookie of the Year (Unit)",
+        year: "2021",
+        icon: Trophy,
+        source: ["Pru Life UK"],
+    },
+];
+---
+
+<section
+    class="relative w-full py-20 px-6 md:px-12 lg:px-20 min-h-[60vh] text-white overflow-hidden"
+>
+    <AwardsGridSection
+        heading="Awards & Recognition"
+        description="Milestones earned through years of proven performance."
+        content={content}
+        id="awards"
+    />
+</section>
