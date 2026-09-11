@@ -8,17 +8,18 @@ import {
   AvatarImage,
 } from "@/components/starwind/avatar";
 import { Card, CardContent } from "@/components/starwind/card";
+import Button from "@/components/starwind/button/Button.astro";
 
 /** Testimonial data */
 export interface Testimonial {
   /** Person's name */
   name: string;
-  /** Job title/role */
-  role: string;
+  /** Date of Testimonial */
+  date: string;
   /** Testimonial content */
   content: string;
   /** Profile image URL */
-  image: string;
+  image?: string;
 }
 
 interface Props extends HTMLAttributes<"section"> {
@@ -35,8 +36,8 @@ const testimonial3Styles = tv({
 });
 
 const {
-  heading = "What Our Clients Say",
-  description = "Discover how Team CA has made a difference in the lives of our clients.",
+  heading,
+  description,
   testimonials = [],
   class: className,
   ...rest
@@ -55,29 +56,64 @@ const {
     </p>
   </div>
 
-  <div class="grid gap-6 @xl:grid-cols-2 @3xl:grid-cols-3 @3xl:gap-8">
+  <div
+    class="grid gap-6 @xl:grid-cols-2 @3xl:grid-cols-3 @3xl:gap-8 items-start"
+  >
     {
       testimonials.map((testimonial) => (
         <Card>
-          <CardContent class="flex flex-col gap-4">
+          <CardContent
+            class="flex flex-col gap-4 min-h-[250px]"
+            data-testimonial-card
+          >
             <div class="flex items-center gap-4">
               <Avatar>
-                <AvatarImage src={testimonial.image} alt={testimonial.name} />
+                {/* <AvatarImage src={testimonial.image} alt={testimonial.name} /> */}
                 <AvatarFallback>{testimonial.name[0]}</AvatarFallback>
               </Avatar>
               <div>
                 <div class="font-medium">{testimonial.name}</div>
                 <div class="text-muted-foreground text-sm">
-                  {testimonial.role}
+                  {testimonial.date}
                 </div>
               </div>
             </div>
-            <blockquote class="text-muted-foreground leading-relaxed">
+            <blockquote
+              class="text-muted-foreground text-justify line-clamp-5"
+              data-quote
+            >
               "{testimonial.content}"
             </blockquote>
+            <Button size="sm" variant="ghost" data-toggle-btn>
+              Read More
+            </Button>
           </CardContent>
         </Card>
       ))
     }
   </div>
+
+  <script>
+    document
+      .querySelectorAll<HTMLElement>("[data-testimonial-card]")
+      .forEach((card) => {
+        const quote = card.querySelector<HTMLElement>("[data-quote]");
+        const btn = card.querySelector<HTMLButtonElement>("[data-toggle-btn]");
+        if (!quote || !btn) return;
+
+        // Only show the button if the text actually overflows past the clamp
+        const isOverflowing = quote.scrollHeight > quote.clientHeight;
+        if (!isOverflowing) {
+          btn.style.display = "none";
+          return;
+        }
+
+        let expanded = false;
+        btn.addEventListener("click", () => {
+          expanded = !expanded;
+          quote.classList.toggle("line-clamp-5", !expanded);
+          btn.textContent = expanded ? "Read Less" : "Read More";
+        });
+      });
+  </script>
 </section>
