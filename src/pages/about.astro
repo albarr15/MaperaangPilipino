@@ -1,18 +1,22 @@
 ---
 import "@/styles/global.css";
-import MainLayout from '@/layouts/MainLayout.tsx';
-import AboutHero from '@/components/hero/AboutHero.tsx';
-import Mission from "@/components/sections/about/Mission";
-import WhatWeStandFor from "@/components/sections/about/WhatWeStandFor";
-import Founder from "@/components/sections/about/Founder";
-import Recognition from "@/components/sections/about/Recognition";
-
-
+import MainLayout from "@/layouts/MainLayout.tsx";
+import Mission from "@/components/sections/about/Mission.astro";
+import Founder from "@/components/sections/about/Founder.astro";
+import Recognition from "@/components/sections/about/Recognition.astro";
+import "@/styles/starwind.css";
+import Hero3 from "@/components/starwind-pro/hero-03/Hero3.astro";
+import Education from "@/components/sections/about/Education.astro";
+import CTA from "@/components/sections/home/CTA";
 ---
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
     <meta name="theme-color" content="#ac1212" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="apple-touch-icon" href="/icons/teamca-white-circle-logo.png" />
@@ -20,13 +24,21 @@ import Recognition from "@/components/sections/about/Recognition";
   </head>
   <body>
     <MainLayout client:load>
-      <AboutHero client:load />
-      <Mission client:load />
-      <WhatWeStandFor client:load />
-      <Founder client:load />
-
-      <Recognition client:load />
-
+      <Hero3
+        heading="Meet Your Financial Advisor"
+        description="Ms. Christelle Ann de Leon is a licensed financial advisor with Black Orcas Summit Life Insurance Agency, affiliated with Pru Life UK Philippines, helping Filipino families plan for a more secure future."
+        primaryButtonText="Learn More"
+        primaryButtonHref="founder"
+        image={{
+          src: "/images/about/514232313_1055033080065300_8905804245584125715_n.jpg",
+          alt: "Ms. Christelle Ann De Leon, an expert financial advisor",
+        }}
+      />
+      <Founder />
+      <Mission />
+      <Education />
+      <Recognition />
+      <CTA />
     </MainLayout>
   </body>
 </html>

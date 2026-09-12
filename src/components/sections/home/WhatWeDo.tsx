@@ -44,7 +44,7 @@ const services = [
 
 const WhatWeDo: React.FC = () => {
   return (
-    <section className="w-full py-20 px-6 md:px-12 lg:px-20 bg-gradient-to-b from-background to-muted/40">
+    <section className="w-full py-20 px-6 md:px-12 lg:px-20">
       <div className="max-w-7xl mx-auto text-center">
         <SectionHeader
           title="Our Services"
@@ -63,37 +63,37 @@ const WhatWeDo: React.FC = () => {
                 <div
                   key={index}
                   className="
-            flex flex-col text-center
-            rounded-2xl border border-white/10
-            bg-white/5 backdrop-blur-xl
+            flex flex-col text-center text-foreground
+            rounded-2xl 
+            bg-card/80 backdrop-blur-xl
             p-5 shadow-md transition-all duration-300
-            hover:-translate-y-2 hover:bg-white/10 hover:shadow-xl
+            hover:-translate-y-2 hover:bg-white/90 hover:shadow-xl
             w-full h-full
           "
                 >
                   {/* ICON (fixed alignment block) */}
                   <div className="flex justify-center mb-3">
                     <div className="w-11 h-11 flex items-center justify-center rounded-xl">
-                      <Icon className="w-7 h-7 text-secondary" />
+                      <Icon className="w-7 h-7 text-primary" />
                     </div>
                   </div>
 
                   {/* TITLE (fixed height feel) */}
-                  <h3 className="text-base font-semibold leading-snug min-h-[40px] flex items-center justify-center">
+                  <h3 className="text-base font-semibold !text-primary leading-snug min-h-[40px] flex items-center justify-center">
                     {service.title}
                   </h3>
 
                   {/* DESCRIPTION (flex area to equalize height) */}
-                  <p className="mt-2 text-xs sm:text-sm text-white/70 line-clamp-3 flex-1 flex items-start justify-center">
+                  <p className="mt-2 text-xs sm:text-sm line-clamp-3 flex-1 flex items-start justify-center !text-foreground">
                     {service.description}
                   </p>
 
-                  {/* BUTTON (always bottom aligned) */}
+                  {/* BUTTON (always bottom aligned)
                   <div className="mt-auto pt-4">
                     <Button variant="secondary" className="w-full">
                       Learn More
                     </Button>
-                  </div>
+                  </div> */}
                 </div>
               );
             })}
