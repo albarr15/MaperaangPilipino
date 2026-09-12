@@ -57,9 +57,6 @@ const ContactHero: React.FC = () => {
         ref={textRef}
         className="relative z-20 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pt-24 pb-12 text-left"
       >
-        <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase bg-white/10 text-[--secondary-color] border border-white/10 mb-4 backdrop-blur-md">
-          Get in Touch
-        </span>
         <h1 className="text-[2.35rem] xs:text-5xl md:text-6xl lg:text-7xl font-heading text-white mb-4 leading-tight">
           Let’s Connect & <br className="hidden sm:inline" />
           <span className="text-[--secondary-color]">Plan Your Future</span>
