@@ -2,7 +2,7 @@
 import "@/styles/global.css";
 import MainLayout from "@/layouts/MainLayout.tsx";
 import ContactHero from "@/components/hero/ContactHero.tsx";
-import ContactDetails from "@/components/sections/contact/ContactDetails.tsx";
+import ContactDetails from "@/components/sections/contact/ContactDetails.astro";
 import ConsultationForm from "@/components/sections/appointment/Consultation.astro";
 import { Toaster } from "@/components/starwind/toast";
 import "@/styles/starwind.css";
@@ -28,7 +28,7 @@ import "@/styles/starwind.css";
   <body>
     <MainLayout client:load>
       <ContactHero client:load />
-      <ContactDetails client:load />
+      <ContactDetails />
       <ConsultationForm />
       <Toaster position="bottom-right" />
     </MainLayout>
