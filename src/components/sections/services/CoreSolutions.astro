@@ -1,6 +1,6 @@
 ---
 import SectionHeader from "@/components/header/SectionHeader";
-import Button from "@/components/ui/Button";
+import Button from "@/components/starwind/button/Button.astro";
 
 const solutions = [
     {
@@ -9,6 +9,7 @@ const solutions = [
         description:
             "Protect your family's future with life insurance, income protection, critical illness coverage, retirement planning, and more.",
         image: "/images/services/national-cancer-institute-xDSD3Vmzh70-unsplash.jpg",
+        href: "/services#personal-insurance",
     },
     {
         btnId: "corporateBtn",
@@ -16,6 +17,7 @@ const solutions = [
         description:
             "Safeguard your business with employee benefits, executive protection, keyman insurance, and corporate investment strategies.",
         image: "/images/services/photo-1508385082359-f38ae991e8f2.avif",
+        href: "/services#corporate-insurance",
     },
 ];
 ---
@@ -64,9 +66,10 @@ const solutions = [
                                 {/* BUTTON */}
                                 <div class="mt-3">
                                     <Button
-                                        variant="default"
-                                        className="px-4 py-2 text-sm"
+                                        href={item.href}
                                         id={item.btnId}
+                                        variant="outline"
+                                        size="sm"
                                     >
                                         Learn More
                                     </Button>
@@ -79,18 +82,3 @@ const solutions = [
         </div>
     </div>
 </section>
-
-<script>
-    import { handleScroll } from "@/scripts/ScrollHandler";
-
-    // Runs on initial load and view transitions (if using Astro ViewTransitions)
-    handleScroll("personal-insurance", "personalBtn");
-    document.addEventListener("astro:page-load", () =>
-        handleScroll("personal-insurance", "personalBtn"),
-    );
-
-    handleScroll("corporate-insurance", "corporateBtn");
-    document.addEventListener("astro:page-load", () =>
-        handleScroll("corporate-insurance", "corporateBtn"),
-    );
-</script>

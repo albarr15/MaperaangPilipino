@@ -1,15 +1,17 @@
 ---
 import "@/styles/global.css";
 import MainLayout from "@/layouts/MainLayout.tsx";
-import HomeHero from "@/components/hero/HomeHero.tsx";
 import WhatWeDo from "@/components/sections/home/WhatWeDo.astro";
 import WhoWeAre from "@/components/sections/home/WhoWeAre.tsx";
 import WhyFinancialMatters from "@/components/sections/home/WhyFinancialMatters.tsx";
 import Testimonials from "@/components/sections/home/Testimonials.astro";
 import CTA from "@/components/sections/home/CTA.tsx";
+import CredentialsRow from "@/components/sections/home/CredentialsRow.astro";
 
 import { ThemeInitScript } from "@starwind-ui/astro/theme";
 import "@/styles/starwind.css";
+import Hero3 from "@/components/starwind-pro/hero-03/Hero3.astro";
+import HomeHero from "@/components/hero/HomeHero.astro";
 ---
 
 <html lang="en">
@@ -27,7 +29,7 @@ import "@/styles/starwind.css";
   </head>
   <body>
     <MainLayout client:load>
-      <HomeHero client:load />
+      <HomeHero />
       <WhoWeAre client:load />
       <WhatWeDo />
       <WhyFinancialMatters client:load />
