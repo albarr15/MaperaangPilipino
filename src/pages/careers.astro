@@ -1,6 +1,6 @@
 ---
 import "@/styles/global.css";
-import MainLayout from '@/layouts/MainLayout.tsx';
+import MainLayout from '@/layouts/MainLayout.astro';
 import CareersHero from '@/components/hero/CareersHero.tsx';
 import FinancialAdvisors from "@/components/sections/careers/FinancialAdvisors";
 import Interns from "@/components/sections/careers/Interns";
@@ -16,7 +16,7 @@ import Interns from "@/components/sections/careers/Interns";
     <title>Careers | Team CA</title>
   </head>
   <body>
-    <MainLayout client:load>
+    <MainLayout>
       <CareersHero client:load />
       <FinancialAdvisors client:load />
       <Interns client:load />

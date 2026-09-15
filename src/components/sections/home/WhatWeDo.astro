@@ -8,13 +8,17 @@ import {
 } from "@/components/starwind/card";
 import Card from "@/components/starwind/card/Card.astro";
 import Button from "@/components/starwind/button/Button.astro";
+import { Image } from "@/components/starwind/image";
+
+import personalServicesImg from "/public/images/services/national-cancer-institute-xDSD3Vmzh70-unsplash.jpg";
+import corporateServicesImg from "/public/images/services/photo-1508385082359-f38ae991e8f2.avif";
 
 const services = [
     {
         header: "Personal / Individual Services",
         description:
             "Protect your family's future with life insurance, income protection, critical illness coverage, retirement planning, and more.",
-        image: "/images/services/national-cancer-institute-xDSD3Vmzh70-unsplash.jpg",
+        image: personalServicesImg,
         list: [
             "Family Protection",
             "Retirement Planning",
@@ -26,12 +30,13 @@ const services = [
             "Income Protection / Replacement",
             "Critical Illness Funding / Protection",
         ],
+        href: "/services#personal-insurance",
     },
     {
         header: "Organization / Corporate Services",
         description:
             "Safeguard your business with employee benefits, executive protection, keyman insurance, and corporate investment strategies.",
-        image: "/images/services/photo-1508385082359-f38ae991e8f2.avif",
+        image: corporateServicesImg,
         list: [
             "Employment Benefits",
             "Corporate Investments",
@@ -40,6 +45,7 @@ const services = [
             "Executive Benefits / Keyman Insurance",
             "Business Protection (Buy-Sell Agreement)",
         ],
+        href: "/services#corporate-insurance",
     },
 ];
 ---
@@ -62,10 +68,10 @@ const services = [
                     services.map((service, index) => {
                         return (
                             <Card class="relative max-w-lg" data-service-card>
-                                <img
+                                <Image
                                     src={service.image}
                                     alt={service.header}
-                                    class="aspect-video w-full object-cover"
+                                    class="aspect-video object-cover w-full h-full"
                                 />
                                 <CardHeader>
                                     <CardTitle class="font-bold">
@@ -87,7 +93,7 @@ const services = [
                                     </CardDescription>
                                 </CardHeader>
                                 <CardFooter>
-                                    <Button class="w-full" data-view-btn>
+                                    <Button class="w-full" href={service.href}>
                                         View All
                                     </Button>
                                 </CardFooter>
@@ -99,21 +105,3 @@ const services = [
         </div>
     </div>
 </section>
-
-<script>
-    document
-        .querySelectorAll<HTMLElement>("[data-service-card]")
-        .forEach((card, index) => {
-            const btn =
-                card.querySelector<HTMLButtonElement>("[data-view-btn]");
-            if (!btn) return;
-
-            btn.addEventListener("click", () => {
-                const url =
-                    index === 0
-                        ? "/services#personal-insurance"
-                        : "/services#corporate-insurance";
-                window.location.href = url;
-            });
-        });
-</script>

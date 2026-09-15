@@ -1,6 +1,6 @@
 ---
 import "@/styles/global.css";
-import MainLayout from "@/layouts/MainLayout.tsx";
+import MainLayout from "@/layouts/MainLayout.astro";
 import Mission from "@/components/sections/about/Mission.astro";
 import Founder from "@/components/sections/about/Founder.astro";
 import Recognition from "@/components/sections/about/Recognition.astro";
@@ -18,12 +18,23 @@ import CTA from "@/components/sections/home/CTA";
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
     <meta name="theme-color" content="#ac1212" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Maperaang Pilipino" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="apple-touch-icon" href="/icons/teamca-white-circle-logo.png" />
-    <title>About | Team CA</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="/icons/teamca-white-circle-logo.png"
+    />
+    <title>About | Maperaang Pilipino</title>
   </head>
   <body>
-    <MainLayout client:load>
+    <MainLayout>
       <Hero3
         heading="Meet Your Financial Advisor"
         description="Ms. Christelle Ann de Leon is a licensed financial advisor with Black Orcas Summit Life Insurance Agency, affiliated with Pru Life UK Philippines, helping Filipino families plan for a more secure future."
