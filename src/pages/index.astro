@@ -1,15 +1,16 @@
 ---
 import "@/styles/global.css";
-import MainLayout from "@/layouts/MainLayout.tsx";
-import HomeHero from "@/components/hero/HomeHero.tsx";
-import WhatWeDo from "@/components/sections/home/WhatWeDo.tsx";
-import WhoWeAre from "@/components/sections/home/WhoWeAre.tsx";
-import WhyFinancialMatters from "@/components/sections/home/WhyFinancialMatters.tsx";
+import MainLayout from "@/layouts/MainLayout.astro";
+import WhatWeDo from "@/components/sections/home/WhatWeDo.astro";
+import WhoWeAre from "@/components/sections/home/WhoWeAre.astro";
+import WhyFinancialMatters from "@/components/sections/home/WhyFinancialMatters.astro";
 import Testimonials from "@/components/sections/home/Testimonials.astro";
 import CTA from "@/components/sections/home/CTA.tsx";
 
 import { ThemeInitScript } from "@starwind-ui/astro/theme";
 import "@/styles/starwind.css";
+import HomeHero from "@/components/hero/HomeHero.astro";
+import AwardsGrid from "@/components/sections/home/AwardsGrid.astro";
 ---
 
 <html lang="en">
@@ -21,16 +22,41 @@ import "@/styles/starwind.css";
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
     <meta name="theme-color" content="#ac1212" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Maperaang Pilipino" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="apple-touch-icon" href="/icons/teamca-white-circle-logo.png" />
-    <title>Home | Team CA</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="/icons/teamca-white-circle-logo.png"
+    />
+    <title>Home | Maperaang Pilipino</title>
   </head>
   <body>
-    <MainLayout client:load>
-      <HomeHero client:load />
-      <WhoWeAre client:load />
-      <WhatWeDo client:load />
-      <WhyFinancialMatters client:load />
+    <MainLayout>
+      <HomeHero />
+      <WhoWeAre
+        heading="Why She Became a Financial Advisor"
+        body1="Ann believes every Filipino deserves real security, not just hope for the future. That belief took root when an industry shutdown ended her career on stage and pushed her to find a new path, one where she could still build, but this time for families instead of productions."
+        body2="That experience shaped how she works today: patient with wherever a client is starting from, and confident that a solid plan can be built at any stage of life. Her approach stays simple. Understand what a family is working to protect, then build a plan clear enough to trust and strong enough to hold up when it matters."
+        achievements={[
+          "Junior Unit Manager",
+          "6X National Achiever Club Qualifier",
+          "4X Million Producers Club Qualifier",
+          "MRDT Table Runner",
+          "BOSLIA Top Agent",
+          "Top 1 Business Builder of the Year (Unit)",
+          "Top 1 Rookie of the Year",
+        ]}
+      />
+      <AwardsGrid />
+      <WhatWeDo />
+      <WhyFinancialMatters />
       <Testimonials />
       <CTA client:load />
     </MainLayout>

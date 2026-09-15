@@ -2,52 +2,53 @@
 import Testimonial3, {
     type Testimonial,
 } from "../../starwind-pro/testimonial-03/Testimonial3.astro";
+import SectionWrapper from "../SectionWrapper.astro";
 
 const testimonials: Testimonial[] = [
     {
-        name: "Jane Doe",
-        role: "New York, USA",
-        content: "This product transformed our workflow completely!",
-        image: "https://randomuser.me/api/portraits/women/1.jpg",
+        name: "Leigh P. Amata-Lique",
+        date: "Feb 19, 2026",
+        content:
+            "Very helpful and accommodating. The best FA for me.Thank you soooo much!!!😘",
     },
     {
-        name: "John Smith",
-        role: "London, UK",
-        content: "Amazing experience with the team, very professional.",
-        image: "https://randomuser.me/api/portraits/men/2.jpg",
+        name: "Serdena Rejs",
+        date: "Oct 6, 2025",
+        content:
+            "My financial adviser na d napapagod mg remind ng mga what to do and the mportance of policy. Efficient and Cheerful 😊",
     },
     {
-        name: "Alice Johnson",
-        role: "Sydney, Australia",
-        content: "Helped our business grow 3x in 6 months!",
-        image: "https://randomuser.me/api/portraits/women/3.jpg",
+        name: "Carren Ann Caya",
+        date: "Sept 27, 2025",
+        content:
+            "Ms. Ann really knows her stuff! She explains everything in detail and makes sure our family’s financial goals are on track. I always enjoy talking to her and really appreciate her guidance. ⭐️⭐️⭐️⭐️⭐️",
     },
     {
-        name: "Bob Brown",
-        role: "Toronto, Canada",
-        content: "The support is unmatched and super friendly.",
-        image: "https://randomuser.me/api/portraits/men/4.jpg",
+        name: "Zh El Lah",
+        date: "June 19, 2025",
+        content:
+            "Maraming thank you sayo Mam Ann!🙏 I was Diagnosed Breast Cancer last 2024 'till now .. I'm still in a chemo journey.I was very blessed and thankful na nakilala ko si Mam Ann,that time kasi nagpost ako sa isang FB Group about sa naramdaman ko because that time,I was hopeless at all.Then suddenly .. may isang anghel na nagPM sa akin and that was Mam Ann 🥰 .. she gived me hope,she helped me without any doubt (mahirap na rin kasi magtiwala for now,madami na rin scammers nowadays) .. Nabigyan ako ng Financial Assistance sa isang Foundation,dahil sa tulong nya.Super kind and very generous to everyone like us.God Bless you Mam Ann and to your beautiful family 🫶🙏 MORE,MORE CLIENTS TO COME 🙏🙏🙏",
     },
     {
-        name: "Clara Lee",
-        role: "San Francisco, USA",
-        content: "Highly intuitive design and seamless experience.",
-        image: "https://randomuser.me/api/portraits/women/5.jpg",
+        name: "Gag Shock",
+        date: "June 4, 2025",
+        content:
+            "My trusted financial advisor since 2022! It’s been almost 3 years since I got my first policy with Pru Life UK. Her service has been top-tier—very professional, always making sure I fully understand my policy, and most importantly, she consistently goes above and beyond. She’s easy to connect with, and you’ll never feel intimidated when talking to her. Nearly 3 years with Pru Life, and she’s still giving me the best service I could ask for.",
     },
     {
-        name: "David Kim",
-        role: "Seoul, South Korea",
-        content: "Our clients love the results we delivered using this.",
-        image: "https://randomuser.me/api/portraits/men/6.jpg",
+        name: "Meri Jaan",
+        date: "February 9, 2022",
+        content:
+            "Salamat ng marami sis Ann! I chose Ms. Ann as my FA because of her good record and legitimacy. Mahirap kasi mag tiwala sa mga taong mabait ang approach sa una pero i-iiscam ka lang pala. Kaya inistalk ko muna account nya bago ako sya nilapitan. At hindi naman ako nagkamali sa pag lapit dahil na explain and nabigyan nya ako  ng guide para sa plano ko for our small start up business. She is so friendly and approachable. 🥰😘",
     },
 ];
 ---
 
-<div class="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-20">
+<SectionWrapper>
     <Testimonial3
-        heading="What Our Clients Say"
-        description="Discover how Team CA has made a difference in the lives of our clients."
+        heading="What Her Clients Say"
+        description="Discover how Ann De Leon's financial advising has made a difference in the lives of her clients."
         testimonials={testimonials}
         class="w-full"
     />
-</div>
+</SectionWrapper>

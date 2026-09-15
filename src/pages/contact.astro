@@ -1,6 +1,6 @@
 ---
 import "@/styles/global.css";
-import MainLayout from "@/layouts/MainLayout.tsx";
+import MainLayout from "@/layouts/MainLayout.astro";
 import ContactHero from "@/components/hero/ContactHero.tsx";
 import ContactDetails from "@/components/sections/contact/ContactDetails.astro";
 import ConsultationForm from "@/components/sections/appointment/Consultation.astro";
@@ -16,17 +16,23 @@ import "@/styles/starwind.css";
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
     <meta name="theme-color" content="#ac1212" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Maperaang Pilipino" />
     <meta
-      name="description"
-      content="Contact Team CA - Pru Life UK Financial Planning & Advisory. Reach our office at Antel Global Corporate Center, Ortigas, Pasig."
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
     />
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="apple-touch-icon" href="/icons/teamca-white-circle-logo.png" />
-    <link rel="icon" type="image/png" href="/icons/teamca-white-circle-logo.png" />
-    <title>Contact Us | Team CA</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="/icons/teamca-white-circle-logo.png"
+    />
+    <title>Contact Us | Maperaang Pilipino</title>
   </head>
   <body>
-    <MainLayout client:load>
+    <MainLayout>
       <ContactHero client:load />
       <ContactDetails />
       <ConsultationForm />

@@ -1,6 +1,6 @@
 ---
 import "@/styles/global.css";
-import MainLayout from "@/layouts/MainLayout.tsx";
+import MainLayout from "@/layouts/MainLayout.astro";
 
 import "@/styles/starwind.css";
 import ConsultationForm from "@/components/sections/appointment/Consultation.astro";
@@ -15,15 +15,26 @@ import { Toaster } from "@/components/starwind/toast";
             content="width=device-width, initial-scale=1, viewport-fit=cover"
         />
         <meta name="theme-color" content="#ac1212" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-title" content="Maperaang Pilipino" />
+        <meta
+            name="apple-mobile-web-app-status-bar-style"
+            content="black-translucent"
+        />
         <link rel="manifest" href="/manifest.webmanifest" />
         <link
             rel="apple-touch-icon"
             href="/icons/teamca-white-circle-logo.png"
         />
-        <title>Book a Consultation | Team CA</title>
+        <link
+            rel="icon"
+            type="image/png"
+            href="/icons/teamca-white-circle-logo.png"
+        />
+        <title>Book a Consultation | Maperaang Pilipino</title>
     </head>
     <body>
-        <MainLayout client:load>
+        <MainLayout>
             <ConsultationForm />
             <Toaster position="bottom-right" />
         </MainLayout>

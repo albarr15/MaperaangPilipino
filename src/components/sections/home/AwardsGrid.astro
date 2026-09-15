@@ -1,0 +1,116 @@
+---
+import { Image } from "@/components/starwind/image";
+import plukTeam from "/public/images/home/awards-grid/pluk team.jpg";
+import changeOfAgent from "/public/images/home/awards-grid/change of agent.jpg";
+import mrdtMeeting from "/public/images/home/awards-grid/mrdt meeting.jpg";
+import mrdt from "/public/images/home/awards-grid/mrdt.jpg";
+import natlAchiever from "/public/images/home/awards-grid/natl achiever.jpg";
+import riseUp from "/public/images/home/awards-grid/rise up.jpg";
+import thrivingBeyond from "/public/images/home/awards-grid/thriving beyond limits.jpg";
+import topAgent from "/public/images/home/awards-grid/top agent.jpg";
+import main from "/public/images/home/awards-grid/main-transparent.png";
+import SectionWrapper from "../SectionWrapper.astro";
+---
+
+<SectionWrapper>
+    <div class="max-w-7xl mx-auto flex flex-col items-center">
+        <div
+            class="grid gap-4 md:grid-cols-4 grid-cols-2 grid-rows-6 *:rounded-xl *:overflow-hidden md:grid-rows-4 h-[1600px] md:h-[800px] w-full"
+        >
+            <div
+                class="bg-blue-100 md:row-span-2 md:order-1 order-2 row-span-2"
+            >
+                <Image
+                    src={natlAchiever}
+                    alt="National Achiever Award"
+                    class="object-cover h-full object-right"
+                />
+            </div>
+            <div class="bg-blue-200 order-3 md:order-2">
+                <Image
+                    src={mrdt}
+                    alt="MRDT Award"
+                    class="object-cover h-full"
+                />
+            </div>
+            <div class="bg-blue-300 order-4 md:order-3">
+                <Image
+                    src={topAgent}
+                    alt="Top Agent Award"
+                    class="object-cover h-full"
+                />
+            </div>
+            <div class="bg-blue-400 md:row-span-2 order-4 md:order-4">
+                <Image
+                    src={changeOfAgent}
+                    alt="Change of Agent Award"
+                    class="object-cover h-full"
+                />
+            </div>
+            <div class="bg-card/90 md:row-span-2 col-span-2 order-1 md:order-5">
+                <div
+                    class="@container w-full h-full flex items-center justify-center"
+                >
+                    <div
+                        class="flex flex-col items-center justify-center w-3/5 text-foreground gap-4 px-4"
+                    >
+                        <div
+                            class="flex flex-col gap-2 w-full
+                        *:font-bold *:leading-none *:text-2xl @lg:*:text-4xl"
+                        >
+                            <span>
+                                <span class="text-primary">Recognized</span> Nationally.
+                            </span>
+                            <span>
+                                <span class="text-primary">Trusted</span> by 260+
+                                families.
+                            </span>
+                        </div>
+                        <div class="flex flex-col w-full">
+                            <span class="text-xs underline"
+                                >CHRISTELLE ANN DE LEON, CIA, CEPP</span
+                            >
+                            <span class="text-xs"
+                                >LICENSED FINANCIAL ADVISOR</span
+                            >
+                            <span class="text-xs">JUNIOR UNIT MANAGER</span>
+                        </div>
+                    </div>
+                    <Image
+                        src={main}
+                        alt="Christelle Ann De Leon Nationally Recognized"
+                        class="object-cover h-full w-2/5 overflow-hidden @md:overflow-visible"
+                    />
+                </div>
+            </div>
+            <div class="bg-blue-600 md:row-span-2 order-8 md:order-6">
+                <Image
+                    src={riseUp}
+                    alt="Rise Up Award"
+                    class="object-cover h-full"
+                />
+            </div>
+            <div class="bg-blue-700 order-6 md:order-7">
+                <Image
+                    src={mrdtMeeting}
+                    alt="MRDT Meeting"
+                    class="object-cover h-full"
+                />
+            </div>
+            <div class="bg-blue-800 order-9 md:order-8">
+                <Image
+                    src={thrivingBeyond}
+                    alt="Thriving Beyond Limits Award"
+                    class="object-cover h-full"
+                />
+            </div>
+            <div class="bg-blue-900 col-span-2 order-7 md:order-9">
+                <Image
+                    src={plukTeam}
+                    alt="PLUK Team"
+                    class="object-cover h-full"
+                />
+            </div>
+        </div>
+    </div>
+</SectionWrapper>

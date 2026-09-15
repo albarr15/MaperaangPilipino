@@ -4,7 +4,7 @@ import { tv } from "tailwind-variants";
 
 import { AspectRatio } from "@/components/starwind/aspect-ratio";
 
-import Button from "@/components/ui/Button";
+import Button from "@/components/starwind/button/Button.astro";
 
 interface Props extends HTMLAttributes<"section"> {
   /** Main heading text */
@@ -67,8 +67,13 @@ const {
       <div class="mt-8 flex flex-col flex-wrap gap-4 @md:flex-row">
         {
           primaryButtonText && (
-            <Button id="primary-btn" data-href={primaryButtonHref}>
-              {primaryButtonText}
+            <Button href={primaryButtonHref}>{primaryButtonText}</Button>
+          )
+        }
+        {
+          secondaryButtonText && (
+            <Button variant="outline" href={secondaryButtonHref}>
+              {secondaryButtonText}
             </Button>
           )
         }
@@ -83,15 +88,7 @@ const {
 </section>
 
 <script>
-  import { handleScroll } from "@/scripts/ScrollHandler";
   import gsap from "gsap";
-
-  const primaryBtn = document.getElementById("primary-btn");
-  const primaryBtnHref = primaryBtn?.getAttribute("data-href");
-
-  primaryBtn?.addEventListener("click", () => {
-    if (primaryBtnHref) handleScroll(primaryBtnHref, "primary-btn");
-  });
 
   const textEl = document.getElementById("hero-container");
   const sectionEl = textEl?.closest("section");

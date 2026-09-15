@@ -1,0 +1,20 @@
+---
+import Navbar from "@/components/navbar/Navbar";
+import Footer from "@/components/footer/Footer";
+---
+
+<div class="flex flex-col min-h-screen">
+  <Navbar client:load />
+
+  <main class="flex flex-col flex-grow w-full">
+    <slot />
+  </main>
+
+  <Footer client:load />
+</div>
+
+<script>
+  if ("history" in window && "scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+  }
+</script>

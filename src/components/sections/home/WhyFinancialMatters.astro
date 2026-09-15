@@ -1,0 +1,79 @@
+---
+import { Card, CardContent } from "@/components/starwind/card";
+import SectionWrapper from "../SectionWrapper.astro";
+import { DollarSign, TrendingUp, ShieldCheck, HelpCircle } from "lucide-react";
+---
+
+<SectionWrapper>
+    <div class="max-w-6xl mx-auto text-center">
+        <h2
+            class="text-3xl xs:text-4xl sm:text-5xl font-bold mb-4 leading-tight"
+        >
+            Why Financial Matters
+        </h2>
+        <p class="mb-12 sm:mb-16 max-w-4xl mx-auto text-base sm:text-xl">
+            Understanding your finances helps you make smarter decisions, build
+            stability, and achieve long-term success.
+        </p>
+
+        <div
+            class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 items-center relative"
+        >
+            <!-- Start -->
+            <div class="flex flex-row items-center gap-4 relative px-1 sm:px-4">
+                <div class="p-1 flex-shrink-0 text-[--secondary-color]">
+                    <!-- DollarSign -->
+                    <DollarSign size={48} />
+                </div>
+                <p class="text-[--white-color] text-left text-base sm:text-lg">
+                    Track your income and expenses effectively.
+                </p>
+            </div>
+
+            <!-- Grow -->
+            <div class="flex flex-row items-center gap-4 relative px-1 sm:px-4">
+                <div class="p-1 flex-shrink-0 text-[--secondary-color]">
+                    <TrendingUp size={48} />
+                </div>
+                <p class="text-[--white-color] text-left text-base sm:text-lg">
+                    Invest wisely to grow your wealth.
+                </p>
+            </div>
+
+            <!-- Protect -->
+            <div class="flex flex-row items-center gap-4 relative px-1 sm:px-4">
+                <div class="p-1 flex-shrink-0 text-[--secondary-color]">
+                    <ShieldCheck size={48} />
+                </div>
+                <p class="text-[--white-color] text-left text-base sm:text-lg">
+                    Secure your financial assets and identity.
+                </p>
+            </div>
+        </div>
+
+        <!-- Did you know card -->
+        <Card interactive class="mt-14 max-w-4xl mx-auto">
+            <CardContent>
+                <div
+                    class="flex flex-col xs:flex-row items-center text-primary items-start"
+                >
+                    <div class="flex gap-4 pb-4 items-center">
+                        <HelpCircle size={40} className="flex-shrink-0" />
+                        <p class="!font-bold text-xl sm:text-2xl !text-primary">
+                            Did you know?
+                        </p>
+                    </div>
+                    <div class="text-left">
+                        <p class="text-base mt-1 !text-foreground">
+                            Most families are unprepared for financial
+                            emergencies. With proper life insurance and
+                            financial planning, you can protect your loved ones
+                            and ensure their future security, no matter what
+                            life brings.
+                        </p>
+                    </div>
+                </div>
+            </CardContent>
+        </Card>
+    </div>
+</SectionWrapper>
