@@ -3,7 +3,7 @@ import "@/styles/global.css";
 import MainLayout from "@/layouts/MainLayout.astro";
 import WhatWeDo from "@/components/sections/home/WhatWeDo.astro";
 import WhoWeAre from "@/components/sections/home/WhoWeAre.astro";
-import WhyFinancialMatters from "@/components/sections/home/WhyFinancialMatters.tsx";
+import WhyFinancialMatters from "@/components/sections/home/WhyFinancialMatters.astro";
 import Testimonials from "@/components/sections/home/Testimonials.astro";
 import CTA from "@/components/sections/home/CTA.tsx";
 
@@ -56,7 +56,7 @@ import AwardsGrid from "@/components/sections/home/AwardsGrid.astro";
       />
       <AwardsGrid />
       <WhatWeDo />
-      <WhyFinancialMatters client:load />
+      <WhyFinancialMatters />
       <Testimonials />
       <CTA client:load />
     </MainLayout>

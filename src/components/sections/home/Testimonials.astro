@@ -2,6 +2,7 @@
 import Testimonial3, {
     type Testimonial,
 } from "../../starwind-pro/testimonial-03/Testimonial3.astro";
+import SectionWrapper from "../SectionWrapper.astro";
 
 const testimonials: Testimonial[] = [
     {
@@ -43,11 +44,11 @@ const testimonials: Testimonial[] = [
 ];
 ---
 
-<div class="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-20">
+<SectionWrapper>
     <Testimonial3
         heading="What Her Clients Say"
         description="Discover how Ann De Leon's financial advising has made a difference in the lives of her clients."
         testimonials={testimonials}
         class="w-full"
     />
-</div>
+</SectionWrapper>
