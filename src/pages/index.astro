@@ -2,11 +2,10 @@
 import "@/styles/global.css";
 import MainLayout from "@/layouts/MainLayout.tsx";
 import WhatWeDo from "@/components/sections/home/WhatWeDo.astro";
-import WhoWeAre from "@/components/sections/home/WhoWeAre.tsx";
+import WhoWeAre from "@/components/sections/home/WhoWeAre.astro";
 import WhyFinancialMatters from "@/components/sections/home/WhyFinancialMatters.tsx";
 import Testimonials from "@/components/sections/home/Testimonials.astro";
 import CTA from "@/components/sections/home/CTA.tsx";
-import CredentialsRow from "@/components/sections/home/CredentialsRow.astro";
 
 import { ThemeInitScript } from "@starwind-ui/astro/theme";
 import "@/styles/starwind.css";
@@ -31,9 +30,22 @@ import AwardsGrid from "@/components/sections/home/AwardsGrid.astro";
   <body>
     <MainLayout client:load>
       <HomeHero />
-      <WhoWeAre client:load />
-      <WhatWeDo />
+      <WhoWeAre
+        heading="Why She Became a Financial Advisor"
+        body1="Ann believes every Filipino deserves real security, not just hope for the future. That belief took root when an industry shutdown ended her career on stage and pushed her to find a new path, one where she could still build, but this time for families instead of productions."
+        body2="That experience shaped how she works today: patient with wherever a client is starting from, and confident that a solid plan can be built at any stage of life. Her approach stays simple. Understand what a family is working to protect, then build a plan clear enough to trust and strong enough to hold up when it matters."
+        achievements={[
+          "Junior Unit Manager",
+          "6X National Achiever Club Qualifier",
+          "4X Million Producers Club Qualifier",
+          "MRDT Table Runner",
+          "BOSLIA Top Agent",
+          "Top 1 Business Builder of the Year (Unit)",
+          "Top 1 Rookie of the Year",
+        ]}
+      />
       <AwardsGrid />
+      <WhatWeDo />
       <WhyFinancialMatters client:load />
       <Testimonials />
       <CTA client:load />
