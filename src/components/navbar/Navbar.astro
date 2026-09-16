@@ -1,0 +1,28 @@
+---
+import Navbar1, { type NavLink } from "../starwind-pro/navbar-01/Navbar1.astro";
+import { Image } from "astro:assets";
+
+import MaperaangPilipinoLogo from "@/assets/images/maperaang-pilipino.png";
+
+const links: NavLink[] = [
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
+    { label: "Services", href: "/services" },
+    { label: "Contact", href: "/contact" },
+];
+---
+
+<!-- Original code found in Starwind Pro - Navbar 01 component -->
+<Navbar1
+    siteName="Maperaang Pilipino"
+    links={links}
+    ctaText="Book Consultation"
+    ctaHref="/consultation"
+>
+    <Image
+        slot="logo"
+        src={MaperaangPilipinoLogo}
+        alt="Maperaang Pilipino Logo"
+        class="h-12 w-12 object-contain"
+    />
+</Navbar1>

@@ -1,10 +1,10 @@
 ---
-import Navbar from "@/components/navbar/Navbar";
+import Navbar from "@/components/navbar/Navbar.astro";
 import Footer from "@/components/footer/Footer";
 ---
 
 <div class="flex flex-col min-h-screen">
-  <Navbar client:load />
+  <Navbar />
 
   <main class="flex flex-col flex-grow w-full">
     <slot />
