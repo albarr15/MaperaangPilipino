@@ -50,6 +50,13 @@ const {
 } = Astro.props;
 
 const hasLogoSlot = Astro.slots.has("logo");
+
+// Get the current URL path
+const { pathname } = Astro.url;
+const normalize = (p: string) => p.replace(/\/$/, "") || "/";
+
+// A helper function to check if a link is active
+const isActive = (path: string) => normalize(pathname) === normalize(path);
 ---
 
 <nav class={navStyles({ class: className })} {...rest}>
@@ -68,7 +75,10 @@ const hasLogoSlot = Astro.slots.has("logo");
         links.map((link) => (
           <a
             href={link.href}
-            class="text-muted-foreground hover:text-foreground rounded-md px-3 py-2 text-sm font-medium transition-colors"
+            class:list={[
+              "rounded-md px-3 py-2 text-sm font-medium transition-colors hover:underline",
+              { "!font-bold": isActive(link.href) },
+            ]}
           >
             {link.label}
           </a>
@@ -118,7 +128,10 @@ const hasLogoSlot = Astro.slots.has("logo");
                 <SheetClose asChild>
                   <a
                     href={link.href}
-                    class="text-muted-foreground hover:text-foreground -mx-3 rounded-md px-3 py-2 text-lg font-medium transition-colors"
+                    class:list={[
+                      "text-muted-foreground hover:underline -mx-3 rounded-md px-3 py-2 text-lg font-medium transition-colors",
+                      { "!font-bold": isActive(link.href) },
+                    ]}
                   >
                     {link.label}
                   </a>
