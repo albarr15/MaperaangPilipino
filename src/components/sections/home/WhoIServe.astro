@@ -1,0 +1,63 @@
+---
+import SectionWrapper from "../SectionWrapper.astro";
+import { Image } from "astro:assets";
+import familyImg from "@/assets/images/home/pexels-ian-panelo-10281132.jpg";
+import SectionHeader from "@/components/header/SectionHeader";
+import BeneficiaryContainer from "@/components/cards/BeneficiaryContainer.astro";
+import equalityImg from "@/assets/images/home/pexels-pavel-danilyuk-8552371.jpg";
+import retirementImg from "@/assets/images/home/pexels-marc-16519711.jpg";
+import entrepreneurImg from "@/assets/images/home/pexels-anthonyshkraba-production-8278855.jpg";
+
+const beneficiaries = [
+    {
+        header: "For Families Building Their Future",
+        description:
+            "Growing a household, raising children, preparing for what's ahead. These milestones deserve more than good intentions. A well-built financial plan means loved ones stay protected and provided for, whatever life brings.",
+        image: familyImg,
+        imageAlt: "Father and son hugging",
+    },
+    {
+        header: "For Entrepreneurs Building Something of Their Own",
+        description:
+            "A business built from hard work deserves real protection. Smart financial planning safeguards income and long-term goals, so one unexpected setback never has to undo years of progress.",
+        image: entrepreneurImg,
+        imageAlt: "Business man working",
+    },
+    {
+        header: "For Every Kind of Relationship",
+        description:
+            "Love takes many forms, and financial protection should too. Whether married, in a common law partnership, or with a same sex partner, every couple deserves equal access to security and a future built together.",
+        image: equalityImg,
+        imageAlt: "Two women holding an LGBTQIA+ flag",
+    },
+    {
+        header: "For Those Ready to Enjoy the Years Ahead",
+        description:
+            "A lifetime of hard work should end in peace of mind, not financial stress. Thoughtful planning around savings and health coverage makes it possible to spend retirement relaxing, traveling, and enjoying time with family.",
+        image: retirementImg,
+        imageAlt: "Elderly couple smiling at each other",
+    },
+];
+---
+
+<SectionWrapper>
+    <SectionHeader
+        title="Financial Security for Every Kind of Life"
+        description="From young families to retirees, every stage of life deserves the right coverage."
+        align="center"
+        color="yellow"
+    />
+    <!-- Beneficiary container -->
+    <div class="flex flex-col md:gap-8 gap-16 max-w-5xl mx-auto">
+        {
+            beneficiaries.map((beneficiary, index) => {
+                return (
+                    <BeneficiaryContainer
+                        beneficiary={beneficiary}
+                        index={index}
+                    />
+                );
+            })
+        }
+    </div>
+</SectionWrapper>
