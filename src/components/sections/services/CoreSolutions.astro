@@ -1,6 +1,10 @@
 ---
 import SectionHeader from "@/components/header/SectionHeader";
 import Button from "@/components/starwind/button/Button.astro";
+import { Image } from "astro:assets";
+
+import personalImg from "@/assets/images/services/national-cancer-institute-xDSD3Vmzh70-unsplash.jpg";
+import corporateImg from "@/assets/images/services/photo-1508385082359-f38ae991e8f2.avif";
 
 const solutions = [
     {
@@ -8,7 +12,7 @@ const solutions = [
         title: "Personal / Individual Insurance",
         description:
             "Protect your family's future with life insurance, income protection, critical illness coverage, retirement planning, and more.",
-        image: "/images/services/national-cancer-institute-xDSD3Vmzh70-unsplash.jpg",
+        image: personalImg,
         href: "/services#personal-insurance",
     },
     {
@@ -16,7 +20,7 @@ const solutions = [
         title: "Organization / Corporate Insurance",
         description:
             "Safeguard your business with employee benefits, executive protection, keyman insurance, and corporate investment strategies.",
-        image: "/images/services/photo-1508385082359-f38ae991e8f2.avif",
+        image: corporateImg,
         href: "/services#corporate-insurance",
     },
 ];
@@ -44,7 +48,7 @@ const solutions = [
                     solutions.map((item) => (
                         <div class="relative rounded-2xl overflow-hidden group shadow-lg h-[400px] w-full">
                             {/* IMAGE */}
-                            <img
+                            <Image
                                 src={item.image}
                                 alt={item.title}
                                 class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
