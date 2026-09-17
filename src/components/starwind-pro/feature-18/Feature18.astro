@@ -1,0 +1,86 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import type { LucideIcon } from "lucide-react";
+import { tv } from "tailwind-variants";
+
+/** Step item configuration */
+export interface Step {
+  /** Step title */
+  title: string;
+  /** Step description */
+  description: string;
+  /** Step icon */
+  icon: LucideIcon;
+}
+
+interface Props extends HTMLAttributes<"section"> {
+  /** Section heading */
+  heading?: string;
+  /** Section description */
+  description?: string;
+  /** Array of steps to display */
+  steps?: Step[];
+}
+
+const sectionStyles = tv({
+  base: "@container mx-auto w-full max-w-7xl px-4 py-24",
+});
+
+const {
+  heading = "Get started in minutes",
+  description = "Follow these simple steps to begin your journey.",
+  steps = [],
+  class: className,
+  ...rest
+} = Astro.props;
+---
+
+<section class={sectionStyles({ class: className })} {...rest}>
+  <div class="mx-auto max-w-2xl text-center">
+    <h2
+      class="font-heading mt-4 text-3xl font-semibold tracking-tight @xl:text-4xl @3xl:text-5xl"
+    >
+      {heading}
+    </h2>
+    <p class="text-muted-foreground mt-4 text-pretty @xl:text-lg">
+      {description}
+    </p>
+  </div>
+
+  <div class="mx-auto mt-16 max-w-2xl">
+    <ol class="relative space-y-12">
+      {
+        steps.map((step, index) => {
+          const Icon = step.icon;
+
+          return (
+            <li class="group relative flex gap-6">
+              {/* Connecting line */}
+              {index < steps.length - 1 && (
+                <div class="bg-border absolute top-11 left-5 h-full w-px -translate-x-1/2" />
+              )}
+
+              {/* Step number */}
+              <div class="bg-primary-foreground text-primary relative z-10 flex size-10 shrink-0 items-center justify-center rounded-full text-sm font-bold shadow-sm">
+                {index + 1}
+              </div>
+
+              {/* Content */}
+              <div class="pt-1">
+                <div class="flex gap-4 items-start md:items-center">
+                  <Icon className="w-6 h-6 flex-shrink-0 mt-0.5 md:mt-0" />
+                  <h3 class="font-heading text-lg font-semibold">
+                    {step.title}
+                  </h3>
+                </div>
+                <p class="text-muted-foreground mt-2 text-pretty">
+                  {step.description}
+                </p>
+              </div>
+            </li>
+          );
+        })
+      }
+    </ol>
+  </div>
+</section>

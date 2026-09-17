@@ -1,0 +1,54 @@
+---
+import Feature18, {
+    type Step,
+} from "@/components/starwind-pro/feature-18/Feature18.astro";
+import {
+    CalendarCheck2Icon,
+    FileTextIcon,
+    FolderCheckIcon,
+    PartyPopperIcon,
+    PencilIcon,
+} from "lucide-react";
+import SectionWrapper from "../SectionWrapper.astro";
+
+const steps: Step[] = [
+    {
+        title: "Schedule a Free Consultation",
+        description:
+            "Set up a call, video meeting via Zoom or Messenger, or a face-to-face conversation, whichever works best for you. This first step is about understanding your goals and figuring out what kind of protection makes sense for your situation.",
+        icon: CalendarCheck2Icon,
+    },
+    {
+        title: "Review Your Financial Picture",
+        description:
+            "Together, we'll look at your income, monthly expenses, and priorities to land on coverage that actually makes sense for your budget and your life.",
+        icon: FileTextIcon,
+    },
+    {
+        title: "Pick the Plan That Works for You",
+        description:
+            "You'll get a clear breakdown of your options with no confusing jargon, so you can move forward knowing exactly what you're signing up for.",
+        icon: FolderCheckIcon,
+    },
+    {
+        title: "Complete Your Application",
+        description:
+            "Finish your application online, or in person, whichever you're more comfortable with. I'll walk you through each requirement, including any medical or IDs needed.",
+        icon: PencilIcon,
+    },
+    {
+        title: "Get Approved and Start Protected",
+        description:
+            "Once your application is approved, you'll receive your policy and digital copy right away. From here on, you and your loved ones are protected.",
+        icon: PartyPopperIcon,
+    },
+];
+---
+
+<SectionWrapper>
+    <Feature18
+        heading="5 Simple Steps to Get Covered"
+        description="Everything you need to know about getting your life insurance, step by step."
+        steps={steps}
+    />
+</SectionWrapper>

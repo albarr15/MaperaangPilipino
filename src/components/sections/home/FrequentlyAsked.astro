@@ -1,0 +1,43 @@
+---
+import Faq1, {
+    type FaqItem,
+} from "@/components/starwind-pro/faq-01/Faq1.astro";
+import { Section } from "lucide-react";
+import SectionWrapper from "../SectionWrapper.astro";
+
+const faqItems: FaqItem[] = [
+    {
+        title: "Ano ba talaga ang Life Insurance?",
+        content:
+            "Life insurance is your financial safety net. Kapag may biglaang mangyari, may guaranteed cash na sasalo sa expenses at tutulong para hindi mahinto ang pangarap ng mga mahal mo sa buhay. ",
+    },
+    {
+        title: "Kailangan ba malaki ang budget bago mag simula?",
+        content:
+            "Hindi. You can start small. May plans na nagsisimula sa ₱3,000 per month, depende sa age at goals mo. Mas affordable kapag mas maaga kang nagsimula—habang healthy ka pa.",
+    },
+    {
+        title: "Pwede ba ito sa mga OFWs?",
+        content:
+            "Yes, absolutely! OFWs and seafarers are eligible as long as may valid IDs at proof of income. May online consultation at digital submission, kahit nasa abroad ka. Kahit malayo, secured pa rin ang pamilya mo sa Pilipinas.",
+    },
+    {
+        title: "Kailangan ko ba ng medical check-up bago magpa-insure?",
+        content:
+            "Depende sa age at coverage amount. Para sa mga young and healthy clients, madalas no medical check-up required. Pero kung mataas ang coverage o may existing health condition, pwedeng kailanganin ng simple medical exam.",
+    },
+    {
+        title: "Safe ba talaga mag-invest sa Life Insurance?",
+        content:
+            "Yes! With Pru Life UK, your plan is protected and managed by professionals. Part ng contribution mo ay napupunta sa life protection at sa investment fund na pwede mong i-monitor anytime. Secure, transparent, at may long-term growth potential.",
+    },
+];
+---
+
+<SectionWrapper>
+    <Faq1
+        heading="Common Questions and Answers"
+        description="Answers to your most pressing questions about Life Insurance."
+        items={faqItems}
+    />
+</SectionWrapper>

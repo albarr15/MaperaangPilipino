@@ -11,6 +11,9 @@ import { ThemeInitScript } from "@starwind-ui/astro/theme";
 import "@/styles/starwind.css";
 import HomeHero from "@/components/hero/HomeHero.astro";
 import AwardsGrid from "@/components/sections/home/AwardsGrid.astro";
+import FrequentlyAsked from "@/components/sections/home/FrequentlyAsked.astro";
+import WhoIServe from "@/components/sections/home/WhoIServe.astro";
+import FiveSteps from "@/components/sections/home/FiveSteps.astro";
 ---
 
 <html lang="en">
@@ -56,8 +59,11 @@ import AwardsGrid from "@/components/sections/home/AwardsGrid.astro";
       />
       <AwardsGrid />
       <WhatWeDo />
+      <WhoIServe />
+      <FiveSteps />
       <WhyFinancialMatters />
       <Testimonials />
+      <FrequentlyAsked />
       <CTA client:load />
     </MainLayout>
   </body>
