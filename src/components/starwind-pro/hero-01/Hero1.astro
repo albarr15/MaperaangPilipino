@@ -48,6 +48,7 @@ const {
     loading="eager"
   />
   <div
+    id="hero-container"
     class="relative mx-auto flex max-w-4xl flex-col items-center text-center z-10"
   >
     <h1
@@ -72,3 +73,21 @@ const {
     </div>
   </div>
 </section>
+
+<script>
+  import gsap from "gsap";
+
+  const textEl = document.getElementById("hero-container");
+  const sectionEl = textEl?.closest("section");
+
+  if (textEl) {
+    gsap.context(() => {
+      gsap.from(textEl, {
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+      });
+    }, sectionEl || undefined);
+  }
+</script>
