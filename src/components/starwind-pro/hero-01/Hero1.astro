@@ -59,10 +59,14 @@ const {
     <p class="text-muted-foreground mt-6 max-w-2xl @xl:text-lg">
       {description}
     </p>
-    <div class="mt-8 flex flex-wrap gap-3">
-      <Button variant="default" href={primaryButtonHref}
-        >{primaryButtonText}</Button
-      >
+    <div
+      class="mt-8 flex flex-col flex-wrap gap-4 @md:flex-row w-full @md:w-fit"
+    >
+      {
+        primaryButtonText && (
+          <Button href={primaryButtonHref}>{primaryButtonText}</Button>
+        )
+      }
       {
         secondaryButtonText && (
           <Button variant="outline" href={secondaryButtonHref}>
