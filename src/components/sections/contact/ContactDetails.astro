@@ -1,9 +1,5 @@
 ---
-import {
-    Card,
-    CardContent,
-    CardFooter,
-} from "@/components/starwind/card";
+import { Card, CardContent, CardFooter } from "@/components/starwind/card";
 import { tv } from "tailwind-variants";
 
 /* ── Data ─────────────────────────────────────────────────── */
@@ -24,7 +20,9 @@ const sectionStyles = tv({
 <section id="contact-details" class={sectionStyles()}>
     <div class="flex flex-col items-center w-full max-w-7xl">
         <!-- HEADER -->
-        <div class="flex flex-col items-center text-center max-w-3xl text-white">
+        <div
+            class="flex flex-col items-center text-center max-w-3xl text-white"
+        >
             <h1
                 class="font-heading text-4xl font-semibold tracking-tight @4xl:text-5xl text-[--secondary-color]"
             >
@@ -59,22 +57,23 @@ const sectionStyles = tv({
                                 stroke-linejoin="round"
                                 class="text-white"
                             >
-                                <rect
-                                    width="20"
-                                    height="16"
-                                    x="2"
-                                    y="4"
-                                    rx="2"></rect>
-                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"
+                                <rect width="20" height="16" x="2" y="4" rx="2"
+                                ></rect>
+                                <path
+                                    d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"
                                 ></path>
                             </svg>
                         </div>
-                        <div class="font-heading font-bold text-xl text-title-red">
+                        <div
+                            class="font-heading font-bold text-xl text-title-red"
+                        >
                             Email Addresses
                         </div>
                     </div>
-                    <p class="text-sm text-body-black leading-relaxed font-normal">
-                        Drop us a line for general inquiries, personal
+                    <p
+                        class="text-sm text-body-black leading-relaxed font-normal"
+                    >
+                        Drop me a line for general inquiries, personal
                         consultations, or strategic business collaborations.
                     </p>
 
@@ -210,17 +209,23 @@ const sectionStyles = tv({
                                 ></path>
                             </svg>
                         </div>
-                        <div class="font-heading font-bold text-xl text-title-red">
+                        <div
+                            class="font-heading font-bold text-xl text-title-red"
+                        >
                             Phone & Mobile
                         </div>
                     </div>
-                    <p class="text-sm text-body-black leading-relaxed font-normal">
+                    <p
+                        class="text-sm text-body-black leading-relaxed font-normal"
+                    >
                         Direct phone line available for urgent calls, SMS
                         inquiries, and consultation bookings.
                     </p>
 
                     <!-- Phone detail -->
-                    <div class="rounded-xl sub-box p-4 shadow-xs space-y-2 mt-2">
+                    <div
+                        class="rounded-xl sub-box p-4 shadow-xs space-y-2 mt-2"
+                    >
                         <div class="flex items-center justify-between gap-2">
                             <span
                                 class="text-xs uppercase tracking-wider text-muted-dark font-semibold"
@@ -272,7 +277,9 @@ const sectionStyles = tv({
 
                     <!-- Hours badge -->
                     <div class="rounded-xl sub-box p-4 shadow-xs">
-                        <p class="text-xs text-body-black leading-relaxed font-medium">
+                        <p
+                            class="text-xs text-body-black leading-relaxed font-medium"
+                        >
                             Monday to Friday: 9:00 AM – 6:00 PM <br />
                             Weekend appointments upon request.
                         </p>
@@ -304,7 +311,10 @@ const sectionStyles = tv({
             </Card>
 
             <!-- ═══════════ CARD 3: SOCIAL PROFILES ═══════════ -->
-            <Card interactive class="contact-card md:col-span-2 @2xl:col-span-1">
+            <Card
+                interactive
+                class="contact-card md:col-span-2 @2xl:col-span-1"
+            >
                 <CardContent class="flex flex-col gap-4">
                     <div class="flex gap-4 items-center">
                         <div
@@ -331,11 +341,15 @@ const sectionStyles = tv({
                                 ></line>
                             </svg>
                         </div>
-                        <div class="font-heading font-bold text-xl text-title-red">
+                        <div
+                            class="font-heading font-bold text-xl text-title-red"
+                        >
                             Social Profiles
                         </div>
                     </div>
-                    <p class="text-sm text-body-black leading-relaxed font-normal">
+                    <p
+                        class="text-sm text-body-black leading-relaxed font-normal"
+                    >
                         Stay updated with our latest financial literacy tips,
                         company highlights, and life milestones.
                     </p>
@@ -371,7 +385,9 @@ const sectionStyles = tv({
                                     >
                                         Facebook Community
                                     </p>
-                                    <p class="text-xs text-muted-dark font-medium">
+                                    <p
+                                        class="text-xs text-muted-dark font-medium"
+                                    >
                                         Follow on Facebook
                                     </p>
                                 </div>
@@ -423,7 +439,9 @@ const sectionStyles = tv({
                                     >
                                         @TheOnlyAnndeLeon
                                     </p>
-                                    <p class="text-xs text-muted-dark font-medium">
+                                    <p
+                                        class="text-xs text-muted-dark font-medium"
+                                    >
                                         TikTok Channel
                                     </p>
                                 </div>
@@ -457,13 +475,13 @@ const sectionStyles = tv({
 
         <!-- ═══════════ OFFICE & MAP (Full-width card) ═══════════ -->
         <div class="w-full mt-10">
-            <Card class="contact-card overflow-hidden">
+            <Card class="contact-card overflow-hidden !py-0">
                 <div class="grid grid-cols-1 lg:grid-cols-12">
                     <!-- Address details -->
                     <div
                         class="lg:col-span-5 p-6 sm:p-10 lg:p-12 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-black/10"
                     >
-                        <div>
+                        <div class="py-5">
                             <div class="flex items-center gap-3 mb-6">
                                 <div
                                     class="rounded-full bg-primary p-2.5 shadow-md shadow-primary/20 h-fit w-fit shrink-0"
@@ -483,7 +501,8 @@ const sectionStyles = tv({
                                         <path
                                             d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"
                                         ></path>
-                                        <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"
+                                        <path
+                                            d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"
                                         ></path>
                                         <path
                                             d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"
@@ -500,7 +519,9 @@ const sectionStyles = tv({
                                     >
                                         Headquarters & Office
                                     </h3>
-                                    <p class="text-muted-dark text-sm font-medium">
+                                    <p
+                                        class="text-muted-dark text-sm font-medium"
+                                    >
                                         Antel Global Corporate Center
                                     </p>
                                 </div>
@@ -545,14 +566,16 @@ const sectionStyles = tv({
                                                 Doña Julia Vargas Avenue, Ortigas
                                                 Center
                                                 <br />
-                                                San Antonio, Pasig City, 1605
-                                                Metro Manila, Philippines
+                                                San Antonio, Pasig City, 1605 Metro
+                                                Manila, Philippines
                                             </p>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="rounded-xl sub-box p-5 space-y-2 shadow-xs">
+                                <div
+                                    class="rounded-xl sub-box p-5 space-y-2 shadow-xs"
+                                >
                                     <p
                                         class="text-xs uppercase tracking-wider text-muted-dark font-semibold"
                                     >
