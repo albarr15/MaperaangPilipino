@@ -2,6 +2,8 @@
 import SectionHeader from "@/components/header/SectionHeader";
 import Button from "@/components/starwind/button/Button.astro";
 import SectionWrapper from "../SectionWrapper.astro";
+import ctaImg from "@/assets/images/home/family.jpg";
+import { Image } from "astro:assets";
 ---
 
 <SectionWrapper>
@@ -9,10 +11,12 @@ import SectionWrapper from "../SectionWrapper.astro";
         class="relative max-w-5xl mx-auto rounded-2xl ring-1 ring-white/80 p-8 overflow-hidden"
     >
         <div class="absolute inset-0 z-10">
-            <img
-                src="/images/home/family.jpg"
+            <Image
+                src={ctaImg}
                 alt="background"
                 class="w-full h-full object-cover opacity-50 grayscale"
+                widths={[640, 1024, 1536]}
+                sizes="100vw"
             />
         </div>
         <div class="relative z-20">

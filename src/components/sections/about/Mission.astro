@@ -1,8 +1,7 @@
 ---
 import SectionHeader from "@/components/header/SectionHeader";
-import { CardContent } from "@/components/starwind/card";
-import Card from "@/components/starwind/card/Card.astro";
-import Separator from "@/components/starwind/separator/Separator.astro";
+import { Image } from "astro:assets";
+import galleryImg from "@/assets/images/about/pru-gallery.png";
 ---
 
 <section
@@ -20,14 +19,18 @@ import Separator from "@/components/starwind/separator/Separator.astro";
 
         <div class="mt-12 w-full overflow-hidden rounded-2xl shadow-lg">
             <div class="flex w-max animate-marquee">
-                <img
-                    src="/partials/pru-gallery.png"
+                <Image
+                    src={galleryImg}
                     alt="Pru Life UK Gallery"
+                    widths={[640, 1024, 1536]}
+                    sizes="100vw"
                     class="h-[20rem] w-auto max-w-none"
                 />
-                <img
-                    src="/partials/pru-gallery.png"
+                <Image
+                    src={galleryImg}
                     alt="Pru Life UK Gallery"
+                    widths={[640, 1024, 1536]}
+                    sizes="100vw"
                     class="h-[20rem] w-auto !max-w-none"
                     aria-hidden="true"
                 />

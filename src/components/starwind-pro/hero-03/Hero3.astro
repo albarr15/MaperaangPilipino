@@ -24,7 +24,7 @@ interface Props extends HTMLAttributes<"section"> {
   secondaryButtonHref?: string;
   /** Image configuration */
   image?: {
-    src: string | ImageMetadata;
+    src: ImageMetadata;
     alt: string;
   };
 }
@@ -57,6 +57,7 @@ const {
     widths={[640, 1024, 1536]}
     sizes="100vw"
     fetchpriority="high"
+    loading="eager"
   />
   <div
     id="hero-container"
@@ -103,6 +104,7 @@ const {
               widths={[480, 768, 1024]}
               sizes="(max-width: 768px) 100vw, 50vw"
               fetchpriority="high"
+              loading="eager"
             />
           )
         }
