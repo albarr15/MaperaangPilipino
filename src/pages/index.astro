@@ -5,7 +5,7 @@ import WhatWeDo from "@/components/sections/home/WhatWeDo.astro";
 import WhoWeAre from "@/components/sections/home/WhoWeAre.astro";
 import WhyFinancialMatters from "@/components/sections/home/WhyFinancialMatters.astro";
 import Testimonials from "@/components/sections/home/Testimonials.astro";
-import CTA from "@/components/sections/home/CTA.tsx";
+import CTA from "@/components/sections/home/CTA.astro";
 
 import { ThemeInitScript } from "@starwind-ui/astro/theme";
 import "@/styles/starwind.css";
@@ -64,7 +64,7 @@ import FiveSteps from "@/components/sections/home/FiveSteps.astro";
       <WhyFinancialMatters />
       <Testimonials />
       <FrequentlyAsked />
-      <CTA client:load />
+      <CTA />
     </MainLayout>
   </body>
 </html>

@@ -4,8 +4,9 @@ import MainLayout from "@/layouts/MainLayout.astro";
 import CoreSolutions from "@/components/sections/services/CoreSolutions.astro";
 import ServicesGridSection from "@/components/sections/services/ServicesGridSection.astro";
 
-import CTA from "@/components/sections/home/CTA";
+import CTA from "@/components/sections/home/CTA.astro";
 import Hero3 from "@/components/starwind-pro/hero-03/Hero3.astro";
+import servicesHeroImage from "@/assets/images/services/resume-genius-IESB4iFVuzA-unsplash (1).jpg";
 
 import "@/styles/starwind.css";
 import {
@@ -154,7 +155,7 @@ const corporateSolutions = [
         primaryButtonText="Browse Services"
         primaryButtonHref="/services#core-solutions"
         image={{
-          src: "/images/services/resume-genius-IESB4iFVuzA-unsplash (1).jpg",
+          src: servicesHeroImage,
           alt: "Insurance advisor meeting with client",
         }}
       />

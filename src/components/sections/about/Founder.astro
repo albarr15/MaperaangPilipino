@@ -1,8 +1,9 @@
 ---
 import SectionHeader from "@/components/header/SectionHeader";
-import AspectRatio from "@/components/starwind/aspect-ratio/AspectRatio.astro";
 import { Card, CardContent } from "@/components/starwind/card";
 import Separator from "@/components/starwind/separator/Separator.astro";
+import { Image } from "astro:assets";
+import founderImg from "@/assets/images/about/Meet Ann.png";
 ---
 
 <section
@@ -25,9 +26,11 @@ import Separator from "@/components/starwind/separator/Separator.astro";
             <div
                 class="aspect-[4/3] md:aspect-[3/4] overflow-hidden rounded-xl"
             >
-                <img
-                    src="/images/about/Meet Ann.png"
+                <Image
+                    src={founderImg}
                     alt="Christelle Ann De Leon"
+                    widths={[480, 768, 1024]}
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     class="size-full object-cover object-top"
                 />
             </div>

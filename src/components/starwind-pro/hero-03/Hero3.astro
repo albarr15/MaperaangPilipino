@@ -1,10 +1,13 @@
 ---
 import type { HTMLAttributes } from "astro/types";
+import type { ImageMetadata } from "astro";
 import { tv } from "tailwind-variants";
 
 import { AspectRatio } from "@/components/starwind/aspect-ratio";
 
 import Button from "@/components/starwind/button/Button.astro";
+import { Image } from "astro:assets";
+import circleGradientShade from "@/assets/images/circle-gradient-shade.png";
 
 interface Props extends HTMLAttributes<"section"> {
   /** Main heading text */
@@ -21,7 +24,7 @@ interface Props extends HTMLAttributes<"section"> {
   secondaryButtonHref?: string;
   /** Image configuration */
   image?: {
-    src: string;
+    src: ImageMetadata;
     alt: string;
   };
 }
@@ -47,9 +50,14 @@ const {
 ---
 
 <section class={hero3Styles({ class: className })} {...rest}>
-  <img
-    src="/partials/circle-gradient-shade.png"
+  <Image
+    src={circleGradientShade}
+    alt="circle gradient shade"
     class="absolute inset-0 w-full h-full object-cover z-0"
+    widths={[640, 1024, 1536]}
+    sizes="100vw"
+    fetchpriority="high"
+    loading="eager"
   />
   <div
     id="hero-container"
@@ -81,7 +89,25 @@ const {
     </div>
     <div class="">
       <AspectRatio ratio={4 / 3} class="overflow-hidden rounded-lg">
-        <img src={image.src} alt={image.alt} class="size-full object-cover" />
+        {
+          typeof image.src === "string" ? (
+            <img
+              src={image.src}
+              alt={image.alt}
+              class="size-full object-cover"
+            />
+          ) : (
+            <Image
+              src={image.src}
+              alt={image.alt}
+              class="size-full object-cover"
+              widths={[480, 768, 1024]}
+              sizes="(max-width: 768px) 100vw, 50vw"
+              fetchpriority="high"
+              loading="eager"
+            />
+          )
+        }
       </AspectRatio>
     </div>
   </div>

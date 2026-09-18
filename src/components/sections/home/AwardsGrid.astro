@@ -1,14 +1,14 @@
 ---
 import { Image } from "@/components/starwind/image";
-import plukTeam from "/public/images/home/awards-grid/pluk team.jpg";
-import changeOfAgent from "/public/images/home/awards-grid/change of agent.jpg";
-import mrdtMeeting from "/public/images/home/awards-grid/mrdt meeting.jpg";
-import mrdt from "/public/images/home/awards-grid/mrdt.jpg";
-import natlAchiever from "/public/images/home/awards-grid/natl achiever.jpg";
-import riseUp from "/public/images/home/awards-grid/rise up.jpg";
-import thrivingBeyond from "/public/images/home/awards-grid/thriving beyond limits.jpg";
-import topAgent from "/public/images/home/awards-grid/top agent.jpg";
-import main from "/public/images/home/awards-grid/main-transparent.png";
+import plukTeam from "@/assets/images/home/awards-grid/pluk team.jpg";
+import changeOfAgent from "@/assets/images/home/awards-grid/change of agent.jpg";
+import mrdtMeeting from "@/assets/images/home/awards-grid/mrdt meeting.jpg";
+import mrdt from "@/assets/images/home/awards-grid/mrdt.jpg";
+import natlAchiever from "@/assets/images/home/awards-grid/natl achiever.jpg";
+import riseUp from "@/assets/images/home/awards-grid/rise up.jpg";
+import thrivingBeyond from "@/assets/images/home/awards-grid/thriving beyond limits.jpg";
+import topAgent from "@/assets/images/home/awards-grid/top agent.jpg";
+import main from "@/assets/images/home/awards-grid/main-transparent.png";
 import SectionWrapper from "../SectionWrapper.astro";
 ---
 
@@ -24,6 +24,8 @@ import SectionWrapper from "../SectionWrapper.astro";
                     src={natlAchiever}
                     alt="National Achiever Award"
                     class="object-cover h-full object-right"
+                    widths={[480, 768, 1024]}
+                    sizes="(max-width: 768px) 50vw, 25vw"
                 />
             </div>
             <div class="bg-blue-200 order-3 md:order-2">
@@ -31,6 +33,8 @@ import SectionWrapper from "../SectionWrapper.astro";
                     src={mrdt}
                     alt="MRDT Award"
                     class="object-cover h-full"
+                    widths={[480, 768, 1024]}
+                    sizes="(max-width: 768px) 50vw, 25vw"
                 />
             </div>
             <div class="bg-blue-300 order-4 md:order-3">
@@ -38,6 +42,8 @@ import SectionWrapper from "../SectionWrapper.astro";
                     src={topAgent}
                     alt="Top Agent Award"
                     class="object-cover h-full"
+                    widths={[480, 768, 1024]}
+                    sizes="(max-width: 768px) 50vw, 25vw"
                 />
             </div>
             <div class="bg-blue-400 md:row-span-2 order-4 md:order-4">
@@ -45,6 +51,8 @@ import SectionWrapper from "../SectionWrapper.astro";
                     src={changeOfAgent}
                     alt="Change of Agent Award"
                     class="object-cover h-full"
+                    widths={[480, 768, 1024]}
+                    sizes="(max-width: 768px) 50vw, 25vw"
                 />
             </div>
             <div class="bg-card/90 md:row-span-2 col-span-2 order-1 md:order-5">
@@ -80,6 +88,8 @@ import SectionWrapper from "../SectionWrapper.astro";
                         src={main}
                         alt="Christelle Ann De Leon Nationally Recognized"
                         class="object-cover h-full w-2/5 overflow-hidden @md:overflow-visible"
+                        widths={[480, 768, 1024]}
+                        sizes="50vw"
                     />
                 </div>
             </div>
@@ -88,6 +98,8 @@ import SectionWrapper from "../SectionWrapper.astro";
                     src={riseUp}
                     alt="Rise Up Award"
                     class="object-cover h-full"
+                    widths={[480, 768, 1024]}
+                    sizes="(max-width: 768px) 50vw, 25vw"
                 />
             </div>
             <div class="bg-blue-700 order-6 md:order-7">
@@ -95,6 +107,8 @@ import SectionWrapper from "../SectionWrapper.astro";
                     src={mrdtMeeting}
                     alt="MRDT Meeting"
                     class="object-cover h-full"
+                    widths={[480, 768, 1024]}
+                    sizes="(max-width: 768px) 50vw, 25vw"
                 />
             </div>
             <div class="bg-blue-800 order-9 md:order-8">
@@ -102,6 +116,8 @@ import SectionWrapper from "../SectionWrapper.astro";
                     src={thrivingBeyond}
                     alt="Thriving Beyond Limits Award"
                     class="object-cover h-full"
+                    widths={[480, 768, 1024]}
+                    sizes="(max-width: 768px) 50vw, 25vw"
                 />
             </div>
             <div class="bg-blue-900 col-span-2 order-7 md:order-9">
@@ -109,6 +125,8 @@ import SectionWrapper from "../SectionWrapper.astro";
                     src={plukTeam}
                     alt="PLUK Team"
                     class="object-cover h-full"
+                    widths={[480, 768, 1024]}
+                    sizes="(max-width: 768px) 100vw, 50vw"
                 />
             </div>
         </div>

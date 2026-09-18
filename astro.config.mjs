@@ -10,4 +10,11 @@ export default defineConfig({
     cacheDir: ".astro/vite",
     plugins: [tailwindcss()],
   },
+  image: {
+    service: {
+      config: {
+        quality: 70
+      }
+    }
+  }
 });
