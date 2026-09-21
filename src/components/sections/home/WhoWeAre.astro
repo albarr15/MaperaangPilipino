@@ -16,8 +16,14 @@ const { heading, body1, body2, achievements } = Astro.props;
 
 <SectionWrapper>
     <div class="@container w-full">
-        <div class="grid gap-10 @3xl:grid-cols-5 @3xl:gap-12 items-stretch">
-            <div class="@3xl:col-span-3 flex flex-col justify-center gap-5">
+        <div
+            class="grid gap-10 @3xl:grid-cols-5 @3xl:gap-12 items-stretch"
+            id="why-i-became"
+        >
+            <div
+                class="@3xl:col-span-3 flex flex-col justify-center gap-5"
+                id="text-container"
+            >
                 <h2
                     class="font-heading text-3xl font-semibold tracking-tight leading-tight @2xl:text-4xl"
                 >
@@ -36,7 +42,7 @@ const { heading, body1, body2, achievements } = Astro.props;
                 </p>
             </div>
 
-            <div class="@3xl:col-span-2 flex">
+            <div class="@3xl:col-span-2 flex" id="awards-container">
                 <Card class="w-full border-none flex">
                     <CardHeader class="text-2xl font-bold"
                         >Awards & Recognitions</CardHeader
@@ -59,3 +65,43 @@ const { heading, body1, body2, achievements } = Astro.props;
         </div>
     </div>
 </SectionWrapper>
+<script>
+    const textContainer = document.getElementById("text-container");
+    const awardsContainer = document.getElementById("awards-container");
+    const textElements =
+        textContainer?.children as HTMLCollectionOf<HTMLElement>;
+
+    if (textElements) {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        Array.from(textElements).forEach((element, index) => {
+                            setTimeout(() => {
+                                element.classList.add("show");
+                            }, index * 200);
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.2 },
+        );
+        observer.observe(textElements[0]);
+    }
+
+    if (awardsContainer) {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        awardsContainer.classList.add("show");
+                        observer.unobserve(awardsContainer);
+                    }
+                });
+            },
+            { threshold: 0.2 },
+        );
+        observer.observe(awardsContainer);
+    }
+</script>

@@ -214,4 +214,26 @@ footer h3 {
   .show .count-up::after {
     animation-play-state: running;
   }
+
+  #why-i-became #text-container>* {
+    translate: 0 100px;
+    opacity: 0;
+    transition: translate 1s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  #why-i-became #text-container>*.show {
+    translate: 0 0;
+    opacity: 1;
+  }
+
+  #why-i-became #awards-container {
+    opacity: 0;
+    scale: 0.8;
+    transition: scale 1s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  #why-i-became #awards-container.show {
+    scale: 1;
+    opacity: 1;
+  }
 }
