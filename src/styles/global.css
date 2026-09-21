@@ -148,3 +148,16 @@ footer h3 {
     overflow-wrap: anywhere;
   }
 }
+
+@media (prefers-reduced-motion: no-preference) {
+  #awards-grid>div {
+    translate: 0 100px;
+    opacity: 0;
+    transition: translate 1s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  #awards-grid>div.show {
+    translate: 0 0;
+    opacity: 1;
+  }
+}

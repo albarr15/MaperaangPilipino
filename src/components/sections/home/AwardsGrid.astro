@@ -15,11 +15,10 @@ import SectionWrapper from "../SectionWrapper.astro";
 <SectionWrapper>
     <div class="max-w-7xl mx-auto flex flex-col items-center">
         <div
+            id="awards-grid"
             class="grid gap-4 md:grid-cols-4 grid-cols-2 grid-rows-6 *:rounded-xl *:overflow-hidden md:grid-rows-4 h-[1600px] md:h-[800px] w-full"
         >
-            <div
-                class="bg-blue-100 md:row-span-2 md:order-1 order-2 row-span-2"
-            >
+            <div class="md:row-span-2 md:order-1 order-2 row-span-2">
                 <Image
                     src={natlAchiever}
                     alt="National Achiever Award"
@@ -28,7 +27,7 @@ import SectionWrapper from "../SectionWrapper.astro";
                     sizes="(max-width: 768px) 50vw, 25vw"
                 />
             </div>
-            <div class="bg-blue-200 order-3 md:order-2">
+            <div class="order-3 md:order-2">
                 <Image
                     src={mrdt}
                     alt="MRDT Award"
@@ -37,7 +36,7 @@ import SectionWrapper from "../SectionWrapper.astro";
                     sizes="(max-width: 768px) 50vw, 25vw"
                 />
             </div>
-            <div class="bg-blue-300 order-4 md:order-3">
+            <div class="order-4 md:order-3">
                 <Image
                     src={topAgent}
                     alt="Top Agent Award"
@@ -46,7 +45,7 @@ import SectionWrapper from "../SectionWrapper.astro";
                     sizes="(max-width: 768px) 50vw, 25vw"
                 />
             </div>
-            <div class="bg-blue-400 md:row-span-2 order-4 md:order-4">
+            <div class="md:row-span-2 order-4 md:order-4">
                 <Image
                     src={changeOfAgent}
                     alt="Change of Agent Award"
@@ -93,7 +92,7 @@ import SectionWrapper from "../SectionWrapper.astro";
                     />
                 </div>
             </div>
-            <div class="bg-blue-600 md:row-span-2 order-8 md:order-6">
+            <div class="md:row-span-2 order-8 md:order-6">
                 <Image
                     src={riseUp}
                     alt="Rise Up Award"
@@ -102,7 +101,7 @@ import SectionWrapper from "../SectionWrapper.astro";
                     sizes="(max-width: 768px) 50vw, 25vw"
                 />
             </div>
-            <div class="bg-blue-700 order-6 md:order-7">
+            <div class="order-6 md:order-7">
                 <Image
                     src={mrdtMeeting}
                     alt="MRDT Meeting"
@@ -111,7 +110,7 @@ import SectionWrapper from "../SectionWrapper.astro";
                     sizes="(max-width: 768px) 50vw, 25vw"
                 />
             </div>
-            <div class="bg-blue-800 order-9 md:order-8">
+            <div class="order-9 md:order-8">
                 <Image
                     src={thrivingBeyond}
                     alt="Thriving Beyond Limits Award"
@@ -120,7 +119,7 @@ import SectionWrapper from "../SectionWrapper.astro";
                     sizes="(max-width: 768px) 50vw, 25vw"
                 />
             </div>
-            <div class="bg-blue-900 col-span-2 order-7 md:order-9">
+            <div class="col-span-2 order-7 md:order-9">
                 <Image
                     src={plukTeam}
                     alt="PLUK Team"
@@ -132,3 +131,44 @@ import SectionWrapper from "../SectionWrapper.astro";
         </div>
     </div>
 </SectionWrapper>
+<script>
+    const imageContainers = document.querySelectorAll("#awards-grid > div");
+
+    let pending: IntersectionObserverEntry[] = [];
+    let timer: number | null = null;
+
+    function processBatch() {
+        timer = null;
+        const batch = pending;
+        pending = [];
+
+        // Sort by visual position (top → bottom, left → right)
+        batch.sort((a, b) => {
+            const ra = a.boundingClientRect;
+            const rb = b.boundingClientRect;
+            if (Math.abs(ra.top - rb.top) > 10) return ra.top - rb.top;
+            return ra.left - rb.left;
+        });
+
+        batch.forEach((entry, i) => {
+            const el = entry.target as HTMLDivElement;
+            el.style.transitionDelay = `${i * 0.2}s`;
+            el.classList.add("show");
+            observer.unobserve(el);
+        });
+    }
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            for (const entry of entries) {
+                if (entry.isIntersecting) pending.push(entry);
+            }
+            // Wait 50ms to collect all micro-batches, then process together
+            if (pending.length && timer === null) {
+                timer = window.setTimeout(processBatch, 50);
+            }
+        },
+        { threshold: 0.1 },
+    );
+    imageContainers.forEach((el) => observer.observe(el));
+</script>
