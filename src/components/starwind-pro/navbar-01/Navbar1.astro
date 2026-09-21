@@ -70,7 +70,7 @@ const isActive = (path: string) => normalize(pathname) === normalize(path);
     </div>
 
     <!-- Desktop Navigation Links -->
-    <div class="hidden items-center gap-1 @2xl:flex">
+    <div class="hidden items-center gap-1 @3xl:flex">
       {
         links.map((link) => (
           <a
@@ -87,12 +87,12 @@ const isActive = (path: string) => normalize(pathname) === normalize(path);
     </div>
 
     <!-- Desktop CTA Button -->
-    <div class="hidden @2xl:block">
+    <div class="hidden @3xl:block">
       <Button href={ctaHref}>{ctaText}</Button>
     </div>
 
     <!-- Mobile Menu Button -->
-    <div class="@2xl:hidden">
+    <div class="@3xl:hidden">
       <Sheet>
         <SheetTrigger asChild>
           <Button

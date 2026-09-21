@@ -1,7 +1,7 @@
 {
-  "name": "Team CA",
-  "short_name": "Team CA",
-  "description": "Team CA financial services and career opportunities.",
+  "name": "Maperaang Pilipino by Ann De Leon",
+  "short_name": "Maperaang Pilipino",
+  "description": "Protecting families and securing futures through professional life insurance and financial planning services.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
@@ -10,13 +10,13 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/icons/teamca-white-circle-logo.png",
+      "src": "/icons/maperaang-pilipino.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/icons/teamca-white-circle-logo.png",
+      "src": "/icons/maperaang-pilipino.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"

@@ -1,0 +1,97 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { tv } from "tailwind-variants";
+
+import { Button } from "@/components/starwind/button";
+import { Image } from "astro:assets";
+import circleGradientShade from "@/assets/images/circle-gradient-shade.png";
+
+interface Props extends HTMLAttributes<"section"> {
+  /** Main heading text */
+  heading?: string;
+  /** Description text */
+  description?: string;
+  /** Primary button text */
+  primaryButtonText?: string;
+  /** Primary button href */
+  primaryButtonHref?: string;
+  /** Secondary button text (optional - only renders if provided) */
+  secondaryButtonText?: string;
+  /** Secondary button href */
+  secondaryButtonHref?: string;
+}
+
+const hero1Styles = tv({
+  base: "@container mx-auto max-w-7xl w-full px-4 py-20 relative overflow-hidden",
+});
+
+const {
+  heading = "Build Beautiful Websites with Starwind Pro",
+  description = "Create stunning, responsive websites with our modern component library. Get started in minutes and ship faster than ever before.",
+  primaryButtonText = "Get Started",
+  primaryButtonHref = "#",
+  secondaryButtonText,
+  secondaryButtonHref = "#",
+  class: className,
+  ...rest
+} = Astro.props;
+---
+
+<section class={hero1Styles({ class: className })} {...rest}>
+  <Image
+    src={circleGradientShade}
+    alt="circle gradient shade"
+    class="absolute inset-0 w-full h-full object-cover z-0"
+    widths={[640, 1024, 1536]}
+    sizes="100vw"
+    fetchpriority="high"
+    loading="eager"
+  />
+  <div
+    id="hero-container"
+    class="relative mx-auto flex max-w-4xl flex-col items-center text-center z-10"
+  >
+    <h1
+      class="font-heading text-4xl font-semibold tracking-tight @xl:text-5xl @3xl:text-6xl"
+    >
+      {heading}
+    </h1>
+    <p class="text-muted-foreground mt-6 max-w-2xl @xl:text-lg">
+      {description}
+    </p>
+    <div
+      class="mt-8 flex flex-col flex-wrap gap-4 @md:flex-row w-full @md:w-fit"
+    >
+      {
+        primaryButtonText && (
+          <Button href={primaryButtonHref}>{primaryButtonText}</Button>
+        )
+      }
+      {
+        secondaryButtonText && (
+          <Button variant="outline" href={secondaryButtonHref}>
+            {secondaryButtonText}
+          </Button>
+        )
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  import gsap from "gsap";
+
+  const textEl = document.getElementById("hero-container");
+  const sectionEl = textEl?.closest("section");
+
+  if (textEl) {
+    gsap.context(() => {
+      gsap.from(textEl, {
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+      });
+    }, sectionEl || undefined);
+  }
+</script>
