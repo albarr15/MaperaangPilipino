@@ -63,20 +63,35 @@ const containerClasses: Record<string, string> = {
 const currentSize = sizeClasses[size];
 ---
 
-<div class={`mb-8 mx-auto w-full ${alignClasses[align]} ${containerClasses[containerSize]}`}>
-  <h2 class={`font-bold my-7 sm:my-10 ${currentSize.h2}`}>
-    {titleParts ? (
-      titleParts.map((part) => (
-        <span class={part.color === "yellow" ? "text-[--secondary-color]" : "text-[--white-color]"}>
-          {part.text}
-        </span>
-      ))
-    ) : (
-      <span class={colorClasses[color]}>{title}</span>
-    )}
+<div
+  class={`mb-8 mx-auto w-full ${alignClasses[align]} ${containerClasses[containerSize]}`}
+>
+  <h2 class={`font-bold my-7 sm:my-10 ${currentSize.h2} fade-up`}>
+    {
+      titleParts ? (
+        titleParts.map((part) => (
+          <span
+            class={
+              part.color === "yellow"
+                ? "text-[--secondary-color]"
+                : "text-[--white-color]"
+            }
+          >
+            {part.text}
+          </span>
+        ))
+      ) : (
+        <span class={colorClasses[color]}>{title}</span>
+      )
+    }
   </h2>
 
-  {description && (
-    <p class={`mb-5 max-w-3xl mx-auto ${currentSize.p}`}>{description}</p>
-  )}
+  {
+    description && (
+      <p class={`mb-5 max-w-3xl mx-auto ${currentSize.p} fade-up`}>
+        {description}
+      </p>
+    )
+  }
 </div>
+

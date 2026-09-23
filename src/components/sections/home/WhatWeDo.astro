@@ -62,11 +62,12 @@ const services = [
     <div class="mt-14 flex justify-center">
         <div
             class="grid grid-cols-1 md:grid-cols-2 items-start mx-auto gap-8 max-w-7xl"
+            data-stagger-group
         >
             {
                 services.map((service, index) => {
                     return (
-                        <Card class="relative max-w-lg" data-service-card>
+                        <Card class="relative max-w-lg scale-up">
                             <Image
                                 src={service.image}
                                 alt={service.header}
@@ -103,3 +104,4 @@ const services = [
         </div>
     </div>
 </SectionWrapper>
+

@@ -150,17 +150,36 @@ footer h3 {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  #awards-grid>div {
+
+  /* ── Reusable scroll-reveal utilities ────────────────────────────────── */
+  .fade-up {
     translate: 0 100px;
     opacity: 0;
-    transition: translate 1s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition: translate 1s cubic-bezier(0.215, 0.61, 0.355, 1),
+      opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1);
   }
 
-  #awards-grid>div.show {
+  .fade-up.show {
     translate: 0 0;
     opacity: 1;
   }
 
+  .scale-up {
+    scale: 0.8;
+    opacity: 0;
+    transition: scale 1s cubic-bezier(0.215, 0.61, 0.355, 1),
+      opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  .scale-up.show {
+    scale: 1;
+    opacity: 1;
+  }
+
+  /* trigger for .show on Credentials Row (for count up animation) */
+  .reveal {}
+
+  /* ── Count-up number animation (credentials row) ─────────────────────── */
   @property --mentored {
     syntax: "<integer>";
     initial-value: 0;
@@ -179,7 +198,6 @@ footer h3 {
     inherits: true;
   }
 
-
   @keyframes countUp {
     to {
       --mentored: 15;
@@ -191,7 +209,6 @@ footer h3 {
   .count-mentored .count-up::after {
     counter-reset: count var(--mentored);
   }
-
 
   .count-clients .count-up::after {
     counter-reset: count var(--clients);
@@ -213,27 +230,5 @@ footer h3 {
 
   .show .count-up::after {
     animation-play-state: running;
-  }
-
-  #why-i-became #text-container>* {
-    translate: 0 100px;
-    opacity: 0;
-    transition: translate 1s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1);
-  }
-
-  #why-i-became #text-container>*.show {
-    translate: 0 0;
-    opacity: 1;
-  }
-
-  #why-i-became #awards-container {
-    opacity: 0;
-    scale: 0.8;
-    transition: scale 1s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1);
-  }
-
-  #why-i-became #awards-container.show {
-    scale: 1;
-    opacity: 1;
   }
 }

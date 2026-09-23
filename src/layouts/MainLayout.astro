@@ -14,6 +14,8 @@ import Footer from "@/components/footer/Footer.astro";
 </div>
 
 <script>
+  import "@/scripts/ScrollAnimations.ts";
+
   if ("history" in window && "scrollRestoration" in history) {
     history.scrollRestoration = "manual";
   }

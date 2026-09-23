@@ -23,26 +23,27 @@ const { heading, body1, body2, achievements } = Astro.props;
             <div
                 class="@3xl:col-span-3 flex flex-col justify-center gap-5"
                 id="text-container"
+                data-stagger-group
             >
                 <h2
-                    class="font-heading text-3xl font-semibold tracking-tight leading-tight @2xl:text-4xl"
+                    class="font-heading text-3xl font-semibold tracking-tight leading-tight @2xl:text-4xl fade-up"
                 >
                     {heading}
                 </h2>
 
                 <p
-                    class="text-muted-foreground text-base leading-relaxed text-justify"
+                    class="text-muted-foreground text-base leading-relaxed text-justify fade-up"
                 >
                     {body1}
                 </p>
                 <p
-                    class="text-muted-foreground text-base leading-relaxed text-justify"
+                    class="text-muted-foreground text-base leading-relaxed text-justify fade-up"
                 >
                     {body2}
                 </p>
             </div>
 
-            <div class="@3xl:col-span-2 flex" id="awards-container">
+            <div class="@3xl:col-span-2 flex scale-up" id="awards-container">
                 <Card class="w-full border-none flex">
                     <CardHeader class="text-2xl font-bold"
                         >Awards & Recognitions</CardHeader
@@ -65,43 +66,4 @@ const { heading, body1, body2, achievements } = Astro.props;
         </div>
     </div>
 </SectionWrapper>
-<script>
-    const textContainer = document.getElementById("text-container");
-    const awardsContainer = document.getElementById("awards-container");
-    const textElements =
-        textContainer?.children as HTMLCollectionOf<HTMLElement>;
 
-    if (textElements) {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        Array.from(textElements).forEach((element, index) => {
-                            setTimeout(() => {
-                                element.classList.add("show");
-                            }, index * 200);
-                        });
-                        observer.unobserve(entry.target);
-                    }
-                });
-            },
-            { threshold: 0.2 },
-        );
-        observer.observe(textElements[0]);
-    }
-
-    if (awardsContainer) {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        awardsContainer.classList.add("show");
-                        observer.unobserve(awardsContainer);
-                    }
-                });
-            },
-            { threshold: 0.2 },
-        );
-        observer.observe(awardsContainer);
-    }
-</script>
