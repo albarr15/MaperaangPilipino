@@ -43,10 +43,11 @@ const solutions = [
         <div class="mt-12 flex justify-center">
             <div
                 class="flex flex-col sm:flex-row justify-center gap-4 w-full max-w-7xl"
+                data-stagger-group
             >
                 {
                     solutions.map((item) => (
-                        <div class="relative rounded-2xl overflow-hidden group shadow-lg h-[400px] w-full">
+                        <div class="scale-up relative rounded-2xl overflow-hidden group shadow-lg h-[400px] w-full">
                             {/* IMAGE */}
                             <Image
                                 src={item.image}

@@ -22,13 +22,14 @@ const sectionStyles = tv({
         <!-- HEADER -->
         <div
             class="flex flex-col items-center text-center max-w-3xl text-white"
+            data-stagger-group
         >
             <h1
-                class="font-heading text-4xl font-semibold tracking-tight @4xl:text-5xl text-[--secondary-color]"
+                class="fade-up font-heading text-4xl font-semibold tracking-tight @4xl:text-5xl text-[--secondary-color]"
             >
                 Ways to Reach Us
             </h1>
-            <p class="text-white/90 mt-6 text-lg max-w-2xl font-normal">
+            <p class="fade-up text-white/90 mt-6 text-lg max-w-2xl font-normal">
                 Connect with our founder and advisory team directly through any
                 of our official channels.
             </p>
@@ -37,9 +38,10 @@ const sectionStyles = tv({
         <!-- CONTACT CARDS GRID -->
         <div
             class="w-full mt-12 grid gap-4 grid-cols-1 md:grid-cols-2 @2xl:grid-cols-3"
+            data-stagger-group
         >
             <!-- ═══════════ CARD 1: EMAIL ═══════════ -->
-            <Card interactive class="contact-card">
+            <Card interactive class="contact-card scale-up">
                 <CardContent class="flex flex-col gap-4">
                     <div class="flex gap-4 items-center">
                         <div
@@ -186,7 +188,7 @@ const sectionStyles = tv({
             </Card>
 
             <!-- ═══════════ CARD 2: PHONE ═══════════ -->
-            <Card interactive class="contact-card">
+            <Card interactive class="contact-card scale-up">
                 <CardContent class="flex flex-col gap-4">
                     <div class="flex gap-4 items-center">
                         <div
@@ -313,7 +315,7 @@ const sectionStyles = tv({
             <!-- ═══════════ CARD 3: SOCIAL PROFILES ═══════════ -->
             <Card
                 interactive
-                class="contact-card md:col-span-2 @2xl:col-span-1"
+                class="contact-card md:col-span-2 @2xl:col-span-1 scale-up"
             >
                 <CardContent class="flex flex-col gap-4">
                     <div class="flex gap-4 items-center">
@@ -474,7 +476,7 @@ const sectionStyles = tv({
         </div>
 
         <!-- ═══════════ OFFICE & MAP (Full-width card) ═══════════ -->
-        <div class="w-full mt-10">
+        <div class="w-full mt-10 scale-up">
             <Card class="contact-card overflow-hidden !py-0">
                 <div class="grid grid-cols-1 lg:grid-cols-12">
                     <!-- Address details -->
