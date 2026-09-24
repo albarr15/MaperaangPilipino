@@ -17,6 +17,7 @@ function initScrollAnimations() {
       ".fade-up:not([data-stagger-group] *):not([data-custom-observer] *)",
       ".scale-up:not([data-stagger-group] *):not([data-custom-observer] *)",
       ".reveal:not([data-stagger-group] *):not([data-custom-observer] *)",
+      ".slide-down:not([data-stagger-group] *):not([data-custom-observer] *)",
     ].join(", "),
   );
 
@@ -42,7 +43,7 @@ function initScrollAnimations() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const children = entry.target.querySelectorAll<HTMLElement>(
-            ".fade-up, .scale-up, .reveal",
+            ".fade-up, .scale-up, .reveal, .slide-down",
           );
           children.forEach((child, index) => {
             setTimeout(() => {

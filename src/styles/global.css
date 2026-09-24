@@ -179,6 +179,16 @@ footer h3 {
   /* trigger for .show on Credentials Row (for count up animation) */
   .reveal {}
 
+  .slide-down {
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 1s linear;
+  }
+
+  .slide-down.show {
+    transform: scaleY(1);
+  }
+
   /* ── Count-up number animation (credentials row) ─────────────────────── */
   @property --mentored {
     syntax: "<integer>";
