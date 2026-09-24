@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/starwind/card";
 import Separator from "@/components/starwind/separator/Separator.astro";
 import { Image } from "astro:assets";
 import founderImg from "@/assets/images/about/Meet Ann.png";
+import CredentialsRow from "../home/CredentialsRow.astro";
 ---
 
 <section
@@ -24,7 +25,7 @@ import founderImg from "@/assets/images/about/Meet Ann.png";
     >
         <div class="md:col-span-2 md:h-full">
             <div
-                class="aspect-[4/3] md:aspect-[3/4] overflow-hidden rounded-xl"
+                class="scale-up aspect-[4/3] md:aspect-[3/4] overflow-hidden rounded-xl"
             >
                 <Image
                     src={founderImg}
@@ -36,12 +37,15 @@ import founderImg from "@/assets/images/about/Meet Ann.png";
             </div>
         </div>
 
-        <div class="md:col-span-3 flex flex-col justify-center gap-4">
-            <h2 class="text-2xl md:text-4xl font-bold">
+        <div
+            class="md:col-span-3 flex flex-col justify-center gap-4"
+            data-stagger-group
+        >
+            <h2 class="scale-up text-2xl md:text-4xl font-bold">
                 Christelle Ann de Leon, CIA, CEPP
             </h2>
 
-            <div class="flex flex-col gap-2 leading-none">
+            <div class="fade-up flex flex-col gap-2 leading-none">
                 <span
                     >Bachelor of Arts in Theater Arts - Major in Direction and
                     Performance</span
@@ -52,12 +56,13 @@ import founderImg from "@/assets/images/about/Meet Ann.png";
                     <li>Million Dollar Round Table Runner</li>
                 </ul>
             </div>
-            <Separator class="mb-4" />
+            <Separator class="fade-up mb-4" />
 
             <div
                 class="text-white/70 text-sm md:text-base leading-relaxed space-y-4 text-justify"
+                data-stagger-group
             >
-                <p>
+                <p class="fade-up">
                     My career didn't start in finance. It started on stage,
                     where I worked as a production manager, costume designer,
                     performer, and entrepreneur running my own events business,
@@ -65,7 +70,7 @@ import founderImg from "@/assets/images/about/Meet Ann.png";
                     of everything I did.
                 </p>
 
-                <p>
+                <p class="fade-up">
                     When the 2020 pandemic brought the entertainment industry to
                     a halt, I needed a new path, one that offered flexibility
                     without dimming my drive to build something meaningful. I
@@ -81,7 +86,7 @@ import founderImg from "@/assets/images/about/Meet Ann.png";
                     10% of financial advisors nationwide.
                 </p>
 
-                <p>
+                <p class="fade-up">
                     Today, as a <span class="text-yellow-200"
                         >Junior Unit Manager</span
                     > and mother of two, I bring the same creativity and purpose that
@@ -92,37 +97,9 @@ import founderImg from "@/assets/images/about/Meet Ann.png";
         </div>
     </div>
 
-    <Card class="mx-auto w-full max-w-3xl mt-12 px-4 sm:px-8">
+    <Card class="mx-auto w-full max-w-3xl mt-12 px-4 sm:px-8 scale-up">
         <CardContent>
-            <div
-                class="flex gap-x-8 gap-y-4 flex-col sm:flex-row
-                    text-center sm:mt-2 mt-0"
-            >
-                <div class="flex flex-1 basis-0 flex-col items-center">
-                    <span class="font-bold text-primary text-4xl">260+</span>
-                    <span class="leading-none text-sm">clients guided</span>
-                </div>
-                <Separator
-                    orientation="vertical"
-                    class="bg-primary h-auto sm:block hidden"
-                />
-                <Separator class="bg-primary sm:hidden block" />
-                <div class="flex flex-1 basis-0 flex-col items-center">
-                    <span class="font-bold text-primary text-4xl">₱400M+</span>
-                    <span class="leading-none text-sm">in claims managed</span>
-                </div>
-                <Separator
-                    orientation="vertical"
-                    class="bg-primary h-auto sm:block hidden"
-                />
-                <Separator class="bg-primary sm:hidden block" />
-                <div class="flex flex-1 basis-0 flex-col items-center">
-                    <span class="font-bold text-primary text-4xl">15</span>
-                    <span class="leading-none text-sm"
-                        >financial advisors mentored</span
-                    >
-                </div>
-            </div>
+            <CredentialsRow layout="card" />
         </CardContent>
     </Card>
 </section>
