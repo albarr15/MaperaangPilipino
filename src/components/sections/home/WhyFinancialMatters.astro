@@ -2,25 +2,27 @@
 import { Card, CardContent } from "@/components/starwind/card";
 import SectionWrapper from "../SectionWrapper.astro";
 import { DollarSign, TrendingUp, ShieldCheck, HelpCircle } from "lucide-react";
+import SectionHeader from "@/components/header/SectionHeader.astro";
 ---
 
 <SectionWrapper>
     <div class="max-w-6xl mx-auto text-center">
-        <h2
-            class="text-3xl xs:text-4xl sm:text-5xl font-bold mb-4 leading-tight"
-        >
-            Why Financial Matters
-        </h2>
-        <p class="mb-12 sm:mb-16 max-w-4xl mx-auto text-base sm:text-xl">
-            Understanding your finances helps you make smarter decisions, build
-            stability, and achieve long-term success.
-        </p>
+        <SectionHeader
+            title="Why Financial Matters"
+            description="Understanding your finances helps you make smarter decisions,
+            build stability, and achieve long-term success."
+            align="center"
+            size="lg"
+        />
 
         <div
             class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 items-center relative"
+            data-stagger-group
         >
             <!-- Start -->
-            <div class="flex flex-row items-center gap-4 relative px-1 sm:px-4">
+            <div
+                class="fade-up flex flex-row items-center gap-4 relative px-1 sm:px-4"
+            >
                 <div class="p-1 flex-shrink-0 text-[--secondary-color]">
                     <!-- DollarSign -->
                     <DollarSign size={48} />
@@ -31,7 +33,9 @@ import { DollarSign, TrendingUp, ShieldCheck, HelpCircle } from "lucide-react";
             </div>
 
             <!-- Grow -->
-            <div class="flex flex-row items-center gap-4 relative px-1 sm:px-4">
+            <div
+                class="fade-up flex flex-row items-center gap-4 relative px-1 sm:px-4"
+            >
                 <div class="p-1 flex-shrink-0 text-[--secondary-color]">
                     <TrendingUp size={48} />
                 </div>
@@ -41,7 +45,9 @@ import { DollarSign, TrendingUp, ShieldCheck, HelpCircle } from "lucide-react";
             </div>
 
             <!-- Protect -->
-            <div class="flex flex-row items-center gap-4 relative px-1 sm:px-4">
+            <div
+                class="fade-up flex flex-row items-center gap-4 relative px-1 sm:px-4"
+            >
                 <div class="p-1 flex-shrink-0 text-[--secondary-color]">
                     <ShieldCheck size={48} />
                 </div>
@@ -52,7 +58,7 @@ import { DollarSign, TrendingUp, ShieldCheck, HelpCircle } from "lucide-react";
         </div>
 
         <!-- Did you know card -->
-        <Card interactive class="mt-14 max-w-4xl mx-auto">
+        <Card interactive class="fade-up mt-14 max-w-4xl mx-auto">
             <CardContent>
                 <div
                     class="flex flex-col xs:flex-row items-center text-primary items-start"

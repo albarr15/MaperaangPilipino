@@ -2,7 +2,7 @@
 import SectionWrapper from "../SectionWrapper.astro";
 import { Image } from "astro:assets";
 import familyImg from "@/assets/images/home/pexels-ian-panelo-10281132.jpg";
-import SectionHeader from "@/components/header/SectionHeader";
+import SectionHeader from "@/components/header/SectionHeader.astro";
 import BeneficiaryContainer from "@/components/cards/BeneficiaryContainer.astro";
 import equalityImg from "@/assets/images/home/pexels-pavel-danilyuk-8552371.jpg";
 import retirementImg from "@/assets/images/home/pexels-marc-16519711.jpg";
@@ -53,6 +53,7 @@ const beneficiaries = [
             beneficiaries.map((beneficiary, index) => {
                 return (
                     <BeneficiaryContainer
+                        data-stagger-group
                         beneficiary={beneficiary}
                         index={index}
                     />

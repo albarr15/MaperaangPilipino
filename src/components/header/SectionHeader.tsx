@@ -1,3 +1,9 @@
+/**
+ * React/TSX version of SectionHeader — kept for TSX consumers
+ * (e.g. FinancialAdvisors.tsx, Interns.tsx).
+ *
+ * The canonical version is SectionHeader.astro — use that in .astro files.
+ */
 import React from "react";
 
 type SectionHeaderProps = {
