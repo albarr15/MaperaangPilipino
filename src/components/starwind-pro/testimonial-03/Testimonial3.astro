@@ -9,6 +9,7 @@ import {
 } from "@/components/starwind/avatar";
 import { Card, CardContent } from "@/components/starwind/card";
 import Button from "@/components/starwind/button/Button.astro";
+import SectionHeader from "@/components/header/SectionHeader.astro";
 
 /** Testimonial data */
 export interface Testimonial {
@@ -45,16 +46,7 @@ const {
 ---
 
 <section class={testimonial3Styles({ class: className })} {...rest}>
-  <div class="mb-16 text-center" data-stagger-group>
-    <h2
-      class="fade-up font-heading text-3xl font-bold tracking-tight text-pretty @2xl:text-4xl"
-    >
-      {heading}
-    </h2>
-    <p class="fade-up text-muted-foreground mt-4 text-lg text-pretty">
-      {description}
-    </p>
-  </div>
+  <SectionHeader heading={heading} description={description} />
 
   <div
     class="grid gap-6 @xl:grid-cols-2 @3xl:grid-cols-3 @3xl:gap-8 items-start"

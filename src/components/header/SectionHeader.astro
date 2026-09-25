@@ -1,97 +1,20 @@
 ---
 interface Props {
-  title?: string | null;
+  heading?: string | null;
   description?: string | null;
-  align?: "left" | "center" | "right";
-  color?: "yellow" | "white";
-  size?: "xs" | "sm" | "lg" | "xl";
-  containerSize?: "sm" | "md" | "lg" | "xl" | "full";
-  titleParts?: {
-    text: string;
-    color?: "yellow" | "white";
-  }[];
+  class?: string;
 }
 
-const {
-  title,
-  description,
-  align = "left",
-  color = "white",
-  size = "lg",
-  containerSize = "lg",
-  titleParts,
-} = Astro.props;
-
-const alignClasses: Record<string, string> = {
-  left: "text-left",
-  center: "text-center",
-  right: "text-right",
-};
-
-const colorClasses: Record<string, string> = {
-  white: "text-[--white-color]",
-  yellow: "text-[--secondary-color]",
-};
-
-const sizeClasses: Record<string, { h2: string; p: string }> = {
-  xs: {
-    h2: "text-xl sm:text-2xl lg:text-3xl leading-tight",
-    p: "text-sm sm:text-base lg:text-lg",
-  },
-  sm: {
-    h2: "text-2xl sm:text-3xl lg:text-4xl leading-tight",
-    p: "text-base sm:text-lg lg:text-xl",
-  },
-  lg: {
-    h2: "text-3xl sm:text-4xl lg:text-5xl leading-tight",
-    p: "text-base sm:text-xl lg:text-2xl",
-  },
-  xl: {
-    h2: "text-3xl xs:text-4xl sm:text-5xl lg:text-6xl leading-tight",
-    p: "text-base sm:text-xl lg:text-xl",
-  },
-};
-
-const containerClasses: Record<string, string> = {
-  sm: "max-w-2xl",
-  md: "max-w-4xl",
-  lg: "max-w-6xl",
-  xl: "max-w-7xl",
-  full: "max-w-full",
-};
-
-const currentSize = sizeClasses[size];
+const { heading, description, class: className, ...rest } = Astro.props;
 ---
 
-<div
-  class={`mb-8 mx-auto w-full ${alignClasses[align]} ${containerClasses[containerSize]}`}
->
-  <h2 class={`font-bold my-7 sm:my-10 ${currentSize.h2} fade-up`}>
-    {
-      titleParts ? (
-        titleParts.map((part) => (
-          <span
-            class={
-              part.color === "yellow"
-                ? "text-[--secondary-color]"
-                : "text-[--white-color]"
-            }
-          >
-            {part.text}
-          </span>
-        ))
-      ) : (
-        <span class={colorClasses[color]}>{title}</span>
-      )
-    }
+<div class={`mx-auto max-w-5xl text-center mb-16 ${className}`} {...rest}>
+  <h2
+    class="fade-up font-heading mt-4 text-balance text-3xl font-semibold tracking-tight lg:text-4xl xl:text-5xl"
+  >
+    {heading}
   </h2>
-
-  {
-    description && (
-      <p class={`mb-5 max-w-3xl mx-auto ${currentSize.p} fade-up`}>
-        {description}
-      </p>
-    )
-  }
+  <p class="fade-up text-muted-foreground mt-4 text-pretty lg:text-lg">
+    {description}
+  </p>
 </div>
-

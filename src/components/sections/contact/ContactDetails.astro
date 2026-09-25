@@ -1,4 +1,5 @@
 ---
+import SectionHeader from "@/components/header/SectionHeader.astro";
 import { Card, CardContent, CardFooter } from "@/components/starwind/card";
 import { tv } from "tailwind-variants";
 
@@ -20,20 +21,11 @@ const sectionStyles = tv({
 <section id="contact-details" class={sectionStyles()}>
     <div class="flex flex-col items-center w-full max-w-7xl">
         <!-- HEADER -->
-        <div
-            class="flex flex-col items-center text-center max-w-3xl text-white"
-            data-stagger-group
-        >
-            <h1
-                class="fade-up font-heading text-4xl font-semibold tracking-tight @4xl:text-5xl text-[--secondary-color]"
-            >
-                Ways to Reach Us
-            </h1>
-            <p class="fade-up text-white/90 mt-6 text-lg max-w-2xl font-normal">
-                Connect with our founder and advisory team directly through any
-                of our official channels.
-            </p>
-        </div>
+        <SectionHeader
+            heading="Ways to Reach Us"
+            description="Connect with our founder and advisory team directly through any
+                of our official channels."
+        />
 
         <!-- CONTACT CARDS GRID -->
         <div

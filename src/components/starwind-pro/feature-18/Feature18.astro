@@ -1,4 +1,5 @@
 ---
+import SectionHeader from "@/components/header/SectionHeader.astro";
 import type { HTMLAttributes } from "astro/types";
 import type { LucideIcon } from "lucide-react";
 import { tv } from "tailwind-variants";
@@ -36,16 +37,7 @@ const {
 ---
 
 <section class={sectionStyles({ class: className })} {...rest}>
-  <div class="mx-auto max-w-7xl text-center" data-stagger-group>
-    <h2
-      class="fade-up font-heading mt-4 text-3xl font-semibold tracking-tight @xl:text-4xl @3xl:text-5xl"
-    >
-      {heading}
-    </h2>
-    <p class="fade-up text-muted-foreground mt-4 text-pretty @xl:text-lg">
-      {description}
-    </p>
-  </div>
+  <SectionHeader heading={heading} description={description} />
 
   <div class="mx-auto mt-16 max-w-4xl">
     <ol class="relative space-y-12">
