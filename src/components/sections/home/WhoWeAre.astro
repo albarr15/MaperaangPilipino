@@ -3,6 +3,7 @@ import { tv } from "tailwind-variants";
 import { Card, CardContent } from "@/components/starwind/card";
 import CardHeader from "@/components/starwind/card/CardHeader.astro";
 import SectionWrapper from "../SectionWrapper.astro";
+import SectionHeader from "@/components/header/SectionHeader.astro";
 
 interface Props {
     heading?: string;
@@ -14,7 +15,7 @@ interface Props {
 const { heading, body1, body2, achievements } = Astro.props;
 ---
 
-<SectionWrapper>
+<SectionWrapper variant="primary">
     <div class="@container w-full">
         <div
             class="grid gap-10 @3xl:grid-cols-5 @3xl:gap-12 items-stretch"
@@ -25,11 +26,7 @@ const { heading, body1, body2, achievements } = Astro.props;
                 id="text-container"
                 data-stagger-group
             >
-                <h2
-                    class="font-heading text-3xl font-semibold tracking-tight leading-tight @2xl:text-4xl fade-up"
-                >
-                    {heading}
-                </h2>
+                <SectionHeader heading={heading} class="!mb-0 !text-left" />
 
                 <p
                     class="text-muted-foreground text-base leading-relaxed text-justify fade-up"
@@ -44,7 +41,7 @@ const { heading, body1, body2, achievements } = Astro.props;
             </div>
 
             <div class="@3xl:col-span-2 flex scale-up" id="awards-container">
-                <Card class="w-full border-none flex">
+                <Card class="w-full flex h-fit">
                     <CardHeader class="text-2xl font-bold"
                         >Awards & Recognitions</CardHeader
                     >

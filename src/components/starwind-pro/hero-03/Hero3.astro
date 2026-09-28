@@ -53,7 +53,7 @@ const {
   <Image
     src={circleGradientShade}
     alt="circle gradient shade"
-    class="absolute inset-0 w-full h-full object-cover z-0"
+    class="absolute inset-0 w-full h-full object-cover z-0 opacity-70"
     widths={[640, 1024, 1536]}
     sizes="100vw"
     fetchpriority="high"
@@ -65,7 +65,7 @@ const {
   >
     <div class="flex flex-col">
       <h1
-        class="font-heading text-4xl font-semibold tracking-tight @4xl:text-5xl"
+        class="text-primary font-heading text-4xl font-semibold tracking-tight @4xl:text-5xl"
       >
         {heading}
       </h1>
@@ -75,7 +75,9 @@ const {
       <div class="mt-8 flex flex-col flex-wrap gap-4 @md:flex-row">
         {
           primaryButtonText && (
-            <Button href={primaryButtonHref}>{primaryButtonText}</Button>
+            <Button variant="primary" href={primaryButtonHref}>
+              {primaryButtonText}
+            </Button>
           )
         }
         {

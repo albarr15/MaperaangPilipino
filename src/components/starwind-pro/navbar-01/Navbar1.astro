@@ -37,7 +37,7 @@ interface Props extends HTMLAttributes<"nav"> {
 
 // you could also swap "sticky" for "fixed"
 const navStyles = tv({
-  base: "fixed bg-black/10 @container inset-x-0 top-0 z-50 border-b border-white/20 backdrop-blur-md",
+  base: "fixed bg-primary @container inset-x-0 top-0 z-50 backdrop-blur-md text-white",
 });
 
 const {
@@ -88,7 +88,9 @@ const isActive = (path: string) => normalize(pathname) === normalize(path);
 
     <!-- Desktop CTA Button -->
     <div class="hidden @3xl:block">
-      <Button href={ctaHref}>{ctaText}</Button>
+      <Button href={ctaHref} variant="outline" class="hover:text-white"
+        >{ctaText}</Button
+      >
     </div>
 
     <!-- Mobile Menu Button -->
