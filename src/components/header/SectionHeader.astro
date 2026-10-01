@@ -5,19 +5,7 @@ interface Props {
   heading?: string | null;
   description?: string | null;
   class?: string;
-  variant?: "primary" | "white" | "black";
 }
-
-// TODO: finish new styles
-const headerStyles = tv({
-  base: "w-full py-20 px-6 md:px-12 lg:px-20 flex flex-col",
-  variants: {
-    variant: {
-      default: "",
-      primary: "bg-primary/80",
-    },
-  },
-});
 
 const { heading, description, class: className, ...rest } = Astro.props;
 ---
@@ -28,7 +16,7 @@ const { heading, description, class: className, ...rest } = Astro.props;
   >
     {heading}
   </h2>
-  <p class="fade-up text-muted-foreground mt-4 text-pretty lg:text-lg">
+  <p class="fade-up text-muted-foreground mt-4 text-balance lg:text-lg">
     {description}
   </p>
 </div>
