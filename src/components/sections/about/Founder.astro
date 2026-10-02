@@ -5,13 +5,11 @@ import Separator from "@/components/starwind/separator/Separator.astro";
 import { Image } from "astro:assets";
 import founderImg from "@/assets/images/about/Meet Ann.png";
 import CredentialsRow from "../home/CredentialsRow.astro";
+import SectionWrapper from "../SectionWrapper.astro";
 ---
 
-<section
-    class="relative w-full py-20 px-6 md:px-12 lg:px-20 min-h-[60vh] text-white overflow-hidden"
-    id="founder"
->
-    <div class="relative z-10 max-w-7xl mx-auto">
+<SectionWrapper variant="primary">
+    <div id="founder" class="relative z-10 max-w-7xl mx-auto">
         <SectionHeader heading="Meet Ann" />
     </div>
 
@@ -54,14 +52,14 @@ import CredentialsRow from "../home/CredentialsRow.astro";
             <Separator class="fade-up mb-4" />
 
             <div
-                class="text-white/70 text-sm md:text-base leading-relaxed space-y-4 text-justify"
+                class="text-sm md:text-base leading-relaxed space-y-4 text-justify"
                 data-stagger-group
             >
                 <p class="fade-up">
                     My career didn't start in finance. It started on stage,
                     where I worked as a production manager, costume designer,
                     performer, and entrepreneur running my own events business,
-                    with <span class="text-yellow-200">creativity</span> at the heart
+                    with <span class="text-primary">creativity</span> at the heart
                     of everything I did.
                 </p>
 
@@ -71,18 +69,18 @@ import CredentialsRow from "../home/CredentialsRow.astro";
                     without dimming my drive to build something meaningful. I
                     came across the opportunity through a former classmate
                     already working in the industry, and after learning more
-                    about <span class="text-yellow-200">Pru Life UK</span>'s
+                    about <span class="text-primary">Pru Life UK</span>'s
                     culture of financial education, professional training, and
                     growth, I decided to make the shift. I earned <span
-                        class="text-yellow-200">Top 1 Rookie of the Year</span
+                        class="text-primary">Top 1 Rookie of the Year</span
                     > in my first year and went on to qualify for the <span
-                        class="text-yellow-200">Early Achiever Club</span
+                        class="text-primary">Early Achiever Club</span
                     > for five consecutive years, a distinction held by only the top
                     10% of financial advisors nationwide.
                 </p>
 
                 <p class="fade-up">
-                    Today, as a <span class="text-yellow-200"
+                    Today, as a <span class="text-primary"
                         >Junior Unit Manager</span
                     > and mother of two, I bring the same creativity and purpose that
                     defined my early career into my work protecting Filipino families
@@ -97,4 +95,4 @@ import CredentialsRow from "../home/CredentialsRow.astro";
             <CredentialsRow layout="card" />
         </CardContent>
     </Card>
-</section>
+</SectionWrapper>

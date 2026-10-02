@@ -2,6 +2,7 @@
 import { tv } from "tailwind-variants";
 import { Card, CardContent } from "@/components/starwind/card";
 import SectionHeader from "@/components/header/SectionHeader.astro";
+import SectionWrapper from "@/components/sections/SectionWrapper.astro";
 
 interface Props {
     heading?: string;
@@ -11,7 +12,7 @@ interface Props {
 }
 
 const movementStyles = tv({
-    base: "@container w-full py-20 px-6 md:px-12 lg:px-20 flex flex-col items-center",
+    base: "@container w-full px-4 flex flex-col items-center",
 });
 
 const {
@@ -25,46 +26,48 @@ const {
 const [beforeBrand, afterBrand] = body.split(brandName);
 ---
 
-<section class={movementStyles()}>
-    <div
-        class="w-full max-w-7xl grid gap-10 @3xl:grid-cols-5 @3xl:gap-12 items-stretch"
-    >
+<SectionWrapper variant="primary">
+    <section class={movementStyles()}>
         <div
-            class="@3xl:col-span-3 flex flex-col justify-center gap-5"
-            data-stagger-group
+            class="w-full max-w-7xl grid gap-10 @3xl:grid-cols-5 @3xl:gap-12 items-stretch"
         >
-            <SectionHeader heading={heading} class="!text-left !mb-4" />
-
-            <p
-                class="fade-up text-muted-foreground text-base leading-relaxed text-justify"
+            <div
+                class="@3xl:col-span-3 flex flex-col justify-center gap-5"
+                data-stagger-group
             >
-                {beforeBrand}<a
-                    class="!text-yellow-200 hover:underline font-medium"
-                    href="https://www.facebook.com/MaperaangPilipino"
-                    >{brandName}</a
-                >{afterBrand}
-            </p>
-        </div>
+                <SectionHeader heading={heading} class="!text-left !mb-4" />
 
-        <div class="scale-up @3xl:col-span-2 flex">
-            <Card class="w-full border-none flex">
-                <CardContent
-                    class="flex flex-col justify-center gap-4 p-8 h-full relative"
+                <p
+                    class="fade-up text-muted-foreground text-base leading-relaxed text-justify"
                 >
-                    <span
-                        class="text-primary/20 font-heading text-9xl leading-none absolute md:top-4 top-0 left-4"
-                        >&ldquo;</span
+                    {beforeBrand}<a
+                        class="text-primary hover:underline font-medium"
+                        href="https://www.facebook.com/MaperaangPilipino"
+                        >{brandName}</a
+                    >{afterBrand}
+                </p>
+            </div>
+
+            <div class="scale-up @3xl:col-span-2 flex">
+                <Card class="w-full border-none flex">
+                    <CardContent
+                        class="flex flex-col justify-center gap-4 p-8 h-full relative"
                     >
-                    <blockquote
-                        class="text-xl pt-4 leading-relaxed font-medium -mt-6 text-foreground"
-                    >
-                        {quote}
-                    </blockquote>
-                    <cite class="text-muted-foreground"
-                        >-Christelle Ann De Leon, CIA, CEPP</cite
-                    >
-                </CardContent>
-            </Card>
+                        <span
+                            class="text-primary/20 font-heading text-9xl leading-none absolute md:top-4 top-0 left-4"
+                            >&ldquo;</span
+                        >
+                        <blockquote
+                            class="text-xl pt-4 leading-relaxed font-medium -mt-6 text-foreground"
+                        >
+                            {quote}
+                        </blockquote>
+                        <cite class="text-muted-foreground"
+                            >-Christelle Ann De Leon, CIA, CEPP</cite
+                        >
+                    </CardContent>
+                </Card>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+</SectionWrapper>
