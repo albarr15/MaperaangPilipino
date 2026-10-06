@@ -11,7 +11,7 @@ import Button from "@/components/starwind/button/Button.astro";
 import { Image } from "@/components/starwind/image";
 
 import personalServicesImg from "@/assets/images/services/national-cancer-institute-xDSD3Vmzh70-unsplash.jpg";
-import corporateServicesImg from "@/assets/images/services/photo-1508385082359-f38ae991e8f2.avif";
+import corporateServicesImg from "@/assets/images/services/vitaly-gariev-yQhNMgl5Lag-unsplash.jpg";
 import SectionWrapper from "../SectionWrapper.astro";
 
 const services = [
@@ -66,14 +66,17 @@ const services = [
                 services.map((service, index) => {
                     return (
                         <div class="scale-up">
-                            <Card class="relative max-w-lg ">
-                                <Image
-                                    src={service.image}
-                                    alt={service.header}
-                                    class="aspect-video object-cover w-full h-full"
-                                    widths={[480, 768, 1024]}
-                                    sizes="(max-width: 768px) 100vw, 50vw"
-                                />
+                            <Card class="relative max-w-lg !pt-0 overflow-hidden">
+                                <div class="relative overflow-hidden">
+                                    <Image
+                                        src={service.image}
+                                        alt={service.header}
+                                        class="aspect-video object-cover w-full h-full transition-transform duration-500 group-hover/card:scale-105"
+                                        widths={[480, 768, 1024]}
+                                        sizes="(max-width: 768px) 100vw, 50vw"
+                                    />
+                                    <div class="absolute inset-0 w-full h-full bg-gradient-to-t from-red-900/60 to-transparent" />
+                                </div>
                                 <CardHeader>
                                     <CardTitle class="font-bold">
                                         {service.header}
