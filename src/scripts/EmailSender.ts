@@ -110,7 +110,7 @@ function setupContactForm() {
                 TEMPLATE_ID,
                 templateParams,
             );
-            toast.success("Success!", { description: "Your consultation request has been sent. We will get back to you as soon as possible." });
+            toast.success("Success!", { description: "Your consultation request has been sent. I will get back to you as soon as possible." });
             form.reset();
 
             // form.reset() doesn't fire starwind:value-change, so manually
