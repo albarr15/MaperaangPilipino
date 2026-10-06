@@ -65,37 +65,41 @@ const services = [
             {
                 services.map((service, index) => {
                     return (
-                        <Card class="relative max-w-lg scale-up">
-                            <Image
-                                src={service.image}
-                                alt={service.header}
-                                class="aspect-video object-cover w-full h-full"
-                                widths={[480, 768, 1024]}
-                                sizes="(max-width: 768px) 100vw, 50vw"
-                            />
-                            <CardHeader>
-                                <CardTitle class="font-bold">
-                                    {service.header}
-                                </CardTitle>
-                                <CardDescription>
-                                    <div class="flex flex-col gap-8 items-start">
-                                        <span class="text-justify">
-                                            {service.description}
-                                        </span>
-                                        <ul class="grid grid-cols-2 gap-4 text-left list-disc pl-5">
-                                            {service.list.map((item, index) => {
-                                                return <li>{item}</li>;
-                                            })}
-                                        </ul>
-                                    </div>
-                                </CardDescription>
-                            </CardHeader>
-                            <CardFooter>
-                                <Button class="w-full" href={service.href}>
-                                    View All
-                                </Button>
-                            </CardFooter>
-                        </Card>
+                        <div class="scale-up">
+                            <Card class="relative max-w-lg ">
+                                <Image
+                                    src={service.image}
+                                    alt={service.header}
+                                    class="aspect-video object-cover w-full h-full"
+                                    widths={[480, 768, 1024]}
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                />
+                                <CardHeader>
+                                    <CardTitle class="font-bold">
+                                        {service.header}
+                                    </CardTitle>
+                                    <CardDescription>
+                                        <div class="flex flex-col gap-8 items-start">
+                                            <span class="text-justify">
+                                                {service.description}
+                                            </span>
+                                            <ul class="grid grid-cols-2 gap-4 text-left list-disc pl-5">
+                                                {service.list.map(
+                                                    (item, index) => {
+                                                        return <li>{item}</li>;
+                                                    },
+                                                )}
+                                            </ul>
+                                        </div>
+                                    </CardDescription>
+                                </CardHeader>
+                                <CardFooter>
+                                    <Button class="w-full" href={service.href}>
+                                        View All
+                                    </Button>
+                                </CardFooter>
+                            </Card>
+                        </div>
                     );
                 })
             }

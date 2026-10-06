@@ -56,28 +56,32 @@ import SectionHeader from "@/components/header/SectionHeader.astro";
         </div>
 
         <!-- Did you know card -->
-        <Card interactive class="fade-up mt-14 max-w-4xl mx-auto">
-            <CardContent>
-                <div
-                    class="flex flex-col xs:flex-row items-center text-primary items-start"
-                >
-                    <div class="flex gap-4 pb-4 items-center">
-                        <HelpCircle size={40} className="flex-shrink-0" />
-                        <p class="!font-bold text-xl sm:text-2xl !text-primary">
-                            Did you know?
-                        </p>
+        <div class="fade-up mt-14 max-w-4xl mx-auto">
+            <Card>
+                <CardContent>
+                    <div
+                        class="flex flex-col xs:flex-row items-center text-primary items-start"
+                    >
+                        <div class="flex gap-4 pb-4 items-center">
+                            <HelpCircle size={40} className="flex-shrink-0" />
+                            <p
+                                class="!font-bold text-xl sm:text-2xl !text-primary"
+                            >
+                                Did you know?
+                            </p>
+                        </div>
+                        <div class="text-left">
+                            <p class="text-base mt-1 !text-foreground">
+                                Most families are unprepared for financial
+                                emergencies. With proper life insurance and
+                                financial planning, you can protect your loved
+                                ones and ensure their future security, no matter
+                                what life brings.
+                            </p>
+                        </div>
                     </div>
-                    <div class="text-left">
-                        <p class="text-base mt-1 !text-foreground">
-                            Most families are unprepared for financial
-                            emergencies. With proper life insurance and
-                            financial planning, you can protect your loved ones
-                            and ensure their future security, no matter what
-                            life brings.
-                        </p>
-                    </div>
-                </div>
-            </CardContent>
-        </Card>
+                </CardContent>
+            </Card>
+        </div>
     </div>
 </SectionWrapper>

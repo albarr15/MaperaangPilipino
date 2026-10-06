@@ -3,7 +3,7 @@ import { tv } from "tailwind-variants";
 export const card = tv({
   base: [
     "bg-card text-card-foreground group/card flex flex-col gap-(--card-spacing) rounded-xl py-(--card-spacing)",
-    "backdrop-blur-xl shadow-lg border hover:border-primary transition-all duration-500 hover:shadow-xl hover:shadow-primary/10",
+    "backdrop-blur-xl shadow-lg border ",
     "has-data-[slot=card-footer]:pb-0 has-[>img:first-child]:pt-0",
     "*:[img:first-child]:rounded-t-xl *:[img:last-child]:rounded-b-xl",
   ],
@@ -13,7 +13,7 @@ export const card = tv({
       md: "[--card-spacing:--spacing(5)]",
     },
     interactive: {
-      true: "hover:-translate-y-2 hover:bg-card hover:shadow-xl cursor-pointer",
+      true: "cursor-pointer transition-all duration-500 hover:-translate-y-2 hover:border-primary hover:shadow-xl hover:shadow-primary/10",
       false: "",
     },
   },

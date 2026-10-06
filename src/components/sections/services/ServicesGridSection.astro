@@ -46,21 +46,23 @@ const {
                 solutions.map((item, index) => {
                     const Icon = item.icon;
                     return (
-                        <Card interactive class="fade-up">
-                            <CardContent class="flex flex-col gap-4">
-                                <div class="flex gap-4">
-                                    <div class="rounded-full bg-primary p-2 shadow-md shadow-primary/20 h-fit w-fit shrink-0">
-                                        <Icon className="text-primary-foreground" />
+                        <div class="fade-up">
+                            <Card interactive class="h-full">
+                                <CardContent class="flex flex-col gap-4">
+                                    <div class="flex gap-4">
+                                        <div class="rounded-full bg-primary p-2 shadow-md shadow-primary/20 h-fit w-fit shrink-0">
+                                            <Icon className="text-primary-foreground" />
+                                        </div>
+                                        <div class="font-medium text-xl">
+                                            {item.title}
+                                        </div>
                                     </div>
-                                    <div class="font-medium text-xl">
-                                        {item.title}
-                                    </div>
-                                </div>
-                                <blockquote class="text-muted-foreground leading-relaxed">
-                                    {item.description}
-                                </blockquote>
-                            </CardContent>
-                        </Card>
+                                    <blockquote class="text-muted-foreground leading-relaxed">
+                                        {item.description}
+                                    </blockquote>
+                                </CardContent>
+                            </Card>
+                        </div>
                     );
                 })
             }
