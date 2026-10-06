@@ -14,12 +14,12 @@ const { beneficiary, index, class: className, ...rest } = Astro.props;
             index % 2 === 0 ? "order-1" : "order-1 md:order-2",
         ]}
     >
-        <h2
-            class="fade-up font-heading text-3xl font-semibold tracking-tight leading-tight @2xl:text-4xl"
+        <h3
+            class="text-primary fade-up font-heading text-2xl lg:text-3xl xl:text-4xl font-semibold tracking-tight leading-tight"
         >
             {beneficiary.header}
-        </h2>
-        <p class="text-justify fade-up">
+        </h3>
+        <p class="text-sm xl:text-base text-justify fade-up">
             {beneficiary.description}
         </p>
     </div>
@@ -27,7 +27,7 @@ const { beneficiary, index, class: className, ...rest } = Astro.props;
         src={beneficiary.image}
         alt={beneficiary.imageAlt}
         class:list={[
-            "h-[300px] object-cover rounded-xl min-w-0 w-full scale-up",
+            "h-[300px] object-cover rounded-xl min-w-0 w-full scale-up border shadow-lg",
             index % 2 === 0 ? "order-2" : "order-2 md:order-1",
         ]}
         widths={[480, 768, 1024]}

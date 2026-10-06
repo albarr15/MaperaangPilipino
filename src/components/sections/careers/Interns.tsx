@@ -37,7 +37,7 @@ export default function Interns() {
                   </div>
                 </div>
 
-                <p className="text-white/70 leading-relaxed text-sm md:text-base">
+                <p className="text-white/70 leading-relaxed text-sm xl:text-base">
                   Interested applicants may simply apply through the following
                   methods. Please ensure that all required information and
                   supporting documents are complete before submission.
@@ -90,7 +90,7 @@ export default function Interns() {
                       </p>
 
                       <div className="mt-5 rounded-xl border border-white/10 bg-white/5 px-4 py-3">
-                        <p className="text-xs uppercase tracking-[0.2em] text-white/40 mb-2">
+                        <p className="text-sm uppercase tracking-[0.2em] text-white/40 mb-2">
                           Subject Format
                         </p>
 
@@ -104,7 +104,7 @@ export default function Interns() {
 
                 {/* NOTE */}
                 <div className="mt-6 rounded-2xl border border-yellow-400/20 bg-yellow-400/5 p-5">
-                  <p className="text-sm md:text-base text-white/80 leading-relaxed">
+                  <p className="text-sm xl:text-base text-white/80 leading-relaxed">
                     For <span className="font-semibold">Multimedia</span> and{" "}
                     <span className="font-semibold">Full-Stack Developer</span>{" "}
                     applicants, kindly attach your respective portfolios
@@ -137,7 +137,7 @@ export default function Interns() {
                   />
                 </div>
 
-                <p className="mt-5 text-xs tracking-[0.2em] uppercase text-white/40 text-center">
+                <p className="mt-5 text-sm tracking-[0.2em] uppercase text-white/40 text-center">
                   Team CA Internship Program
                 </p>
               </div>

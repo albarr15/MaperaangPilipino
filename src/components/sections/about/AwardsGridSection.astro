@@ -1,9 +1,12 @@
 ---
 import type { HTMLAttributes } from "astro/types";
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
 import { tv } from "tailwind-variants";
 import { TrophyIcon, type LucideIcon } from "lucide-react";
 import { Card, CardContent } from "@/components/starwind/card";
 import Badge from "@/components/starwind/badge/Badge.astro";
+import SectionHeader from "@/components/header/SectionHeader.astro";
 
 interface Props extends HTMLAttributes<"section"> {
     /** Main heading text */
@@ -16,13 +19,13 @@ interface Props extends HTMLAttributes<"section"> {
         subtitle?: string;
         year: string;
         source: (string | undefined)[];
-        icon: LucideIcon;
+        icon: LucideIcon | ImageMetadata;
         badge?: string;
     }[];
 }
 
 const solContainerStyles = tv({
-    base: "@container py-20 px-6 md:px-12 lg:px-20 w-full items-center flex flex-col",
+    base: "@container px-6 md:px-12 lg:px-20 w-full items-center flex flex-col",
 });
 
 const {
@@ -36,78 +39,83 @@ const {
 
 <section class={solContainerStyles({ class: className })} {...rest}>
     <div class="flex flex-col items-center w-full max-w-7xl">
-        <!-- HEADER -->
-        <div
-            class="flex flex-col items-center text-center max-w-3xl"
-            data-stagger-group
-        >
-            <h1
-                class="fade-up font-heading text-4xl font-semibold tracking-tight @4xl:text-5xl"
-            >
-                {heading}
-            </h1>
-
-            <p class="fade-up text-muted-foreground mt-6 text-lg max-w-2xl">
-                {description}
-            </p>
-        </div>
+        <SectionHeader heading={heading} description={description} />
 
         <!-- SOLUTIONS -->
         <div
-            class="w-full mt-12 grid gap-4 @2xl:grid-cols-3 @2xl:gap-4"
+            class="w-full grid gap-4 @2xl:grid-cols-3 @2xl:gap-4"
             data-stagger-group
         >
             {
                 content.map((item, index) => {
-                    const Icon = item.icon;
+                    const isImage = typeof item.icon === "object" && "src" in item.icon;
+                    const Icon = !isImage ? (item.icon as LucideIcon) : null;
                     return (
-                        <Card interactive class="fade-up">
-                            <CardContent class="flex flex-col gap-4 items-center justify-center max-h-[300px] h-full text-center relative">
-                                {item.badge && (
-                                    <Badge
-                                        class="absolute top-0 right-4 z-10"
-                                        variant="success"
+                        <div class="fade-up">
+                            <Card interactive class="h-full">
+                                <CardContent class="flex flex-col gap-4 items-center justify-center max-h-[300px] h-full text-center relative">
+                                    {item.badge && (
+                                        <Badge
+                                            class="absolute top-0 right-4 z-10"
+                                            variant="success"
+                                        >
+                                            <TrophyIcon />
+                                            {item.badge}
+                                        </Badge>
+                                    )}
+                                    <div
+                                        class={`flex flex-col flex-1 h-full gap-4 items-center justify-center z-50 ${item.badge ? "mt-8 sm:mt-0 md:mt-8 2xl:mt-0" : ""}`}
                                     >
-                                        <TrophyIcon />
-                                        {item.badge}
-                                    </Badge>
-                                )}
-                                <div
-                                    class={`flex flex-col flex-1 h-full gap-4 items-center justify-center z-50 ${item.badge ? "mt-8 sm:mt-0 md:mt-8 2xl:mt-0" : ""}`}
-                                >
-                                    <Icon className="text-primary w-12 h-12" />
-                                    <div class="font-medium text-xl text-primary leading-tight flex flex-col gap-2">
-                                        {item.title}
-                                        {item.subtitle && (
-                                            <span class="text-xs text-primary">
-                                                {item.subtitle}
-                                            </span>
-                                        )}
-                                    </div>
-                                </div>
-
-                                <div class="flex flex-0 flex-col items-center w-full">
-                                    <div class="text-muted-foreground text-lg">
-                                        {item.year}
-                                    </div>
-                                    <div class="flex flex-col text-muted-foreground leading-tight text-sm items-center">
-                                        {Array.isArray(item.source) ? (
-                                            item.source.map(
-                                                (source: string | undefined) =>
-                                                    source && (
-                                                        <span>{source}</span>
-                                                    ),
-                                            )
+                                        {isImage ? (
+                                            <Image
+                                                src={item.icon as ImageMetadata}
+                                                alt={item.title}
+                                                class="w-12 h-12 object-contain"
+                                            />
                                         ) : (
-                                            <span>{item.source}</span>
+                                            Icon && (
+                                                <Icon className="text-primary w-12 h-12" />
+                                            )
                                         )}
+                                        <div class="font-medium text-xl text-primary leading-tight flex flex-col gap-2">
+                                            {item.title}
+                                            {item.subtitle && (
+                                                <span class="text-sm text-primary">
+                                                    {item.subtitle}
+                                                </span>
+                                            )}
+                                        </div>
                                     </div>
-                                </div>
-                            </CardContent>
-                        </Card>
+
+                                    <div class="flex flex-0 flex-col items-center w-full">
+                                        <div class="text-muted-foreground text-lg">
+                                            {item.year}
+                                        </div>
+                                        <div class="flex flex-col text-muted-foreground leading-tight text-sm items-center">
+                                            {Array.isArray(item.source) ? (
+                                                item.source.map(
+                                                    (
+                                                        source:
+                                                            string | undefined,
+                                                    ) =>
+                                                        source && (
+                                                            <span>
+                                                                {source}
+                                                            </span>
+                                                        ),
+                                                )
+                                            ) : (
+                                                <span>{item.source}</span>
+                                            )}
+                                        </div>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        </div>
                     );
                 })
             }
         </div>
     </div>
 </section>
+

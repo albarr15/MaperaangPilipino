@@ -17,7 +17,7 @@ import SectionWrapper from "../SectionWrapper.astro";
         <div
             id="awards-grid"
             data-custom-observer
-            class="grid gap-4 md:grid-cols-4 grid-cols-2 grid-rows-6 *:rounded-xl *:overflow-hidden md:grid-rows-4 h-[1600px] md:h-[800px] w-full"
+            class="grid gap-4 md:grid-cols-4 grid-cols-2 grid-rows-6 *:rounded-xl *:overflow-hidden *:border *:shadow-lg md:grid-rows-4 h-[1600px] md:h-[800px] w-full"
         >
             <div class="md:row-span-2 md:order-1 order-2 row-span-2 fade-up">
                 <Image
@@ -55,7 +55,9 @@ import SectionWrapper from "../SectionWrapper.astro";
                     sizes="(max-width: 768px) 50vw, 25vw"
                 />
             </div>
-            <div class="bg-card/90 md:row-span-2 col-span-2 order-1 md:order-5 fade-up">
+            <div
+                class="bg-card border md:row-span-2 col-span-2 order-1 md:order-5 fade-up"
+            >
                 <div
                     class="@container w-full h-full flex items-center justify-center"
                 >
@@ -75,13 +77,13 @@ import SectionWrapper from "../SectionWrapper.astro";
                             </span>
                         </div>
                         <div class="flex flex-col w-full">
-                            <span class="text-xs underline"
+                            <span class="text-sm underline"
                                 >CHRISTELLE ANN DE LEON, CIA, CEPP</span
                             >
-                            <span class="text-xs"
+                            <span class="text-sm"
                                 >LICENSED FINANCIAL ADVISOR</span
                             >
-                            <span class="text-xs">JUNIOR UNIT MANAGER</span>
+                            <span class="text-sm">JUNIOR UNIT MANAGER</span>
                         </div>
                     </div>
                     <Image

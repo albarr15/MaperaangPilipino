@@ -38,25 +38,17 @@ const {
 ---
 
 <section class={hero1Styles({ class: className })} {...rest}>
-  <Image
-    src={circleGradientShade}
-    alt="circle gradient shade"
-    class="absolute inset-0 w-full h-full object-cover z-0"
-    widths={[640, 1024, 1536]}
-    sizes="100vw"
-    fetchpriority="high"
-    loading="eager"
-  />
   <div
-    id="hero-container"
-    class="relative mx-auto flex max-w-4xl flex-col items-center text-center z-10"
+    class="fade-up relative mx-auto flex max-w-4xl flex-col items-center text-center z-10"
   >
     <h1
-      class="font-heading text-4xl font-semibold tracking-tight @xl:text-5xl @3xl:text-6xl"
+      class="text-primary font-heading text-4xl font-semibold tracking-tight @xl:text-5xl @3xl:text-6xl"
     >
       {heading}
     </h1>
-    <p class="text-muted-foreground mt-6 max-w-2xl @xl:text-lg">
+    <p
+      class="text-muted-foreground mt-6 max-w-2xl text-sm lg:text-base xl:text-lg"
+    >
       {description}
     </p>
     <div
@@ -64,7 +56,9 @@ const {
     >
       {
         primaryButtonText && (
-          <Button href={primaryButtonHref}>{primaryButtonText}</Button>
+          <Button href={primaryButtonHref} variant="primary">
+            {primaryButtonText}
+          </Button>
         )
       }
       {
@@ -77,21 +71,3 @@ const {
     </div>
   </div>
 </section>
-
-<script>
-  import gsap from "gsap";
-
-  const textEl = document.getElementById("hero-container");
-  const sectionEl = textEl?.closest("section");
-
-  if (textEl) {
-    gsap.context(() => {
-      gsap.from(textEl, {
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power3.out",
-      });
-    }, sectionEl || undefined);
-  }
-</script>

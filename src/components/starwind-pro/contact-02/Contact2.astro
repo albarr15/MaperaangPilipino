@@ -26,6 +26,8 @@ import {
 
 import { Checkbox } from "@/components/starwind/checkbox";
 import { CheckboxGroup } from "@/components/starwind/checkbox-group";
+import SectionHeader from "@/components/header/SectionHeader.astro";
+import { badge } from "@/components/starwind/badge/variants";
 interface Props extends HTMLAttributes<"section"> {
   /** Badge/eyebrow text */
   badge?: string;
@@ -41,8 +43,8 @@ const sectionStyles = tv({
 
 const {
   // badge = "Contact",
-  heading = "Send Us a Message",
-  description = "Fill out the form below and we'll get back to you as soon as possible.",
+  heading = "Send Me a Message",
+  description = "Fill out the form below and I'll get back to you as soon as possible.",
   class: className,
   ...rest
 } = Astro.props;
@@ -104,16 +106,7 @@ const businessServices = [
 ---
 
 <section class={sectionStyles({ class: className })} {...rest}>
-  <div class="text-center" data-stagger-group>
-    <h2
-      class="fade-up font-heading mt-6 text-3xl font-bold tracking-tight @xl:text-4xl @3xl:text-5xl"
-    >
-      {heading}
-    </h2>
-    <p class="fade-up text-muted-foreground mx-auto mt-4 max-w-xl text-lg">
-      {description}
-    </p>
-  </div>
+  <SectionHeader heading={heading} description={description} />
 
   <Card class="mt-10 scale-up">
     <CardContent>
@@ -263,7 +256,7 @@ const businessServices = [
             <Textarea
               id="contact-message-indiv-02"
               name="message-indiv"
-              placeholder="Tell us what you're hoping to plan for — whether it's for yourself, your family, or your team."
+              placeholder="Tell me what you're hoping to plan for — whether it's for yourself, your family, or your business."
               rows={4}
             />
           </div>
@@ -351,7 +344,7 @@ const businessServices = [
             <Textarea
               id="contact-message-org-02"
               name="message-org"
-              placeholder="Tell us what you're hoping to plan for — whether it's for yourself, your family, or your team."
+              placeholder="Tell me what you're hoping to plan for — whether it's for yourself, your family, or your business."
               rows={4}
             />
           </div>
@@ -364,7 +357,7 @@ const businessServices = [
   </Card>
 
   <p class="text-muted-foreground mt-6 text-center text-sm">
-    We'll get back to you within 1-2 business days.
+    I'll get back to you within 1-2 business days.
   </p>
 
   <script>

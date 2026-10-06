@@ -11,7 +11,7 @@ import Button from "@/components/starwind/button/Button.astro";
 import { Image } from "@/components/starwind/image";
 
 import personalServicesImg from "@/assets/images/services/national-cancer-institute-xDSD3Vmzh70-unsplash.jpg";
-import corporateServicesImg from "@/assets/images/services/photo-1508385082359-f38ae991e8f2.avif";
+import corporateServicesImg from "@/assets/images/services/vitaly-gariev-yQhNMgl5Lag-unsplash.jpg";
 import SectionWrapper from "../SectionWrapper.astro";
 
 const services = [
@@ -51,15 +51,13 @@ const services = [
 ];
 ---
 
-<SectionWrapper>
+<SectionWrapper variant="primary">
     <SectionHeader
-        title="Financial Services"
+        heading="Financial Services"
         description="Everyone has something worth protecting. Here's how I can help protect yours."
-        align="center"
-        color="yellow"
     />
 
-    <div class="mt-14 flex justify-center">
+    <div class="flex justify-center">
         <div
             class="grid grid-cols-1 md:grid-cols-2 items-start mx-auto gap-8 max-w-7xl"
             data-stagger-group
@@ -67,41 +65,47 @@ const services = [
             {
                 services.map((service, index) => {
                     return (
-                        <Card class="relative max-w-lg scale-up">
-                            <Image
-                                src={service.image}
-                                alt={service.header}
-                                class="aspect-video object-cover w-full h-full"
-                                widths={[480, 768, 1024]}
-                                sizes="(max-width: 768px) 100vw, 50vw"
-                            />
-                            <CardHeader>
-                                <CardTitle class="font-bold">
-                                    {service.header}
-                                </CardTitle>
-                                <CardDescription>
-                                    <div class="flex flex-col gap-8 items-start">
-                                        <span class="text-justify">
-                                            {service.description}
-                                        </span>
-                                        <ul class="grid grid-cols-2 gap-4 text-left list-disc pl-5">
-                                            {service.list.map((item, index) => {
-                                                return <li>{item}</li>;
-                                            })}
-                                        </ul>
-                                    </div>
-                                </CardDescription>
-                            </CardHeader>
-                            <CardFooter>
-                                <Button class="w-full" href={service.href}>
-                                    View All
-                                </Button>
-                            </CardFooter>
-                        </Card>
+                        <div class="scale-up">
+                            <Card class="relative max-w-lg !pt-0 overflow-hidden">
+                                <div class="relative overflow-hidden">
+                                    <Image
+                                        src={service.image}
+                                        alt={service.header}
+                                        class="aspect-video object-cover w-full h-full transition-transform duration-500 group-hover/card:scale-105"
+                                        widths={[480, 768, 1024]}
+                                        sizes="(max-width: 768px) 100vw, 50vw"
+                                    />
+                                    <div class="absolute inset-0 w-full h-full bg-gradient-to-t from-red-900/60 to-transparent" />
+                                </div>
+                                <CardHeader>
+                                    <CardTitle class="font-bold">
+                                        {service.header}
+                                    </CardTitle>
+                                    <CardDescription>
+                                        <div class="flex flex-col gap-8 items-start text-sm xl:text-base">
+                                            <span class="text-justify">
+                                                {service.description}
+                                            </span>
+                                            <ul class="grid grid-cols-2 gap-4 text-left list-disc pl-5">
+                                                {service.list.map(
+                                                    (item, index) => {
+                                                        return <li>{item}</li>;
+                                                    },
+                                                )}
+                                            </ul>
+                                        </div>
+                                    </CardDescription>
+                                </CardHeader>
+                                <CardFooter>
+                                    <Button class="w-full" href={service.href}>
+                                        View All
+                                    </Button>
+                                </CardFooter>
+                            </Card>
+                        </div>
                     );
                 })
             }
         </div>
     </div>
 </SectionWrapper>
-

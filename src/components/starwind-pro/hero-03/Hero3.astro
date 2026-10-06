@@ -7,7 +7,6 @@ import { AspectRatio } from "@/components/starwind/aspect-ratio";
 
 import Button from "@/components/starwind/button/Button.astro";
 import { Image } from "astro:assets";
-import circleGradientShade from "@/assets/images/circle-gradient-shade.png";
 
 interface Props extends HTMLAttributes<"section"> {
   /** Main heading text */
@@ -50,32 +49,33 @@ const {
 ---
 
 <section class={hero3Styles({ class: className })} {...rest}>
-  <Image
+  <!-- <Image
     src={circleGradientShade}
     alt="circle gradient shade"
-    class="absolute inset-0 w-full h-full object-cover z-0"
+    class="absolute inset-0 w-full h-full object-cover z-0 opacity-70"
     widths={[640, 1024, 1536]}
     sizes="100vw"
     fetchpriority="high"
     loading="eager"
-  />
+  /> -->
   <div
-    id="hero-container"
-    class="mx-auto max-w-7xl px-6 sm:px-10 lg:px-16 pt-32 pb-24 relative z-10 grid gap-12 @2xl:grid-cols-2 @2xl:items-center @2xl:gap-16"
+    class="fade-up mx-auto max-w-7xl px-6 sm:px-10 lg:px-16 pt-32 pb-24 relative z-10 grid gap-12 @2xl:grid-cols-2 @2xl:items-center @2xl:gap-16"
   >
     <div class="flex flex-col">
       <h1
-        class="font-heading text-4xl font-semibold tracking-tight @4xl:text-5xl"
+        class="text-primary font-heading text-4xl font-semibold tracking-tight @4xl:text-5xl"
       >
         {heading}
       </h1>
-      <p class="text-muted-foreground mt-6 text-lg">
+      <p class="text-muted-foreground mt-6 text-sm lg:text-base xl:text-lg">
         {description}
       </p>
       <div class="mt-8 flex flex-col flex-wrap gap-4 @md:flex-row">
         {
           primaryButtonText && (
-            <Button href={primaryButtonHref}>{primaryButtonText}</Button>
+            <Button variant="primary" href={primaryButtonHref}>
+              {primaryButtonText}
+            </Button>
           )
         }
         {
@@ -88,7 +88,10 @@ const {
       </div>
     </div>
     <div class="">
-      <AspectRatio ratio={4 / 3} class="overflow-hidden rounded-lg">
+      <AspectRatio
+        ratio={4 / 3}
+        class="overflow-hidden rounded-lg border shadow-lg"
+      >
         {
           typeof image.src === "string" ? (
             <img
@@ -112,21 +115,3 @@ const {
     </div>
   </div>
 </section>
-
-<script>
-  import gsap from "gsap";
-
-  const textEl = document.getElementById("hero-container");
-  const sectionEl = textEl?.closest("section");
-
-  if (textEl) {
-    gsap.context(() => {
-      gsap.from(textEl, {
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power3.out",
-      });
-    }, sectionEl || undefined);
-  }
-</script>

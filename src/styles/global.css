@@ -30,7 +30,7 @@
 }
 
 :root {
-  --primary-color: rgb(172, 18, 18);
+  /* --primary-color: rgb(172, 18, 18);
   --secondary-color: rgb(210, 159, 34);
   --white-color: rgb(245, 245, 245);
   --black-color: rgb(25, 23, 27);
@@ -61,7 +61,7 @@
   --font-heading-weight: 700;
   --font-body-weight: 400;
 
-  --affliation-text: #99a1af;
+  --affliation-text: #99a1af; */
 }
 
 html {
@@ -72,10 +72,10 @@ html,
 body {
   font-family: var(--font-body);
   font-weight: var(--font-body-weight);
-  color: rgb(55, 55, 55);
+  /* color: rgb(55, 55, 55); */
   margin: 0;
   padding: 0;
-  background-color: var(--primary-color);
+  background-color: var(--background);
   overflow-x: hidden;
   text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -96,6 +96,7 @@ body {
   min-width: 0;
 }
 
+/* 
 h1,
 h2,
 h3,
@@ -121,8 +122,8 @@ p {
 
 .light-body {
   font-weight: 200;
-}
-
+} */
+/* 
 nav {
   z-index: 99999;
 }
@@ -134,7 +135,7 @@ nav a {
 
 footer h3 {
   color: var(--primary-color);
-}
+} */
 
 @media (max-width: 379px) {
 

@@ -3,6 +3,8 @@ import { tv } from "tailwind-variants";
 import { Card, CardContent } from "@/components/starwind/card";
 import CardHeader from "@/components/starwind/card/CardHeader.astro";
 import SectionWrapper from "../SectionWrapper.astro";
+import SectionHeader from "@/components/header/SectionHeader.astro";
+import { Medal, Trophy } from "lucide-react";
 
 interface Props {
     heading?: string;
@@ -14,7 +16,7 @@ interface Props {
 const { heading, body1, body2, achievements } = Astro.props;
 ---
 
-<SectionWrapper>
+<SectionWrapper variant="primary">
     <div class="@container w-full">
         <div
             class="grid gap-10 @3xl:grid-cols-5 @3xl:gap-12 items-stretch"
@@ -25,34 +27,37 @@ const { heading, body1, body2, achievements } = Astro.props;
                 id="text-container"
                 data-stagger-group
             >
-                <h2
-                    class="font-heading text-3xl font-semibold tracking-tight leading-tight @2xl:text-4xl fade-up"
-                >
-                    {heading}
-                </h2>
+                <SectionHeader heading={heading} class="!mb-0 !text-left" />
 
                 <p
-                    class="text-muted-foreground text-base leading-relaxed text-justify fade-up"
+                    class="text-muted-foreground text-sm xl:text-base leading-relaxed text-justify fade-up"
                 >
                     {body1}
                 </p>
                 <p
-                    class="text-muted-foreground text-base leading-relaxed text-justify fade-up"
+                    class="text-muted-foreground text-sm xl:text-base leading-relaxed text-justify fade-up"
                 >
                     {body2}
                 </p>
             </div>
 
             <div class="@3xl:col-span-2 flex scale-up" id="awards-container">
-                <Card class="w-full border-none flex">
-                    <CardHeader class="text-2xl font-bold"
-                        >Awards & Recognitions</CardHeader
+                <Card class="w-full flex h-fit">
+                    <CardHeader
+                        class="text-2xl font-bold flex gap-4 items-center mt-2"
                     >
+                        <Trophy
+                            className="text-primary"
+                            size={42}
+                            strokeWidth={2}
+                        />
+                        <span>Awards & Recognitions</span>
+                    </CardHeader>
                     <CardContent
                         class="flex flex-col justify-center gap-1 p-8 h-full"
                     >
                         <ul
-                            class="flex flex-col gap-0.5 text-left pl-2 list-disc text-lg"
+                            class="flex flex-col gap-0.5 text-left pl-2 list-disc text-sm xl:text-base"
                         >
                             {
                                 achievements?.map((item) => {
@@ -66,4 +71,3 @@ const { heading, body1, body2, achievements } = Astro.props;
         </div>
     </div>
 </SectionWrapper>
-
