@@ -108,8 +108,7 @@ const isActive = (path: string) => normalize(pathname) === normalize(path);
         </SheetTrigger>
         <SheetContent
           side="right"
-          class="max-w-[280px] sm:max-w-[300px]
-        bg-primary/50 backdrop-blur-md border-b border-white/20"
+          class="max-w-[280px] sm:max-w-[300px] backdrop-blur-md border-b border-white/20"
         >
           <SheetHeader>
             <SheetTitle class="!text-background">
@@ -143,7 +142,9 @@ const isActive = (path: string) => normalize(pathname) === normalize(path);
           </div>
           <SheetFooter>
             <SheetClose asChild>
-              <Button href={ctaHref} class="w-full">{ctaText}</Button>
+              <Button href={ctaHref} class="w-full" variant="primary"
+                >{ctaText}</Button
+              >
             </SheetClose>
           </SheetFooter>
           <IconX class="size-7" slot="icon" />
