@@ -2,25 +2,46 @@
 import SectionWrapper from "../SectionWrapper.astro";
 import AwardsGridSection from "./AwardsGridSection.astro";
 import { Medal, Star, TrendingUp, Trophy } from "lucide-react";
+import MDRTLogo from "@/assets/images/about/MDRT-Logo.png";
 const content = [
     {
-        title: "Promoted as Junior Unit Manager",
+        title: "Million Dollar Round Table Runner",
+        year: "2026",
+        source: ["Pru Life UK"],
+        icon: MDRTLogo,
+    },
+    {
+        title: "BOSLIA Top Agent",
+        year: "2026",
+        icon: Star,
+        source: ["Black Orcas Summit Life Insurance Agency"],
+    },
+    {
+        title: "Promoted to Junior Unit Manager",
         year: "2025",
         icon: TrendingUp,
         source: ["Pru Life UK"],
     },
     {
-        title: "Consistent Million Producers Club Qualifier",
+        title: "National Achiever Club Qualifier",
+        year: "2021 - 2026",
+        icon: Medal,
+        source: ["Pru Life UK"],
+        badge: "6-year streak",
+    },
+
+    {
+        title: "Million Producers Club Qualifier",
         year: "2022 - 2025",
         icon: Medal,
-        source: ["Pru Life UK", , "Blue Fox Summit Life Insurance Agency"],
+        source: ["Pru Life UK", "Blue Fox Summit Life Insurance Agency"],
         badge: "4-year streak",
     },
     {
-        title: "Consistent Early Achiever Club Qualifier",
+        title: "Early Achiever Club Qualifier",
         subtitle: "(Belongs to Top 10% of Financial Advisors Nationwide)",
         year: "2021 - 2025",
-        icon: Star,
+        icon: Medal,
         source: ["Pru Life UK"],
         badge: "5-year streak",
     },

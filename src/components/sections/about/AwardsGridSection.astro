@@ -1,5 +1,7 @@
 ---
 import type { HTMLAttributes } from "astro/types";
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
 import { tv } from "tailwind-variants";
 import { TrophyIcon, type LucideIcon } from "lucide-react";
 import { Card, CardContent } from "@/components/starwind/card";
@@ -17,7 +19,7 @@ interface Props extends HTMLAttributes<"section"> {
         subtitle?: string;
         year: string;
         source: (string | undefined)[];
-        icon: LucideIcon;
+        icon: LucideIcon | ImageMetadata;
         badge?: string;
     }[];
 }
@@ -46,7 +48,8 @@ const {
         >
             {
                 content.map((item, index) => {
-                    const Icon = item.icon;
+                    const isImage = typeof item.icon === "object" && "src" in item.icon;
+                    const Icon = !isImage ? (item.icon as LucideIcon) : null;
                     return (
                         <div class="fade-up">
                             <Card interactive class="h-full">
@@ -63,7 +66,17 @@ const {
                                     <div
                                         class={`flex flex-col flex-1 h-full gap-4 items-center justify-center z-50 ${item.badge ? "mt-8 sm:mt-0 md:mt-8 2xl:mt-0" : ""}`}
                                     >
-                                        <Icon className="text-primary w-12 h-12" />
+                                        {isImage ? (
+                                            <Image
+                                                src={item.icon as ImageMetadata}
+                                                alt={item.title}
+                                                class="w-12 h-12 object-contain"
+                                            />
+                                        ) : (
+                                            Icon && (
+                                                <Icon className="text-primary w-12 h-12" />
+                                            )
+                                        )}
                                         <div class="font-medium text-xl text-primary leading-tight flex flex-col gap-2">
                                             {item.title}
                                             {item.subtitle && (
@@ -105,3 +118,4 @@ const {
         </div>
     </div>
 </section>
+
