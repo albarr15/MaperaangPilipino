@@ -26,6 +26,8 @@ import {
 
 import { Checkbox } from "@/components/starwind/checkbox";
 import { CheckboxGroup } from "@/components/starwind/checkbox-group";
+import SectionHeader from "@/components/header/SectionHeader.astro";
+import { badge } from "@/components/starwind/badge/variants";
 interface Props extends HTMLAttributes<"section"> {
   /** Badge/eyebrow text */
   badge?: string;
@@ -104,16 +106,7 @@ const businessServices = [
 ---
 
 <section class={sectionStyles({ class: className })} {...rest}>
-  <div class="text-center" data-stagger-group>
-    <h2
-      class="fade-up font-heading mt-6 text-3xl font-bold tracking-tight @xl:text-4xl @3xl:text-5xl"
-    >
-      {heading}
-    </h2>
-    <p class="fade-up text-muted-foreground mx-auto mt-4 max-w-xl text-lg">
-      {description}
-    </p>
-  </div>
+  <SectionHeader heading={heading} description={description} />
 
   <Card class="mt-10 scale-up">
     <CardContent>

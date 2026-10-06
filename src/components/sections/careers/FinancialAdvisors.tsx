@@ -43,7 +43,7 @@ export default function FinancialAdvisors() {
                   Start Your Journey With Team CA
                 </h3>
 
-                <p className="mt-5 text-white/70 text-sm md:text-base leading-relaxed">
+                <p className="mt-5 text-white/70 text-sm xl:text-base leading-relaxed">
                   Interested applicants may send their CV or resume to our Human
                   Resources Associates via email, or through a private message
                   on Messenger for faster communication.
@@ -51,11 +51,11 @@ export default function FinancialAdvisors() {
 
                 {/* SUBJECT FORMAT */}
                 <div className="mt-6 rounded-2xl border border-white/10 bg-black/20 px-4 xs:px-5 py-4">
-                  <p className="text-xs uppercase tracking-[0.2em] text-white/40 mb-2">
+                  <p className="text-sm uppercase tracking-[0.2em] text-white/40 mb-2">
                     Email Subject Format
                   </p>
 
-                  <p className="text-sm md:text-base text-white font-medium">
+                  <p className="text-sm xl:text-base text-white font-medium">
                     [FA] Financial Advisor Application - Last Name
                   </p>
                 </div>
@@ -98,7 +98,7 @@ export default function FinancialAdvisors() {
                         <MessageCircle className="w-4 h-4 mt-1 text-white/60" />
 
                         <div>
-                          <p className="text-xs uppercase tracking-wider text-white/40">
+                          <p className="text-sm uppercase tracking-wider text-white/40">
                             Messenger
                           </p>
 
@@ -112,7 +112,7 @@ export default function FinancialAdvisors() {
                         <Mail className="w-4 h-4 mt-1 text-white/60" />
 
                         <div>
-                          <p className="text-xs uppercase tracking-wider text-white/40">
+                          <p className="text-sm uppercase tracking-wider text-white/40">
                             Email
                           </p>
 
@@ -129,7 +129,7 @@ export default function FinancialAdvisors() {
 
             {/* BOTTOM SECTION */}
             <div className="border-t border-white/10 bg-black/10 px-4 xs:px-8 md:px-12 py-6">
-              <p className="text-center text-sm md:text-base text-white/60 leading-relaxed">
+              <p className="text-center text-sm xl:text-base text-white/60 leading-relaxed">
                 We welcome passionate individuals who are eager to grow,
                 inspire, and create a meaningful impact through financial
                 education and protection.

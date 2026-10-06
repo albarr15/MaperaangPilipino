@@ -73,7 +73,7 @@ const {
                 </div>
               </div>
               <blockquote
-                class="text-muted-foreground text-justify line-clamp-5"
+                class="text-muted-foreground text-justify line-clamp-7 text-sm xl:text-base"
                 data-quote
               >
                 "{testimonial.content}"
@@ -106,7 +106,7 @@ const {
         let expanded = false;
         btn.addEventListener("click", () => {
           expanded = !expanded;
-          quote.classList.toggle("line-clamp-5", !expanded);
+          quote.classList.toggle("line-clamp-7", !expanded);
           btn.textContent = expanded ? "Read Less" : "Read More";
         });
       });

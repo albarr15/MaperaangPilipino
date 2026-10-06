@@ -2,6 +2,7 @@
 import SectionHeader from "@/components/header/SectionHeader.astro";
 import { Card, CardContent, CardFooter } from "@/components/starwind/card";
 import { tv } from "tailwind-variants";
+import SectionWrapper from "@/components/sections/SectionWrapper.astro";
 
 /* ── Data ─────────────────────────────────────────────────── */
 const primaryEmail = "plukchristelleanndeleon@gmail.com";
@@ -18,8 +19,11 @@ const sectionStyles = tv({
 });
 ---
 
-<section id="contact-details" class={sectionStyles()}>
-    <div class="flex flex-col items-center w-full max-w-7xl">
+<SectionWrapper variant="primary">
+    <div
+        id="contact-details"
+        class="flex flex-col items-center w-full max-w-7xl"
+    >
         <!-- HEADER -->
         <SectionHeader
             heading="Ways to Reach Us"
@@ -29,7 +33,7 @@ const sectionStyles = tv({
 
         <!-- CONTACT CARDS GRID -->
         <div
-            class="w-full mt-12 grid gap-4 grid-cols-1 md:grid-cols-2 @2xl:grid-cols-3"
+            class="w-full grid gap-4 grid-cols-1 md:grid-cols-2 @2xl:grid-cols-3"
             data-stagger-group
         >
             <!-- ═══════════ CARD 1: EMAIL ═══════════ -->
@@ -70,7 +74,7 @@ const sectionStyles = tv({
                             </div>
                         </div>
                         <p
-                            class="text-sm text-body-black leading-relaxed font-normal"
+                            class="text-sm xl:text-base text-body-black leading-relaxed font-normal"
                         >
                             Drop me a line for general inquiries, personal
                             consultations, or strategic business collaborations.
@@ -83,14 +87,14 @@ const sectionStyles = tv({
                                     class="flex items-center justify-between gap-2 mb-1.5"
                                 >
                                     <span
-                                        class="text-xs uppercase tracking-wider text-muted-dark font-semibold"
+                                        class="text-sm uppercase tracking-wider text-muted-dark font-semibold"
                                     >
                                         General & Inquiries
                                     </span>
                                     <button
                                         type="button"
                                         data-copy={primaryEmail}
-                                        class="copy-btn text-muted-dark hover:text-primary-red transition flex items-center gap-1 text-xs font-medium cursor-pointer"
+                                        class="copy-btn text-muted-dark hover:text-primary-red transition flex items-center gap-1 text-sm font-medium cursor-pointer"
                                         title="Copy email"
                                     >
                                         <svg
@@ -132,14 +136,14 @@ const sectionStyles = tv({
                                     class="flex items-center justify-between gap-2 mb-1.5"
                                 >
                                     <span
-                                        class="text-xs uppercase tracking-wider text-muted-dark font-semibold"
+                                        class="text-sm uppercase tracking-wider text-muted-dark font-semibold"
                                     >
                                         Collaborations & Partnerships
                                     </span>
                                     <button
                                         type="button"
                                         data-copy={partnershipsEmail}
-                                        class="copy-btn text-muted-dark hover:text-primary-red transition flex items-center gap-1 text-xs font-medium cursor-pointer"
+                                        class="copy-btn text-muted-dark hover:text-primary-red transition flex items-center gap-1 text-sm font-medium cursor-pointer"
                                         title="Copy email"
                                     >
                                         <svg
@@ -178,7 +182,7 @@ const sectionStyles = tv({
                         </div>
                     </CardContent>
                     <CardFooter>
-                        <span class="text-xs text-muted-dark font-medium">
+                        <span class="text-sm text-muted-dark font-medium">
                             Typical response time: Within 24 hours
                         </span>
                     </CardFooter>
@@ -217,7 +221,7 @@ const sectionStyles = tv({
                             </div>
                         </div>
                         <p
-                            class="text-sm text-body-black leading-relaxed font-normal"
+                            class="text-sm xl:text-base text-body-black leading-relaxed font-normal"
                         >
                             Direct phone line available for urgent calls, SMS
                             inquiries, and consultation bookings.
@@ -231,14 +235,14 @@ const sectionStyles = tv({
                                 class="flex items-center justify-between gap-2"
                             >
                                 <span
-                                    class="text-xs uppercase tracking-wider text-muted-dark font-semibold"
+                                    class="text-sm uppercase tracking-wider text-muted-dark font-semibold"
                                 >
                                     Contact Number
                                 </span>
                                 <button
                                     type="button"
                                     data-copy={phoneNumber}
-                                    class="copy-btn text-muted-dark hover:text-primary-red transition flex items-center gap-1 text-xs font-medium cursor-pointer"
+                                    class="copy-btn text-muted-dark hover:text-primary-red transition flex items-center gap-1 text-sm font-medium cursor-pointer"
                                     title="Copy phone number"
                                 >
                                     <svg
@@ -273,7 +277,7 @@ const sectionStyles = tv({
                             >
                                 {phoneFormatted}
                             </a>
-                            <p class="text-xs text-muted-dark font-medium">
+                            <p class="text-sm text-muted-dark font-medium">
                                 Local mobile / Viber: {phoneNumber}
                             </p>
                         </div>
@@ -281,7 +285,7 @@ const sectionStyles = tv({
                         <!-- Hours badge -->
                         <div class="rounded-xl sub-box p-4 shadow-xs">
                             <p
-                                class="text-xs text-body-black leading-relaxed font-medium"
+                                class="text-sm xl:text-base text-body-black leading-relaxed font-medium"
                             >
                                 Monday to Friday: 9:00 AM – 6:00 PM <br />
                                 Weekend appointments upon request.
@@ -359,7 +363,7 @@ const sectionStyles = tv({
                             </div>
                         </div>
                         <p
-                            class="text-sm text-body-black leading-relaxed font-normal"
+                            class="text-sm xl:text-base text-body-black leading-relaxed font-normal"
                         >
                             Stay updated with our latest financial literacy
                             tips, company highlights, and life milestones.
@@ -397,7 +401,7 @@ const sectionStyles = tv({
                                             Facebook Community
                                         </p>
                                         <p
-                                            class="text-xs text-muted-dark font-medium"
+                                            class="text-sm text-muted-dark font-medium"
                                         >
                                             Follow on Facebook
                                         </p>
@@ -451,7 +455,7 @@ const sectionStyles = tv({
                                             @TheOnlyAnndeLeon
                                         </p>
                                         <p
-                                            class="text-xs text-muted-dark font-medium"
+                                            class="text-sm text-muted-dark font-medium"
                                         >
                                             TikTok Channel
                                         </p>
@@ -477,7 +481,7 @@ const sectionStyles = tv({
                         </div>
                     </CardContent>
                     <CardFooter>
-                        <span class="text-xs text-muted-dark font-medium">
+                        <span class="text-sm text-muted-dark font-medium">
                             Active social community & educational content
                         </span>
                     </CardFooter>
@@ -562,12 +566,12 @@ const sectionStyles = tv({
                                         </svg>
                                         <div>
                                             <p
-                                                class="text-xs uppercase tracking-wider text-muted-dark font-semibold mb-1"
+                                                class="text-sm uppercase tracking-wider text-muted-dark font-semibold mb-1"
                                             >
                                                 Complete Address
                                             </p>
                                             <p
-                                                class="text-sm sm:text-base text-body-black leading-relaxed font-normal"
+                                                class="text-sm xl:text-base text-body-black leading-relaxed font-normal"
                                             >
                                                 <strong
                                                     class="text-body-black font-bold block mb-0.5"
@@ -589,17 +593,17 @@ const sectionStyles = tv({
                                     class="rounded-xl sub-box p-5 space-y-2 shadow-xs"
                                 >
                                     <p
-                                        class="text-xs uppercase tracking-wider text-muted-dark font-semibold"
+                                        class="text-sm uppercase tracking-wider text-muted-dark font-semibold"
                                     >
                                         Nearby Landmarks
                                     </p>
                                     <p
-                                        class="text-xs sm:text-sm text-body-black leading-relaxed font-normal"
+                                        class="text-sm xl:text-base text-body-black leading-relaxed font-normal"
                                     >
                                         • Ortigas Central Business District <br
                                         />
-                                        • Corner Garnet Rd & Julia Vargas Ave <br
-                                        />
+                                        • Corner Garnet Rd & Julia Vargas Ave
+                                        <br />
                                         • Close to SM Megamall, The Podium, and MRT-3
                                         Ortigas
                                     </p>
@@ -611,7 +615,7 @@ const sectionStyles = tv({
                             <button
                                 type="button"
                                 data-copy={completeAddress}
-                                class="copy-btn inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-black/15 bg-white hover:bg-zinc-100 text-xs sm:text-sm font-semibold text-body-black shadow-xs transition cursor-pointer"
+                                class="copy-btn inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-black/15 bg-white hover:bg-zinc-100 text-sm font-semibold text-body-black shadow-xs transition cursor-pointer"
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -643,7 +647,7 @@ const sectionStyles = tv({
                                 href="https://maps.google.com/?q=Antel+Global+Corporate+Center,+Dona+Julia+Vargas+Ave,+Ortigas+Center,+Pasig,+Metro+Manila"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-primary/40 bg-primary/10 hover:bg-primary/20 text-xs sm:text-sm font-semibold text-title-red transition"
+                                class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-primary/40 bg-primary/10 hover:bg-primary/20 text-sm font-semibold text-title-red transition"
                             >
                                 Open in Google Maps
                                 <svg
@@ -680,7 +684,7 @@ const sectionStyles = tv({
             </Card>
         </div>
     </div>
-</section>
+</SectionWrapper>
 
 <style>
     .contact-card {
