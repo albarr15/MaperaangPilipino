@@ -90,7 +90,10 @@ const {
       </div>
     </div>
     <div class="">
-      <AspectRatio ratio={4 / 3} class="overflow-hidden rounded-lg">
+      <AspectRatio
+        ratio={4 / 3}
+        class="overflow-hidden rounded-lg border shadow-lg"
+      >
         {
           typeof image.src === "string" ? (
             <img
