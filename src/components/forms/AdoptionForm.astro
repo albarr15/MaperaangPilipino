@@ -1,0 +1,243 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { tv } from "tailwind-variants";
+
+import { Button } from "@/components/starwind/button";
+import { Card, CardContent } from "@/components/starwind/card";
+import { Input } from "@/components/starwind/input";
+import { Label } from "@/components/starwind/label";
+import { Separator } from "@/components/starwind/separator";
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+} from "@/components/starwind/select";
+import Textarea from "@/components/starwind/textarea/Textarea.astro";
+import SectionHeader from "@/components/header/SectionHeader.astro";
+
+interface Props extends HTMLAttributes<"section"> {
+    /** Badge/eyebrow text */
+    badge?: string;
+    /** Section heading */
+    heading?: string;
+    /** Section description */
+    description?: string;
+}
+
+const sectionStyles = tv({
+    base: "@container mx-auto w-full max-w-3xl px-4 py-24",
+});
+
+const {
+    heading = "Get the Support You Need for Your Pru Life UK Policy",
+    description = "If your previous advisor is inactive or unavailable, I can adopt you as my client and assist with your Pru Life UK policy.",
+    class: className,
+    ...rest
+} = Astro.props;
+---
+
+<section class={sectionStyles({ class: className })} {...rest}>
+    <SectionHeader heading={heading} description={description} />
+
+    <Card class="mt-10 scale-up">
+        <CardContent>
+            <form class="space-y-6" id="contact-form-02" name="contact-form">
+                <div class="grid gap-6 @xl:grid-cols-2">
+                    <div class="flex flex-col gap-1">
+                        <Label for="contact-email-02"
+                            >Email Address
+                            <span class="text-primary">*</span>
+                        </Label>
+                        <Input
+                            id="contact-email-02"
+                            name="email"
+                            type="email"
+                            placeholder="you@example.com"
+                            required
+                            autocomplete="email"
+                        />
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <Label for="phone-number-02">
+                            Phone Number
+                            <span class="text-primary">*</span></Label
+                        >
+                        <Input
+                            id="phone-number-02"
+                            name="phone-number"
+                            type="tel"
+                            placeholder="+63 900 000 0000"
+                            required
+                            autocomplete="tel"
+                        />
+                    </div>
+                </div>
+
+                <fieldset
+                    id="individual-wrapper"
+                    class="space-y-6 border-0 p-0 m-0 min-w-0"
+                >
+                    <!-- INDIVIDUAL FIELDS -->
+                    <Separator />
+
+                    <div class="flex justify-center">
+                        <span class="text-sm text-foreground/60"
+                            >Pru Policy Information</span
+                        >
+                    </div>
+
+                    <div class="grid gap-6 @xl:grid-cols-2">
+                        <div class="flex flex-col gap-1">
+                            <Label for="policy-number">
+                                Policy Number
+                                <span class="text-primary">*</span>
+                            </Label>
+                            <Input
+                                id="policy-number"
+                                name="policy-number"
+                                type="text"
+                                placeholder="e.g. 123456789"
+                                required
+                            />
+                        </div>
+
+                        <div class="flex flex-col gap-1">
+                            <Label for="plan-name">
+                                Plan Name
+                                <span class="text-primary">*</span>
+                            </Label>
+                            <Input
+                                id="plan-name"
+                                name="plan-name"
+                                type="text"
+                                placeholder="e.g. PRULink Assurance Account Plus"
+                                required
+                            />
+                        </div>
+
+                        <div class="flex flex-col gap-1">
+                            <Label for="policy-owner">
+                                Policy Owner
+                                <span class="text-primary">*</span>
+                            </Label>
+                            <Input
+                                id="policy-owner"
+                                name="policy-owner"
+                                type="text"
+                                placeholder="e.g. Maria Angela Santos"
+                                required
+                            />
+                        </div>
+
+                        <div class="flex flex-col gap-1">
+                            <Label for="policy-life-insured">
+                                Policy Life Insured
+                                <span class="text-primary">*</span>
+                            </Label>
+                            <Input
+                                id="policy-life-insured"
+                                name="policy-life-insured"
+                                type="text"
+                                placeholder="e.g. Lucas Miguel Santos"
+                                required
+                            />
+                        </div>
+
+                        <div class="flex flex-col gap-1">
+                            <Label for="effectivity-date">
+                                Effectivity Date
+                                <span class="text-primary">*</span>
+                            </Label>
+                            <Input
+                                id="effectivity-date"
+                                name="effectivity-date"
+                                type="date"
+                                required
+                            />
+                        </div>
+
+                        <div class="flex flex-col gap-1">
+                            <Label for="annual-premium">
+                                Annual Premium
+                                <span class="text-primary">*</span>
+                            </Label>
+                            <Input
+                                id="annual-premium"
+                                name="annual-premium"
+                                type="number"
+                                placeholder="e.g. 50000"
+                                required
+                            />
+                        </div>
+
+                        <div class="flex flex-col gap-1">
+                            <Label for="previous-advisor-name">
+                                Name of Previous Advisor
+                                <span class="text-primary">*</span>
+                            </Label>
+                            <Input
+                                id="previous-advisor-name"
+                                name="previous-advisor-name"
+                                placeholder="e.g. Juan Dela Cruz"
+                                type="text"
+                                required
+                            />
+                        </div>
+
+                        <div class="flex flex-col gap-1">
+                            <Label for="pru-services"
+                                >Do you have access to PruServices?
+                                <span class="text-primary">*</span>
+                            </Label>
+                            <Select name="services" required>
+                                <SelectTrigger
+                                    id="pru-services"
+                                    class="w-full !text-foreground"
+                                />
+                                <SelectContent>
+                                    <SelectItem value="Yes" aria-label="Yes"
+                                        >Yes</SelectItem
+                                    >
+                                    <SelectItem value="No" aria-label="No"
+                                        >No</SelectItem
+                                    >
+                                    <SelectItem
+                                        value="Not yet, please teach me how"
+                                        aria-label="Not yet, please teach me how"
+                                        >Not yet, please teach me how</SelectItem
+                                    >
+                                </SelectContent>
+                            </Select>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <Label for="contact-message-indiv-02">Message</Label>
+                        <Textarea
+                            id="contact-message-indiv-02"
+                            name="message-indiv"
+                            placeholder="Tell me how I can help with your Pru Life UK policy. Feel free to share any questions, concerns, or policy-related requests you may have."
+                            rows={4}
+                        />
+                    </div>
+                </fieldset>
+
+                <Button
+                    variant="primary"
+                    type="submit"
+                    class="w-full mt-6 @xl:w-auto"
+                >
+                    Submit Adoption Request
+                </Button>
+            </form>
+        </CardContent>
+    </Card>
+
+    <p class="text-muted-foreground mt-6 text-center text-sm">
+        I'll get back to you within 1-2 business days.
+    </p>
+    <script>
+        // TODO: Update EmailSender and setup Email JS Service
+        // import "@/scripts/EmailSender";
+    </script>
+</section>
