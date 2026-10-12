@@ -42,7 +42,7 @@ const {
 
     <Card class="mt-10 scale-up">
         <CardContent>
-            <form class="space-y-6" id="contact-form-02" name="contact-form">
+            <form class="space-y-6" id="adoption-form" name="adoption-form">
                 <div class="grid gap-6 @xl:grid-cols-2">
                     <div class="flex flex-col gap-1">
                         <Label for="contact-email-02"
@@ -74,11 +74,7 @@ const {
                     </div>
                 </div>
 
-                <fieldset
-                    id="individual-wrapper"
-                    class="space-y-6 border-0 p-0 m-0 min-w-0"
-                >
-                    <!-- INDIVIDUAL FIELDS -->
+                <fieldset class="space-y-6 border-0 p-0 m-0 min-w-0">
                     <Separator />
 
                     <div class="flex justify-center">
@@ -190,7 +186,7 @@ const {
                                 >Do you have access to PruServices?
                                 <span class="text-primary">*</span>
                             </Label>
-                            <Select name="services" required>
+                            <Select name="pru-services" required>
                                 <SelectTrigger
                                     id="pru-services"
                                     class="w-full !text-foreground"
@@ -215,7 +211,7 @@ const {
                         <Label for="contact-message-indiv-02">Message</Label>
                         <Textarea
                             id="contact-message-indiv-02"
-                            name="message-indiv"
+                            name="message"
                             placeholder="Tell me how I can help with your Pru Life UK policy. Feel free to share any questions, concerns, or policy-related requests you may have."
                             rows={4}
                         />
@@ -237,7 +233,7 @@ const {
         I'll get back to you within 1-2 business days.
     </p>
     <script>
-        // TODO: Update EmailSender and setup Email JS Service
-        // import "@/scripts/EmailSender";
+        import { setupAdoptionForm } from "@/scripts/EmailSender";
+        setupAdoptionForm();
     </script>
 </section>
