@@ -2,7 +2,9 @@ import emailjs from "@emailjs/browser";
 import { toast } from "@/components/starwind/toast";
 
 const SERVICE_ID = "service_k2pet9c";
-const TEMPLATE_ID = "template_vm7ibkx";
+const CONSULT_TEMPLATE_ID = "template_vm7ibkx";
+const ADOPT_TEMPLATE_ID = "template_3hvyewu";
+
 const PUBLIC_KEY = "uSXW7KLOY_xnbZdEt";
 
 emailjs.init({ publicKey: PUBLIC_KEY });
@@ -20,7 +22,7 @@ function buildRow({ label, value, optional }: Row): string {
       </tr>`;
 }
 
-function setupContactForm() {
+export function setupContactForm() {
     const form = document.querySelector(
         "#contact-form-02",
     ) as HTMLFormElement | null;
@@ -107,7 +109,7 @@ function setupContactForm() {
         try {
             const response = await emailjs.send(
                 SERVICE_ID,
-                TEMPLATE_ID,
+                CONSULT_TEMPLATE_ID,
                 templateParams,
             );
             toast.success("Success!", { description: "Your consultation request has been sent. I will get back to you as soon as possible." });
@@ -132,5 +134,58 @@ function setupContactForm() {
     });
 }
 
-setupContactForm();
-document.addEventListener("astro:after-swap", setupContactForm);
+
+export function setupAdoptionForm() {
+    const form = document.querySelector(
+        "#adoption-form",
+    ) as HTMLFormElement | null;
+
+    if (!form) return;
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+        const get = (key: string) => (formData.get(key) as string) ?? "";
+
+        const rows: Row[] = [
+            { label: "Email Address", value: get("email") },
+            { label: "Phone Number", value: get("phone-number") },
+
+            { label: "Policy Number", value: get("policy-number") },
+            { label: "Plan Name", value: get("plan-name") },
+            { label: "Policy Owner", value: get("policy-owner") },
+            { label: "Policy Life Insured", value: get("policy-life-insured") },
+            { label: "Effectivity Date", value: get("effectivity-date") },
+            { label: "Annual Premium", value: get("annual-premium") },
+            { label: "Name of Previous Advisor", value: get("previous-advisor-name") },
+            { label: "Do you have access to PruServices?", value: get("pru-services") },
+            {
+                label: "Message", value: get("message"), optional: true,
+            },
+        ];
+
+        const detailsTable = `<table style="width: 100%; border-collapse: collapse; margin: 16px 0">${rows
+            .map(buildRow)
+            .join("")}</table>`;
+
+        const templateParams = {
+            name: get("policy-owner"),
+            email: get("email"),
+            "details-table": detailsTable,
+        };
+
+        try {
+            const response = await emailjs.send(
+                SERVICE_ID,
+                ADOPT_TEMPLATE_ID,
+                templateParams,
+            );
+            toast.success("Success!", { description: "Your adoption request has been sent. I will get back to you as soon as possible." });
+            form.reset();
+        } catch (error) {
+            console.error("Failed to send email:", error);
+            toast.error("Error!", { description: "Failed to send adoption request. Please try again later." });
+        }
+    });
+}
