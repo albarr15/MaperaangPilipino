@@ -15,6 +15,12 @@ import {
 } from "@/components/starwind/select";
 import Textarea from "@/components/starwind/textarea/Textarea.astro";
 import SectionHeader from "@/components/header/SectionHeader.astro";
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipTrigger,
+} from "@/components/starwind/tooltip";
+import { CircleQuestionMark } from "lucide-react";
 
 interface Props extends HTMLAttributes<"section"> {
     /** Badge/eyebrow text */
@@ -43,6 +49,25 @@ const {
     <Card class="mt-10 scale-up">
         <CardContent>
             <form class="space-y-6" id="adoption-form" name="adoption-form">
+                <div class="flex justify-center">
+                    <span class="text-sm text-foreground/60"
+                        >Policy Owner Information</span
+                    >
+                </div>
+                <div class="flex flex-col gap-1">
+                    <Label for="policy-owner">
+                        Name (Policy Owner)
+                        <span class="text-primary">*</span>
+                    </Label>
+                    <Input
+                        id="policy-owner"
+                        name="policy-owner"
+                        type="text"
+                        placeholder="e.g. Maria Angela Santos"
+                        required
+                    />
+                </div>
+
                 <div class="grid gap-6 @xl:grid-cols-2">
                     <div class="flex flex-col gap-1">
                         <Label for="contact-email-02"
@@ -85,10 +110,28 @@ const {
 
                     <div class="grid gap-6 @xl:grid-cols-2">
                         <div class="flex flex-col gap-1">
-                            <Label for="policy-number">
-                                Policy Number
-                                <span class="text-primary">*</span>
-                            </Label>
+                            <div class="flex gap-1">
+                                <Label for="policy-number">
+                                    Policy Number
+                                    <span class="text-primary">*</span>
+                                </Label>
+                                <Tooltip
+                                    class="inline-flex items-baseline ml-1"
+                                >
+                                    <TooltipTrigger>
+                                        <CircleQuestionMark
+                                            size={18}
+                                            className="text-muted-foreground/50 top-0.5 relative"
+                                        />
+                                    </TooltipTrigger>
+                                    <TooltipContent class="max-w-sm text-sm">
+                                        Your plan’s unique ID. Find it on your
+                                        policy contract, official receipts, or
+                                        the PRUServices Portal, or ask your
+                                        previous financial advisor.
+                                    </TooltipContent>
+                                </Tooltip>
+                            </div>
                             <Input
                                 id="policy-number"
                                 name="policy-number"
@@ -99,10 +142,27 @@ const {
                         </div>
 
                         <div class="flex flex-col gap-1">
-                            <Label for="plan-name">
-                                Plan Name
-                                <span class="text-primary">*</span>
-                            </Label>
+                            <div class="flex gap-1">
+                                <Label for="plan-name">
+                                    Plan Name
+                                    <span class="text-primary">*</span>
+                                </Label>
+                                <Tooltip
+                                    class="inline-flex items-baseline ml-1"
+                                >
+                                    <TooltipTrigger>
+                                        <CircleQuestionMark
+                                            size={18}
+                                            className="text-muted-foreground/50 top-0.5 relative"
+                                        />
+                                    </TooltipTrigger>
+                                    <TooltipContent class="max-w-sm text-sm">
+                                        The Pru Life UK insurance or investment
+                                        plan you hold, as shown on your policy
+                                        contract.
+                                    </TooltipContent>
+                                </Tooltip>
+                            </div>
                             <Input
                                 id="plan-name"
                                 name="plan-name"
@@ -113,24 +173,26 @@ const {
                         </div>
 
                         <div class="flex flex-col gap-1">
-                            <Label for="policy-owner">
-                                Policy Owner
-                                <span class="text-primary">*</span>
-                            </Label>
-                            <Input
-                                id="policy-owner"
-                                name="policy-owner"
-                                type="text"
-                                placeholder="e.g. Maria Angela Santos"
-                                required
-                            />
-                        </div>
-
-                        <div class="flex flex-col gap-1">
-                            <Label for="policy-life-insured">
-                                Policy Life Insured
-                                <span class="text-primary">*</span>
-                            </Label>
+                            <div class="flex gap-1">
+                                <Label for="policy-life-insured">
+                                    Policy Life Insured
+                                    <span class="text-primary">*</span>
+                                </Label>
+                                <Tooltip
+                                    class="inline-flex items-baseline ml-1"
+                                >
+                                    <TooltipTrigger>
+                                        <CircleQuestionMark
+                                            size={18}
+                                            className="text-muted-foreground/50 top-0.5 relative"
+                                        />
+                                    </TooltipTrigger>
+                                    <TooltipContent class="max-w-sm text-sm">
+                                        The person your insurance plan protects,
+                                        as named on your policy contract.
+                                    </TooltipContent>
+                                </Tooltip>
+                            </div>
                             <Input
                                 id="policy-life-insured"
                                 name="policy-life-insured"
@@ -141,10 +203,27 @@ const {
                         </div>
 
                         <div class="flex flex-col gap-1">
-                            <Label for="effectivity-date">
-                                Effectivity Date
-                                <span class="text-primary">*</span>
-                            </Label>
+                            <div class="flex gap-1">
+                                <Label for="effectivity-date">
+                                    Effectivity Date
+                                    <span class="text-primary">*</span>
+                                </Label>
+                                <Tooltip
+                                    class="inline-flex items-baseline ml-1"
+                                >
+                                    <TooltipTrigger>
+                                        <CircleQuestionMark
+                                            size={18}
+                                            className="text-muted-foreground/50 top-0.5 relative"
+                                        />
+                                    </TooltipTrigger>
+                                    <TooltipContent class="max-w-sm text-sm">
+                                        The date your policy took effect. Find
+                                        it on the policy data page of your
+                                        contract.
+                                    </TooltipContent>
+                                </Tooltip>
+                            </div>
                             <Input
                                 id="effectivity-date"
                                 name="effectivity-date"
@@ -154,10 +233,26 @@ const {
                         </div>
 
                         <div class="flex flex-col gap-1">
-                            <Label for="annual-premium">
-                                Annual Premium
-                                <span class="text-primary">*</span>
-                            </Label>
+                            <div class="flex gap-1">
+                                <Label for="annual-premium">
+                                    Annual Premium
+                                    <span class="text-primary">*</span>
+                                </Label>
+                                <Tooltip
+                                    class="inline-flex items-baseline ml-1"
+                                >
+                                    <TooltipTrigger>
+                                        <CircleQuestionMark
+                                            size={18}
+                                            className="text-muted-foreground/50 top-0.5 relative"
+                                        />
+                                    </TooltipTrigger>
+                                    <TooltipContent class="max-w-sm text-sm">
+                                        The amount (in pesos) you pay each year
+                                        for this policy.
+                                    </TooltipContent>
+                                </Tooltip>
+                            </div>
                             <Input
                                 id="annual-premium"
                                 name="annual-premium"
@@ -182,10 +277,27 @@ const {
                         </div>
 
                         <div class="flex flex-col gap-1">
-                            <Label for="pru-services"
-                                >Do you have access to PruServices?
-                                <span class="text-primary">*</span>
-                            </Label>
+                            <div class="flex gap-1">
+                                <Label for="pru-services"
+                                    >Do you have access to PruServices?
+                                    <span class="text-primary">*</span>
+                                </Label>
+                                <Tooltip
+                                    class="inline-flex items-baseline ml-1"
+                                >
+                                    <TooltipTrigger>
+                                        <CircleQuestionMark
+                                            size={18}
+                                            className="text-muted-foreground/50 top-0.5 relative"
+                                        />
+                                    </TooltipTrigger>
+                                    <TooltipContent class="max-w-sm text-sm">
+                                        PRUServices is Pru Life UK’s online
+                                        portal where you can manage your policy
+                                        anytime.
+                                    </TooltipContent>
+                                </Tooltip>
+                            </div>
                             <Select name="pru-services" required>
                                 <SelectTrigger
                                     id="pru-services"
